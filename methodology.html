@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MO§ES™ — Methodology</title>
+<meta name="description" content="The eval framework: what is an operator eval, what is measured, how benchmarks are created, how bespoke evals are constructed, how results are interpreted. Canonical telemetry, derived metrics, percentile bands, cohort analysis, intervention testing, limitations, falsifiability.">
+<link rel="canonical" href="https://mos2es.org/methodology">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mos2es.org/methodology">
+<meta property="og:title" content="MO§ES™ — Methodology">
+<meta property="og:description" content="The eval framework — five questions: what is an operator eval, what's measured, how benchmarks are created, how bespoke evals are constructed, how results are interpreted.">
+<meta property="og:image" content="https://mos2es.org/og-image.svg">
+<meta property="og:site_name" content="MO§ES™">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MO§ES™ — Methodology">
+<meta name="twitter:description" content="The eval framework — five questions.">
+<meta name="twitter:image" content="https://mos2es.org/og-image.svg">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+[
+  {"@context":"https://schema.org","@type":"Organization","@id":"https://mos2es.org/#org","name":"MO§ES™","url":"https://mos2es.org","sameAs":["https://orcid.org/0009-0002-9904-5390","https://github.com/SunrisesIllNeverSee","https://doi.org/10.5281/zenodo.20029607","https://signalaf.com","https://signomy.xyz"]},
+  {"@context":"https://schema.org","@type":"WebSite","@id":"https://mos2es.org/#website","name":"MO§ES™","url":"https://mos2es.org","publisher":{"@id":"https://mos2es.org/#org"}},
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mos2es.org/"},{"@type":"ListItem","position":2,"name":"Methodology","item":"https://mos2es.org/methodology"}]},
+  {"@context":"https://schema.org","@type":"DefinedTermSet","name":"MO§ES™ Eval & Benchmark Glossary","url":"https://mos2es.org/methodology","hasDefinedTerm":[
+    {"@type":"DefinedTerm","name":"Operator Evaluation","description":"Measures how a person or team actually operates AI systems across relevant tasks, workflows, models, and operating conditions","url":"https://mos2es.org/methodology#operator-eval"},
+    {"@type":"DefinedTerm","name":"Performative Benchmark","description":"Compares how operators actually perform under observed or defined operating conditions rather than relying on self-reported proficiency or generic knowledge tests","url":"https://mos2es.org/methodology#benchmark"},
+    {"@type":"DefinedTerm","name":"Leverage","description":"(R + W) / I — how much context the operator reuses and builds relative to new input","url":"https://mos2es.org/methodology#leverage"},
+    {"@type":"DefinedTerm","name":"Yield","description":"O / (I + O + R + W) — productive output share of total token flow","url":"https://mos2es.org/methodology#yield"},
+    {"@type":"DefinedTerm","name":"Token SNR","description":"O / (I + O + R) — output relative to input and reused context","url":"https://mos2es.org/methodology#snr"},
+    {"@type":"DefinedTerm","name":"Construction","description":"W / R — ratio of new context built to context reused","url":"https://mos2es.org/methodology#construction"},
+    {"@type":"DefinedTerm","name":"ASSOCIATION","description":"Outcome joins between interventions and business metrics are labeled ASSOCIATION, never CAUSATION","url":"https://mos2es.org/methodology#association"},
+    {"@type":"DefinedTerm","name":"HYPOTHESIS","description":"Diagnoses carry evidence, alternatives, and HYPOTHESIS status — never presented as fact","url":"https://mos2es.org/methodology#hypothesis"},
+    {"@type":"DefinedTerm","name":"DEVELOPMENTAL","description":"Production gate results route workflows, not people — never used for adverse employment actions","url":"https://mos2es.org/methodology#developmental"},
+    {"@type":"DefinedTerm","name":"Canonical Telemetry","description":"Content-free operator signals: INPUT, OUTPUT, CACHE READ, CACHE WRITE — no prompt text required","url":"https://mos2es.org/methodology#telemetry"}
+  ]}
+]
+</script>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<b>MO§ES™</b>
+<div class="links">
+<a href="product.html">Product</a>
+<a href="pilot.html">Pilot</a>
+<a href="methodology.html">Methodology</a>
+<a href="research.html">Research</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+<main>
+
+<div class="hero">
+<div class="eyebrow">Methodology</div>
+<h1>The eval framework.</h1>
+<p class="lead">Five questions: what is an operator eval, what is measured, how benchmarks are created, how bespoke evals are constructed, and how results are interpreted.</p>
+<a class="btn" href="contact.html">Review the Eval Framework</a>
+<a class="btn-outline" href="research.html">See the Research</a>
+</div>
+
+<!-- ═══ Q1: WHAT IS AN OPERATOR EVAL ═══ -->
+<section id="operator-eval">
+<div class="eyebrow">Question 1</div>
+<h2>What is an operator eval?</h2>
+<p class="sec-intro">An Operator Evaluation measures how a person or team actually operates AI systems across relevant tasks, workflows, models, and operating conditions. It is not simply a test of AI knowledge. It examines observable operating behavior and performance.</p>
+<div class="cols">
+<div>
+<h3>What it is</h3>
+<p>A structured measurement of operator behavior against defined conditions. Produces a performance profile — not a knowledge score, not a certification, not a self-reported proficiency rating.</p>
+<h3 style="margin-top:14px">What it is not</h3>
+<ul class="tight">
+<li>Not an AI knowledge test</li>
+<li>Not a certification exam</li>
+<li>Not a self-reported proficiency survey</li>
+<li>Not a productivity score</li>
+<li>Not an employee ranking system</li>
+</ul>
+</div>
+<div class="col-r">
+<h3>Two types</h3>
+<div class="card" style="margin-bottom:12px">
+<div class="big">Standard Operator Evals</div>
+<p>Common metrics usable across organizations — leverage, yield, construction, field position. Work for any deployment without customization.</p>
+</div>
+<div class="card">
+<div class="big">Bespoke Enterprise Evals</div>
+<p>Company-specific evals built around your workflows, roles, models, tasks, and operating conditions.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ Q2: WHAT IS MEASURED ═══ -->
+<section id="telemetry">
+<div class="eyebrow">Question 2</div>
+<h2>What is measured?</h2>
+<p class="sec-intro">MO§ES™ works from content-free or content-minimized telemetry — token counts and structural signals, not prompt text. The core data surface is four signals:</p>
+<div class="grid4">
+<div class="stat"><div class="val">INPUT</div><div class="desc">Tokens in</div></div>
+<div class="stat"><div class="val">OUTPUT</div><div class="desc">Tokens out</div></div>
+<div class="stat"><div class="val">CACHE READ</div><div class="desc">Reused context</div></div>
+<div class="stat"><div class="val">CACHE WRITE</div><div class="desc">New context built</div></div>
+</div>
+<p style="margin-top:16px">Level 2 deployments add: timestamps, sessions, model/tool/agent identifiers, acceptance signals, retries, errors, and richer provider fields where available. No prompt content is required for any core measurement.</p>
+<h3 style="margin-top:20px">Five canonical derived metrics</h3>
+<table class="table">
+<tr><th>Metric</th><th>Formula</th><th>What it captures</th></tr>
+<tr><td><strong>Leverage</strong></td><td class="formula" style="padding:4px 8px">(R + W) / I</td><td>How much context the operator reuses and builds relative to new input. Higher = more efficient context use.</td></tr>
+<tr><td><strong>Yield</strong></td><td class="formula" style="padding:4px 8px">O / (I + O + R + W)</td><td>Productive output share of total token flow. Higher = more of the token budget becomes output.</td></tr>
+<tr><td><strong>Token SNR</strong></td><td class="formula" style="padding:4px 8px">O / (I + O + R)</td><td>Output relative to input and reused context. Signal-to-noise ratio for productive generation.</td></tr>
+<tr><td><strong>Log Leverage</strong></td><td class="formula" style="padding:4px 8px">log(1 + L)</td><td>Compressed leverage scale. Reduces outlier dominance while preserving rank order.</td></tr>
+<tr><td><strong>Construction</strong></td><td class="formula" style="padding:4px 8px">W / R</td><td>Ratio of new context built to context reused. Higher = more original construction; lower = more reuse.</td></tr>
+</table>
+<p class="note" style="margin-top:12px">I = Input, O = Output, R = Cache Read, W = Cache Write. All metrics are computed from canonical telemetry. No prompt content is required.</p>
+</section>
+
+<!-- ═══ Q3: HOW BENCHMARKS ARE CREATED ═══ -->
+<section id="benchmark">
+<div class="eyebrow">Question 3</div>
+<h2>How are benchmarks created?</h2>
+<p class="sec-intro">A performative benchmark compares how operators actually perform under observed or defined operating conditions — rather than relying only on self-reported proficiency, certification, or generic knowledge tests.</p>
+<div class="formula" style="text-align:center;font-size:18px">TASK × MODEL × OPERATOR × CONTEXT = PERFORMATIVE BENCHMARK</div>
+<h3 style="margin-top:16px">Six benchmark types</h3>
+<div class="grid3">
+<div class="card"><div class="big">Standard</div><p>Common metrics usable across organizations.</p></div>
+<div class="card"><div class="big">Internal</div><p>Compare operators and teams within the organization.</p></div>
+<div class="card"><div class="big">External</div><p>Compare against relevant reference populations (SigRank field).</p></div>
+<div class="card"><div class="big">Bespoke</div><p>Built around organization-specific workflows, roles, and tasks.</p></div>
+<div class="card"><div class="big">Longitudinal</div><p>Compare performance over time.</p></div>
+<div class="card"><div class="big">Intervention</div><p>Compare pre- and post-intervention performance.</p></div>
+</div>
+<h3 style="margin-top:20px">Percentile bands</h3>
+<div class="diagram">
+<div class="row">
+<div class="cell"><div class="head">Median</div><div class="val">50th</div></div>
+<div class="cell"><div class="head">Top 25%</div><div class="val">75th</div></div>
+<div class="cell"><div class="head">Top 10%</div><div class="val">90th</div></div>
+</div>
+<div class="row">
+<div class="cell"><div class="head">Top 5%</div><div class="val">95th</div></div>
+<div class="cell"><div class="head">Top 1%</div><div class="val">99th</div></div>
+<div class="cell"><div class="head">Top 0.1%</div><div class="val">99.9th</div></div>
+</div>
+</div>
+<p class="note" style="margin-top:12px">Benchmarks should be contextual. A high-performing operator in one workflow may not be the strongest in another. "Best operator" should require the same qualifier as "best model." Best at what?</p>
+</section>
+
+<!-- ═══ Q4: HOW BESPOKE EVALS ARE CONSTRUCTED ═══ -->
+<section>
+<div class="eyebrow">Question 4</div>
+<h2>How are bespoke evals constructed?</h2>
+<p class="sec-intro">MO§ES™ does not force every company into the same AI proficiency model. Enterprises define the workflows, roles, models, behaviors, risks, and operational questions that matter to them. MO§ES™ turns those into measurable, repeatable evals.</p>
+<div class="pipeline">
+<span>DEFINE QUESTION</span>
+<span class="arrow">↓</span>
+<span>IDENTIFY SIGNALS</span>
+<span class="arrow">↓</span>
+<span>BUILD EVAL</span>
+<span class="arrow">↓</span>
+<span>VALIDATE</span>
+<span class="arrow">↓</span>
+<span>DEPLOY</span>
+</div>
+<p style="margin-top:12px">Enterprises define:</p>
+<div class="grid2">
+<div class="card">
+<ul class="tight">
+<li>Roles</li>
+<li>Workflows</li>
+<li>Tasks</li>
+<li>Models</li>
+<li>Systems</li>
+</ul>
+</div>
+<div class="card">
+<ul class="tight">
+<li>Desired behaviors</li>
+<li>Constraints</li>
+<li>Operational goals</li>
+<li>Risk boundaries</li>
+<li>Performance questions</li>
+</ul>
+</div>
+</div>
+<p style="margin-top:12px">Then construct repeatable operator evals around those conditions. Configurations are saveable as JSON and shareable across CLI, TUI, and MCP.</p>
+</section>
+
+<!-- ═══ Q5: HOW RESULTS ARE INTERPRETED ═══ -->
+<section>
+<div class="eyebrow">Question 5</div>
+<h2>How are results interpreted?</h2>
+<p class="sec-intro">The system never collapses measurement, diagnosis, intervention, and validation into a single claim. Every output carries an evidence label that declares its epistemic status.</p>
+<div class="formula" style="text-align:center;font-size:16px">MEASURED SIGNAL ≠ DERIVED METRIC ≠ BENCHMARK ≠ HYPOTHESIS ≠ VALIDATED OUTCOME</div>
+<div class="grid3" style="margin-top:16px">
+<div class="card"><div class="big">Measured Signal</div><p>Direct observation from telemetry. Labeled MEASURED or OBSERVED.</p></div>
+<div class="card"><div class="big">Derived Metric</div><p>Computed from telemetry via declared formula. Labeled DERIVED. Not independently validated as a performance measure unless separately tested.</p></div>
+<div class="card"><div class="big">Benchmark</div><p>Comparative position against a reference. Percentile bands, field position, team comparison.</p></div>
+<div class="card"><div class="big">Hypothesis</div><p>Diagnosis from pattern analysis. Labeled HYPOTHESIS. Carries evidence, alternatives, and governance status. Never presented as fact.</p></div>
+<div class="card"><div class="big">Validated Outcome</div><p>Result of intervention testing with declared target metric and follow-up window. Outcome joins labeled ASSOCIATION — never CAUSATION.</p></div>
+<div class="card"><div class="big">Governance</div><p>DEVELOPMENTAL gates route workflows, not people. ASSOCIATION never CAUSATION. HYPOTHESIS never fact.</p></div>
+</div>
+<div class="tags" style="margin-top:16px">
+<span class="label dark-bg">PROVEN</span>
+<span class="label dark-bg">MEASURED</span>
+<span class="label dark-bg">OBSERVED</span>
+<span class="label dark-bg">DERIVED</span>
+<span class="label accent-bg">HYPOTHESIS</span>
+<span class="label">PILOT</span>
+<span class="label">VALIDATION REQUIRED</span>
+<span class="label">DEVELOPMENTAL</span>
+<span class="label">ASSOCIATION</span>
+</div>
+</section>
+
+<!-- ═══ COHORT ANALYSIS ═══ -->
+<section>
+<div class="eyebrow">Cohort Analysis</div>
+<h2>Operators are analyzed as a population.</h2>
+<p class="sec-intro">Individual operators are measured in the context of the cohort, not in isolation. The cohort has distribution, shape, clusters, and movement.</p>
+<div class="grid3">
+<div class="card"><div class="big">Distribution</div><p>How metrics spread across the cohort. Shape, skew, gaps, outliers.</p></div>
+<div class="card"><div class="big">Clusters</div><p>Natural groupings of operators by operating behavior. Archetypes.</p></div>
+<div class="card"><div class="big">Bands</div><p>Stable performance tiers. Whether operators stay in their band or move.</p></div>
+<div class="card"><div class="big">Divergence</div><p>Where usage rank ≠ evaluation rank. High usage / low performance and vice versa.</p></div>
+<div class="card"><div class="big">Concentration</div><p>Whether advanced capability is organizational or isolated in a few people.</p></div>
+<div class="card"><div class="big">Movement</div><p>How operators change position over time. Acceleration, stall, reversion.</p></div>
+</div>
+</section>
+
+<!-- ═══ INTERVENTION TESTING ═══ -->
+<section class="dark">
+<div class="eyebrow">Intervention Testing</div>
+<h2>Baseline. Intervene. Re-evaluate. Learn.</h2>
+<p class="sec-intro" style="color:#ccc">Every intervention declares a target metric and follow-up window. Every verification shows target and non-target deltas. Outcome joins are labeled ASSOCIATION — never CAUSATION.</p>
+<div class="pipeline">
+<span>BASELINE</span>
+<span class="arrow">↓</span>
+<span>INTERVENE</span>
+<span class="arrow">↓</span>
+<span>RE-EVALUATE</span>
+<span class="arrow">↓</span>
+<span>COMPARE</span>
+<span class="arrow">↓</span>
+<span>RETAIN OR DISCARD</span>
+</div>
+<p class="note" style="margin-top:16px">A correlation between an intervention and a business metric is not proof that the intervention caused the business change. Internal metric deltas and external outcome deltas are kept in separate fields. Join results carry ASSOCIATION labels and governance metadata.</p>
+</section>
+
+<!-- ═══ OUTLIER HANDLING ═══ -->
+<section>
+<div class="eyebrow">Outlier Handling</div>
+<h2>Extreme performers are not noise.</h2>
+<p class="sec-intro">In operator fields, performance forms a broad distribution with clear high-performing tails. Outliers are not discarded — they are analyzed. The top 1% and top 0.1% may reveal operating patterns that the rest of the cohort has not yet developed.</p>
+<p>However, not every metric creates the same ranking. Top operators can differ by task, workflow, model, operating style, efficiency, leverage, and output behavior. The highest-volume AI users are not necessarily the highest-performing operators.</p>
+</section>
+
+<!-- ═══ PROVENANCE ═══ -->
+<section>
+<div class="eyebrow">Provenance</div>
+<h2>Every measurement carries its history.</h2>
+<ul>
+<li>Source telemetry window and operator identifiers</li>
+<li>Evidence label (PROVEN, MEASURED, OBSERVED, DERIVED, HYPOTHESIS)</li>
+<li>Decision-use label (DEVELOPMENTAL, ASSOCIATION)</li>
+<li>Synthetic-data flag (pilot runs on synthetic data by default)</li>
+<li>Validation status (VALIDATION REQUIRED for unvalidated claims)</li>
+<li>Intervention target and follow-up window (for intervention records)</li>
+</ul>
+</section>
+
+<!-- ═══ PRIVACY ═══ -->
+<section>
+<div class="eyebrow">Privacy Boundaries</div>
+<h2>Evaluate operation without surveillance.</h2>
+<p class="sec-intro">The system can work from telemetry and structural signals rather than requiring full prompt-content inspection. This is not a claim of absolute privacy — it is a design principle.</p>
+<div class="grid2">
+<div class="card">
+<div class="num">DATA MINIMIZATION</div>
+<ul class="tight" style="margin-top:8px">
+<li>Content-free or content-minimized telemetry where possible</li>
+<li>Token counts, not prompt text</li>
+<li>Structural signals, not conversation content</li>
+<li>Cohort-level reporting by default</li>
+<li>Individual identity requires separate authorization</li>
+</ul>
+</div>
+<div class="card">
+<div class="num">GOVERNANCE CONTROLS</div>
+<ul class="tight" style="margin-top:8px">
+<li>Configurable retention</li>
+<li>Enterprise-defined usage policies</li>
+<li>No adverse employment action in pilot</li>
+<li>Provenance on every measurement</li>
+<li>Decision-use labels enforced in code</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ═══ LIMITATIONS ═══ -->
+<section>
+<div class="eyebrow">Limitations</div>
+<h2>What the system cannot do.</h2>
+<ul>
+<li>MO§ES™ cannot directly prove business productivity, ROI, employee quality, or causal outcomes unless those are specifically being measured and validated through experimental design.</li>
+<li>Outcome joins are labeled ASSOCIATION — never CAUSATION. A correlation between an intervention and a business metric is not proof that the intervention caused the business change.</li>
+<li>Diagnoses are hypotheses. They carry evidence, alternatives, and HYPOTHESIS status. They are never presented as established fact.</li>
+<li>Not all derived metrics are independently validated performance measures. Some are structural signals whose relationship to actual performance is still being tested.</li>
+<li>The system does not measure prompt content by default. Some bespoke evals may require enriched data (Level 2), but content-free telemetry is the default.</li>
+<li>Reference population comparison provides structural context, not a universal ranking of "better" or "worse" operators.</li>
+<li>Longitudinal measurement requires multiple windows. Single-window measurements are snapshots, not trajectories.</li>
+</ul>
+</section>
+
+<!-- ═══ FALSIFIABILITY ═══ -->
+<section>
+<div class="eyebrow">Falsifiability</div>
+<h2>The system is designed to be wrong.</h2>
+<blockquote>If an intervention does not produce a measurable change in the target metric, the system says so. If a diagnosis cannot be distinguished from an alternative, the system says so. If an outcome join cannot be validated, the system says so.</blockquote>
+<p class="note" style="margin-top:12px">This is a formal research framework, not established science. It carries papers, experiments, datasets, patents, and falsifiability work. It is presented with appropriate epistemic humility.</p>
+<a class="btn-outline" href="research.html" style="margin-top:8px">Read the Research</a>
+</section>
+
+</main>
+<div class="footer">
+<div class="footer-grid">
+<div><b>MO§ES™</b><p class="note">Enterprise AI operator evaluations and performative benchmarks.</p></div>
+<div><a href="product.html">Product</a><a href="pilot.html">Pilot</a></div>
+<div><a href="methodology.html">Methodology</a><a href="research.html">Research</a></div>
+<div><a href="contact.html">Contact</a><p class="note" style="margin-top:8px">© 2026 Ello Cello LLC. All Rights Reserved.</p></div>
+</div>
+</div>
+</div></body>
+</html>

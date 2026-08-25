@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Developer Docs — MO§ES™ API & MCP</title>
+<meta name="description" content="MO§ES™ developer resources: OpenAPI spec, MCP server, 21 tools (16 read + 5 write), CLI, TUI. How AI agents integrate with the operator evaluation platform.">
+<link rel="canonical" href="https://mos2es.org/docs">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mos2es.org/docs">
+<meta property="og:title" content="MO§ES™ Developer Docs">
+<meta property="og:description" content="OpenAPI spec, MCP server, 21 tools, CLI, TUI for AI agent integration.">
+<meta property="og:image" content="https://mos2es.org/og-image.svg">
+<meta property="og:site_name" content="MO§ES™">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "MO§ES™ Developer Documentation",
+  "url": "https://mos2es.org/docs",
+  "author": {"@id": "https://mos2es.org/#org"},
+  "publisher": {"@id": "https://mos2es.org/#org"},
+  "about": {"@id": "https://mos2es.org/#software"}
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<b>MO§ES™</b>
+<div class="links">
+<a href="index.html">Home</a>
+<a href="product.html">Product</a>
+<a href="pilot.html">Pilot</a>
+<a href="methodology.html">Methodology</a>
+<a href="research.html">Research</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+<main>
+<h1>Developer Documentation</h1>
+
+<p>MO§ES™ exposes three integration surfaces for AI agents and developers: an MCP server, an OpenAPI spec, and a CLI.</p>
+
+<h2>OpenAPI Specification</h2>
+<p>The full API specification is available at <a href="openapi.json"><code>/openapi.json</code></a>. It describes 16 read endpoints and 5 write endpoints across the pilot evaluation surface.</p>
+
+<ul>
+<li><strong>Read tools (16):</strong> pilot status, operator profile, cohort distribution, composite score, score summary, diagnostics, data quality, divergence, workflow fit, intervention status, pilot options, configuration validation, operator comparison, executive dashboard, benchmark results, canonical inventory</li>
+<li><strong>Write tools (5):</strong> assign intervention, close intervention, create experiment, record workflow observation, attach outcome dataset — all require authorization</li>
+</ul>
+
+<h2>MCP Server</h2>
+<p>MO§ES™ ships a Model Context Protocol server with 21 tools. The MCP server allows Claude, ChatGPT, Cursor, and other AI agents to call the platform natively.</p>
+
+<p><strong>Transport:</strong> stdio (local) or Streamable HTTP (remote, planned)</p>
+<p><strong>SDK:</strong> Python MCP SDK (FastMCP)</p>
+
+<h3>Tool list</h3>
+<table>
+<tr><th>Tool</th><th>Type</th><th>Description</th></tr>
+<tr><td>get_pilot_status</td><td>read</td><td>Cohort size, observation count, date range, data quality</td></tr>
+<tr><td>get_operator_profile</td><td>read</td><td>Operator metrics, percentiles, benchmarks, divergence flags</td></tr>
+<tr><td>get_cohort_distribution</td><td>read</td><td>Percentile bands for a metric across the cohort</td></tr>
+<tr><td>get_composite_score</td><td>read</td><td>0-100 developmental score (DEVELOPMENTAL, not PERSONNEL)</td></tr>
+<tr><td>get_composite_score_summary</td><td>read</td><td>Aggregate score distribution (no individual rankings)</td></tr>
+<tr><td>get_diagnostics</td><td>read</td><td>Pattern detections and diagnoses (HYPOTHESIS, never fact)</td></tr>
+<tr><td>get_data_quality</td><td>read</td><td>Completeness, coverage, validity metrics</td></tr>
+<tr><td>find_usage_operation_divergence</td><td>read</td><td>Usage vs operation divergence flags</td></tr>
+<tr><td>get_workflow_fit</td><td>read</td><td>Operator-workflow fit analysis</td></tr>
+<tr><td>get_intervention_status</td><td>read</td><td>Active and closed interventions</td></tr>
+<tr><td>list_pilot_options</td><td>read</td><td>Available metrics, eval families, benchmark classes</td></tr>
+<tr><td>validate_pilot_configuration</td><td>read</td><td>Validate a pilot config before deployment</td></tr>
+<tr><td>compare_operator_to_reference</td><td>read</td><td>Compare operator to reference population</td></tr>
+<tr><td>get_executive_dashboard</td><td>read</td><td>Self-contained HTML dashboard</td></tr>
+<tr><td>verify_change</td><td>read</td><td>Verify a measured change after intervention</td></tr>
+<tr><td>create_pilot_configuration</td><td>read</td><td>Generate a pilot configuration from parameters</td></tr>
+<tr><td>assign_intervention</td><td>write</td><td>Assign intervention to operator (requires auth)</td></tr>
+<tr><td>close_intervention</td><td>write</td><td>Close an intervention with outcome notes (requires auth)</td></tr>
+<tr><td>create_experiment</td><td>write</td><td>Create an experiment configuration (requires auth)</td></tr>
+<tr><td>record_workflow_observation</td><td>write</td><td>Record a workflow fit observation (requires auth)</td></tr>
+<tr><td>attach_outcome_dataset</td><td>write</td><td>Attach external outcome dataset (ASSOCIATION, never CAUSATION) (requires auth)</td></tr>
+</table>
+
+<h2>CLI</h2>
+<p>The <code>enterprise</code> CLI provides 14 command groups for direct access to all platform functionality:</p>
+<pre><code>enterprise status
+enterprise operator &lt;id&gt;
+enterprise cohort --metric leverage
+enterprise score composite &lt;operator_id&gt;
+enterprise score composite-summary
+enterprise benchmark operator &lt;id&gt; --metric leverage
+enterprise benchmark cohort --metric leverage
+enterprise diagnose &lt;operator_id&gt;
+enterprise intervene assign &lt;operator_id&gt; --type &lt;type&gt;
+enterprise export dashboard --output dashboard.html
+enterprise ingest claude --file &lt;path&gt;
+enterprise ingest api-groq --operator op_001 --days 30</code></pre>
+
+<h2>Canonical Telemetry</h2>
+<p>The platform operates on content-free token counts — no prompt text required:</p>
+<ul>
+<li><strong>INPUT (I):</strong> tokens sent to the AI system</li>
+<li><strong>OUTPUT (O):</strong> tokens received from the AI system</li>
+<li><strong>CACHE READ (R):</strong> tokens reused from context cache</li>
+<li><strong>CACHE WRITE (W):</strong> tokens written to context cache</li>
+</ul>
+
+<h2>Metrics</h2>
+<ul>
+<li><strong>Leverage:</strong> (R + W) / I — context reuse and building relative to new input</li>
+<li><strong>Yield:</strong> O / (I + O + R + W) — productive output share of total token flow</li>
+<li><strong>Token SNR:</strong> signal-to-noise ratio in token flow</li>
+<li><strong>Log Leverage:</strong> log-scaled leverage variant</li>
+<li><strong>Construction:</strong> W / R — ratio of new context built to context reused</li>
+</ul>
+
+<h2>Governance Constraints</h2>
+<ul>
+<li>All composite scores labeled DEVELOPMENTAL, not PERSONNEL</li>
+<li>All diagnoses labeled HYPOTHESIS, never fact</li>
+<li>All outcome joins labeled ASSOCIATION, never CAUSATION</li>
+<li>No bottom-employee leaderboard</li>
+<li>No automatic adverse employment actions</li>
+<li>No punitive labels</li>
+<li>Write operations require authorization</li>
+</ul>
+
+<h2>Repository</h2>
+<p>Source code: <a href="https://github.com/SunrisesIllNeverSee/b2bpilot">github.com/SunrisesIllNeverSee/b2bpilot</a> (private)</p>
+
+<h2>Contact</h2>
+<p>Email: burnmydays@proton.me</p>
+
+</main>
+<footer>
+<p>MO§ES™ — Enterprise AI Operator Evaluations · <a href="index.html">Home</a> · <a href="product.html">Product</a> · <a href="pilot.html">Pilot</a> · <a href="methodology.html">Methodology</a> · <a href="research.html">Research</a> · <a href="contact.html">Contact</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="docs.html">Docs</a></p>
+</footer>
+</div>
+</body>
+</html>

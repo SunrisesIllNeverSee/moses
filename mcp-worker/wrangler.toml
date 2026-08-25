@@ -1,0 +1,9 @@
+name = "moses-mcp"
+main = "src/index.js"
+compatibility_date = "2025-07-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+routes = [
+  { pattern = "mcp.mos2es.org/*", zone_name = "mos2es.org" },
+]

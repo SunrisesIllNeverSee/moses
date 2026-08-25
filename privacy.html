@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy — MO§ES™</title>
+<meta name="description" content="MO§ES™ privacy policy. Content-free telemetry, pseudonymous operator IDs, no prompt text, no adverse employment decisions, data minimization, audit trail.">
+<link rel="canonical" href="https://mos2es.org/privacy">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mos2es.org/privacy">
+<meta property="og:title" content="Privacy Policy — MO§ES™">
+<meta property="og:description" content="Content-free telemetry, pseudonymous operator IDs, no prompt text, data minimization.">
+<meta property="og:image" content="https://mos2es.org/og-image.svg">
+<meta property="og:site_name" content="MO§ES™">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PrivacyPolicy",
+  "name": "MO§ES™ Privacy Policy",
+  "url": "https://mos2es.org/privacy",
+  "publisher": {"@id": "https://mos2es.org/#org"}
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<b>MO§ES™</b>
+<div class="links">
+<a href="index.html">Home</a>
+<a href="product.html">Product</a>
+<a href="pilot.html">Pilot</a>
+<a href="methodology.html">Methodology</a>
+<a href="research.html">Research</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+<main>
+<h1>Privacy Policy</h1>
+<p>Last updated: August 24, 2026</p>
+
+<h2>1. Data minimization by design</h2>
+<p>MO§ES™ is built on the principle of data minimization. The platform operates on <strong>content-free canonical telemetry</strong> — four token counts (input, output, cache read, cache write) per operator interaction. No prompt text, no response text, no file contents, and no conversation logs are collected, stored, or transmitted. The platform cannot reconstruct what an operator said to an AI system or what the AI said back.</p>
+
+<h2>2. Pseudonymous operator identifiers</h2>
+<p>Operators are identified by pseudonymous IDs (e.g., op_001, op_042), not by real names. The mapping between pseudonymous IDs and actual employees is maintained by the enterprise customer in their own identity system. MO§ES™ never receives, stores, or processes real names, email addresses, or HRIS identifiers.</p>
+
+<h2>3. No prompt-content inspection</h2>
+<p>The platform explicitly does not inspect, log, or analyze prompt content. This is a structural constraint, not a policy preference — the ingest adapters are designed to accept only token counts and metadata, not text payloads. Enterprises cannot use MO§ES™ to surveil what their employees are asking AI systems.</p>
+
+<h2>4. No adverse employment decisions</h2>
+<p>MO§ES™ measurements are descriptive, not prescriptive. The platform enforces this through structural guardrails in code: no bottom-employee leaderboard, no automatic adverse actions, no punitive labels, and no automatic triggers for hiring, firing, compensation, or promotion decisions. Composite scores are labeled DEVELOPMENTAL, not PERSONNEL. Outcome joins between interventions and business metrics are labeled ASSOCIATION, never CAUSATION.</p>
+
+<h2>5. Data retention</h2>
+<p>Telemetry data is retained for the duration of the pilot engagement plus a 90-day post-pilot review window, after which it is deleted unless the enterprise customer requests otherwise. Aggregate, de-identified statistical summaries (cohort distributions, benchmark bands) may be retained longer for reference population calibration. No individual operator data is retained beyond the customer's request.</p>
+
+<h2>6. Access and audit</h2>
+<p>Access to operator data is role-based (RBAC) and tenant-isolated. Every read and write operation is logged to an immutable audit trail. Enterprises can request a full audit log of all access to their data at any time. Write operations through the MCP interface require explicit authorization.</p>
+
+<h2>7. Tenant isolation</h2>
+<p>Each enterprise customer's data is logically isolated at the tenant level. Cross-tenant data access is not possible through the platform's interfaces. Reference populations used for external benchmarking are aggregate, de-identified, and contain no individual operator records.</p>
+
+<h2>8. Your rights</h2>
+<p>Enterprise customers can request export, correction, or deletion of their data at any time by contacting burnmydays@proton.me. Operators who wish to understand how their pseudonymous data is being used should direct inquiries to their enterprise's pilot administrator, as MO§ES™ does not have access to the real-name mapping.</p>
+
+<h2>9. Contact</h2>
+<p>For privacy inquiries: burnmydays@proton.me</p>
+
+</main>
+<footer>
+<p>MO§ES™ — Enterprise AI Operator Evaluations · <a href="index.html">Home</a> · <a href="product.html">Product</a> · <a href="pilot.html">Pilot</a> · <a href="methodology.html">Methodology</a> · <a href="research.html">Research</a> · <a href="contact.html">Contact</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a></p>
+</footer>
+</div>
+</body>
+</html>

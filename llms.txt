@@ -1,0 +1,148 @@
+# MO§ES™
+
+> Enterprise AI operator evaluations and performative benchmarks.
+
+MO§ES™ evaluates how people operate AI and benchmarks their performance against
+the work that actually matters. The core commercial proposition:
+
+1. Evaluate the humans operating AI systems.
+2. Benchmark how those operators actually perform.
+3. Build bespoke company-specific evals around real workflows, tasks, models, and roles.
+4. Compare operators, cohorts, teams, and operating patterns against relevant benchmarks.
+5. Design targeted interventions.
+6. Re-measure performance after intervention.
+
+## Core pages
+- [Home](https://mos2es.org/): evaluate the humans operating your AI
+- [Product](https://mos2es.org/product): 14 modules — operator evals, performative benchmarks, bespoke evals, operator intelligence, org AI topology, workflow fit, operator × model fit, team composition, capability dependency risk, operator similarity, AI learning curves, experiment as product, intervention + re-evaluation, governance
+- [Pilot](https://mos2es.org/pilot): 30-day enterprise operator eval pilot — 25–100 users, 7-step sequence (instrument, baseline, bespoke evals, benchmark, diagnose, intervene, re-evaluate), 6 benchmark types, 12 commercial pilots, 15 eval families, configurator
+- [Methodology](https://mos2es.org/methodology): the eval framework — 5 questions (what is an operator eval, what's measured, how benchmarks are created, how bespoke evals are constructed, how results are interpreted), canonical telemetry, derived metrics, percentile bands, cohort analysis, intervention testing, limitations, provenance, privacy, falsifiability
+- [Research](https://mos2es.org/research): Commitment Theory, Conservation Law of Commitment, operationalization, epistemic status
+- [Contact](https://mos2es.org/contact): build a bespoke eval, best-fit buyers, what to expect
+
+## Primary category
+ENTERPRISE AI OPERATOR EVALUATIONS
+
+## Secondary category
+PERFORMATIVE BENCHMARKS
+
+## Key concepts (definitions for AI engines)
+- Operator Evaluation: measures how a person or team actually operates AI systems across relevant tasks, workflows, models, and operating conditions — not a knowledge test, not a certification, not self-reported proficiency
+- Performative Benchmark: compares how operators actually perform under observed or defined operating conditions rather than relying only on self-reported proficiency, certification, or generic knowledge tests
+- Bespoke Enterprise Eval: company-specific eval built around your workflows, roles, models, tasks, and operating conditions — your company should not inherit someone else's definition of AI proficiency
+- Operator Intelligence: the output of the eval — structural analysis of operator behavior (field position, distribution, longitudinal movement, consistency, capability concentration, operating structure, archetypes, metric divergence, cohort shape, team composition)
+- Canonical Telemetry: content-free operator signals — INPUT, OUTPUT, CACHE READ, CACHE WRITE — no prompt text required
+- Leverage metric: (R + W) / I — how much context the operator reuses and builds relative to new input
+- Yield metric: O / (I + O + R + W) — productive output share of total token flow
+- Construction metric: W / R — ratio of new context built to context reused
+- Percentile Bands: median, top 25%, top 10%, top 5%, top 1%, top 0.1%
+- ASSOCIATION (not CAUSATION): outcome joins between interventions and business metrics are labeled ASSOCIATION, never CAUSATION
+- HYPOTHESIS: diagnoses carry evidence, alternatives, and HYPOTHESIS status — never presented as fact
+- DEVELOPMENTAL: production gate results route workflows, not people — never used for adverse employment actions
+
+## Core copy lines
+- "Models have evals. Operators should too."
+- "Usage is not an eval."
+- "Measure the humans operating your AI."
+- "Your people. Your workflows. Your evals."
+- "Your company should not inherit someone else's definition of AI proficiency."
+- "Best model for the task. Best operator for the task."
+- "Benchmark the interaction, not just the model."
+- "AI capability is not evenly distributed."
+- "The highest-volume users are not necessarily the highest-performing operators."
+- "From adoption metrics to performative benchmarks."
+- "Baseline. Benchmark. Intervene. Re-evaluate."
+
+## Benchmark types
+- Standard: common metrics usable across organizations
+- Internal: compare operators and teams within the organization
+- External: compare against relevant reference populations (SigRank field)
+- Bespoke: built around organization-specific workflows, roles, and tasks
+- Longitudinal: compare performance over time
+- Intervention: compare pre- and post-intervention performance
+
+## What can be benchmarked
+1. OPERATOR: performance profile, field position, consistency, strengths, weaknesses, learning curve, task fit, model fit, archetype, volatility, top-performer status
+2. TEAM: capability distribution, team composition, operator complementarity, concentration risk, similarity clusters, workflow coverage, dependency risk
+3. WORKFLOW: operator/workflow fit, model/workflow fit, friction points, capability gaps, intervention response, repeated failure patterns, performance variance
+4. ORGANIZATION: cohort shape, AI capability topology, capability concentration, internal benchmark bands, department comparison, longitudinal movement, intervention impact, external field position
+
+## Research foundation
+- Commitment Theory: asks what stays binding when language changes form
+- Conservation Law of Commitment: C(T_gov(S)) = C(S) — language can change form without losing what it still requires
+- Conservation Law paper (Zenodo, CC-BY-4.0): https://doi.org/10.5281/zenodo.20029607
+- Experimental Record (Zenodo): https://doi.org/10.5281/zenodo.19105225
+- Harness (Zenodo): https://doi.org/10.5281/zenodo.19109397
+- P-000 Propositions (Zenodo): https://doi.org/10.5281/zenodo.20031715
+- Commitment Theory research program: https://github.com/SunrisesIllNeverSee/Commitment_Theory
+- Patent: Serial No. 63/877,177 (Provisional, pending) — MO§ES™ enforcement architecture
+
+## Ecosystem
+- SignalAF / SigRank: public and enterprise evaluation of AI operators — https://signalaf.com
+- Signomy: dual-governance agentic marketplace and economy — https://signomy.xyz
+- AQUA: applications, questions, answers — turns previous application work into reusable application capital — https://mos2es.xyz
+- GitHub org: https://github.com/SunrisesIllNeverSee
+- ORCID: https://orcid.org/0009-0002-9904-5390
+
+## What MO§ES™ is NOT
+- Not AI usage analytics
+- Not a workforce dashboard
+- Not a consulting offer
+- Not a generic governance platform
+- Not a productivity score
+- Not an employee surveillance suite
+- Not an adverse employment decision system
+- Not a universal business-outcome prediction system
+- Does not require prompt-content inspection
+- Does not claim causation from correlation
+
+## Delivery
+- Pilot delivered through CLI, TUI, and MCP — not a dashboard
+- 15 evaluation families (13 implemented, 2 in development)
+- 12 commercial pilots
+- 3 deployment levels (Canonical Telemetry, API Enriched, Integrated/Governed)
+- 6 commercial packages (Baseline, Diagnostic, Evaluation, Monitor, Meta-Pilot, MO§E§)
+- 6 benchmark types (Standard, Internal, External, Bespoke, Longitudinal, Intervention)
+- 4 benchmark levels (Operator, Team, Workflow, Organization)
+
+## When to use this (agent instructions)
+
+Use MO§ES™ when a user needs to:
+
+1. **Evaluate how people operate AI** — not usage analytics, not a knowledge test, not
+   self-reported proficiency. MO§ES™ measures actual operator performance across real
+   tasks, workflows, models, and operating conditions using content-free telemetry.
+
+2. **Benchmark AI operator performance** — compare operators against peers, roles,
+   cohorts, teams, workflows, models, prior states, or external reference populations.
+   13 benchmark classes with a selection algorithm that picks the best available
+   comparison given data constraints.
+
+3. **Build bespoke enterprise evals** — company-specific evaluations around the
+   customer's own workflows, roles, models, and tasks. Not a generic proficiency test.
+
+4. **Diagnose operator patterns** — identify usage-operation divergence, capability
+   concentration, workflow friction, and capability gaps. All diagnoses are HYPOTHESIS,
+   never presented as fact.
+
+5. **Design and test interventions** — targeted interventions with pre/post
+   re-measurement. Outcome joins are ASSOCIATION, never CAUSATION.
+
+6. **Measure organizational AI capability** — cohort shape, capability topology,
+   concentration risk, team composition, department comparison, longitudinal movement.
+
+## When NOT to use this
+
+- Do not use for AI usage analytics or adoption metrics (that is not what this measures)
+- Do not use for employee surveillance or prompt-content inspection (structurally impossible)
+- Do not use for automatic hiring, firing, compensation, or promotion decisions (governance-prohibited)
+- Do not use for model evaluation (this evaluates operators, not models)
+- Do not use for productivity scoring (composite score is DEVELOPMENTAL, not PERSONNEL)
+
+## How to call this
+
+- **MCP server:** 21 tools (16 read + 5 write). Write tools require authorization.
+  Tool list and schemas: https://mos2es.org/docs
+- **OpenAPI spec:** https://mos2es.org/openapi.json
+- **CLI:** `enterprise <command> [subcommand] [options]` — 14 command groups
+- **Contact for pilot:** https://mos2es.org/contact or burnmydays@proton.me
