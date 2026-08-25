@@ -1,25 +1,27 @@
 // MO§ES™ MCP Server — Streamable HTTP transport
-// Public tool listing + read-only demo data responses
+// Returns real demo data from the 50-operator synthetic pilot
 // Write tools return 401 (require authorization)
+
+import demoData from "./demo_data.json";
 
 const TOOLS = [
   {
     name: "get_pilot_status",
-    description: "Get pilot status overview — cohort size, observation count, date range, data quality, active interventions.",
+    description: "Get pilot status overview — cohort size, observation count, date range, data quality, active interventions. Data is from a 50-operator synthetic pilot (labeled synthetic).",
     inputSchema: { type: "object", properties: {} }
   },
   {
     name: "get_operator_profile",
-    description: "Get operator profile — metrics, percentiles, benchmark availability, divergence flags. Operator IDs are pseudonymous (e.g., op_001).",
+    description: "Get operator profile — operator details, measurements (5 canonical metrics with values, percentiles, status), and benchmark availability. Operator IDs are pseudonymous (e.g., op_001). Data is synthetic.",
     inputSchema: {
       type: "object",
       required: ["operator_id"],
-      properties: { operator_id: { type: "string", description: "Pseudonymous operator ID (e.g., op_001)" } }
+      properties: { operator_id: { type: "string", description: "Pseudonymous operator ID (e.g., op_001, op_003, op_034)" } }
     }
   },
   {
     name: "get_cohort_distribution",
-    description: "Get cohort metric distribution — percentile bands (median, p25, p10, p5, p1) for a given metric.",
+    description: "Get cohort metric distribution — min, p10, p25, median, p75, p90, max, mean, std, and outliers for a given metric across the 50-operator cohort.",
     inputSchema: {
       type: "object",
       properties: { metric: { type: "string", default: "leverage", description: "Metric: leverage, yield, token_snr, log_leverage, construction" } }
@@ -27,7 +29,7 @@ const TOOLS = [
   },
   {
     name: "get_composite_score",
-    description: "Get developmental composite score (0-100). Labeled DEVELOPMENTAL, not PERSONNEL. No punitive use.",
+    description: "Get developmental composite score (0-100) for an operator. Labeled DEVELOPMENTAL, not PERSONNEL. Weighted: leverage 30%, yield 30%, token_snr 20%, construction 20%. Includes per-component values, percentiles, weights, and status. Data is synthetic.",
     inputSchema: {
       type: "object",
       required: ["operator_id"],
@@ -36,12 +38,12 @@ const TOOLS = [
   },
   {
     name: "get_composite_score_summary",
-    description: "Get cohort composite score summary — aggregate distribution. No individual rankings exposed.",
+    description: "Get cohort composite score summary — count, min, max, median, mean, Q1, Q3. No individual rankings exposed. Label is DEVELOPMENTAL.",
     inputSchema: { type: "object", properties: {} }
   },
   {
     name: "get_diagnostics",
-    description: "Get operator diagnostics — pattern detections and diagnoses. All diagnoses are HYPOTHESIS, never fact.",
+    description: "Get operator diagnostics — pattern detections and diagnoses. All diagnoses are HYPOTHESIS, never fact. Returns divergence flags if available.",
     inputSchema: {
       type: "object",
       required: ["operator_id"],
@@ -50,35 +52,32 @@ const TOOLS = [
   },
   {
     name: "get_data_quality",
-    description: "Get data quality report — completeness, coverage, validity metrics.",
+    description: "Get data quality summary — completeness, coverage, validity across the cohort.",
     inputSchema: { type: "object", properties: {} }
   },
   {
     name: "find_usage_operation_divergence",
-    description: "Find operators with usage-operation divergence (high usage but low operation performance, or vice versa).",
+    description: "Find operators with usage-operation divergence. Returns all 50 operators with their usage percentile, yield percentile, leverage percentile, divergence percentage points, and divergence class (LOW_USAGE_HIGH_OPERATION, HIGH_USAGE_LOW_OPERATION, etc.).",
     inputSchema: { type: "object", properties: {} }
   },
   {
     name: "get_workflow_fit",
-    description: "Get workflow fit analysis — operator/workflow fit scores.",
-    inputSchema: {
-      type: "object",
-      properties: { operator_id: { type: "string" } }
-    }
+    description: "Get workflow fit analysis — operator/workflow fit scores across workflow stages.",
+    inputSchema: { type: "object", properties: {} }
   },
   {
     name: "get_intervention_status",
-    description: "Get intervention status — active and closed interventions.",
+    description: "Get all interventions — 12 active interventions with operator IDs, catalog IDs, reason patterns, target metrics, start dates, followup periods, and synthetic outcomes.",
     inputSchema: { type: "object", properties: {} }
   },
   {
     name: "list_pilot_options",
-    description: "List available pilot options — metrics, eval families, benchmark classes, intervention types.",
+    description: "List available pilot options — 5 canonical metrics, 15 eval families, 13 benchmark classes, 5 intervention types.",
     inputSchema: { type: "object", properties: {} }
   },
   {
     name: "validate_pilot_configuration",
-    description: "Validate a pilot configuration before deployment.",
+    description: "Validate a pilot configuration before deployment. Returns valid status with warnings and errors.",
     inputSchema: {
       type: "object",
       properties: { configuration: { type: "object" } }
@@ -86,7 +85,7 @@ const TOOLS = [
   },
   {
     name: "compare_operator_to_reference",
-    description: "Compare an operator to a reference population.",
+    description: "Compare an operator to a reference population. Returns benchmark selection, comparison group, and metric comparison.",
     inputSchema: {
       type: "object",
       required: ["operator_id"],
@@ -98,12 +97,12 @@ const TOOLS = [
   },
   {
     name: "get_executive_dashboard",
-    description: "Get executive dashboard — self-contained HTML with cohort overview, score distribution, patterns, interventions, workflow fit.",
+    description: "Get executive dashboard info — the dashboard is a self-contained HTML file generated by the CLI (enterprise export dashboard --output file.html).",
     inputSchema: { type: "object", properties: {} }
   },
   {
     name: "verify_change",
-    description: "Verify a measured change after intervention — pre/post comparison.",
+    description: "Verify a measured change after intervention — pre/post comparison. Results are ASSOCIATION, never CAUSATION.",
     inputSchema: {
       type: "object",
       required: ["operator_id"],
@@ -128,7 +127,7 @@ const TOOLS = [
   // ─── Write tools (require authorization) ───
   {
     name: "assign_intervention",
-    description: "Assign a targeted intervention to an operator. REQUIRES AUTHORIZATION.",
+    description: "Assign a targeted intervention to an operator. REQUIRES AUTHORIZATION. Contact burnmydays@proton.me for pilot access.",
     inputSchema: {
       type: "object",
       required: ["operator_id", "intervention_type"],
@@ -196,27 +195,6 @@ const WRITE_TOOLS = new Set([
   "record_workflow_observation", "attach_outcome_dataset"
 ]);
 
-// ─── Demo data for read-only responses ─────────────────────────────────
-const DEMO_STATUS = {
-  cohort_size: 50,
-  observation_count: 1668,
-  artifact_count: 200,
-  lineage_count: 50,
-  system_count: 5,
-  workflow_count: 4,
-  intervention_count: 12,
-  date_range: { start: "2026-07-01", end: "2026-07-30" },
-  data_quality: "GOOD — 94% completeness, 88% coverage"
-};
-
-const DEMO_METRICS = {
-  leverage: { median: 2.34, p25: 1.67, p10: 3.21, p5: 4.55, p1: 6.12 },
-  yield: { median: 0.28, p25: 0.22, p10: 0.35, p5: 0.41, p1: 0.48 },
-  token_snr: { median: 0.71, p25: 0.62, p10: 0.81, p5: 0.88, p1: 0.93 },
-  log_leverage: { median: 0.85, p25: 0.51, p10: 1.17, p5: 1.52, p1: 1.81 },
-  construction: { median: 0.44, p25: 0.31, p10: 0.67, p5: 0.82, p1: 1.05 }
-};
-
 function handleToolCall(name, args) {
   // Write tools require auth
   if (WRITE_TOOLS.has(name)) {
@@ -233,108 +211,140 @@ function handleToolCall(name, args) {
     };
   }
 
-  // Read tools return demo data
   let result;
   switch (name) {
     case "get_pilot_status":
-      result = DEMO_STATUS;
+      result = demoData.pilot_status;
       break;
+
     case "get_operator_profile":
-      result = {
-        operator_id: args?.operator_id || "op_001",
-        metrics: { leverage: 2.45, yield: 0.31, token_snr: 0.74, log_leverage: 0.90, construction: 0.47 },
-        percentiles: { leverage: 65, yield: 72, token_snr: 68, log_leverage: 70, construction: 63 },
-        benchmarks_available: ["peer", "cohort", "role", "self_vs_prior", "repeated_task"],
-        divergence_flags: []
+      const opId = args?.operator_id || "op_001";
+      result = demoData.operator_profiles[opId] || demoData.operator_profiles["op_001"] || {
+        error: "OPERATOR_NOT_FOUND",
+        operator_id: opId,
+        message: "Operator not found in demo data. Available: op_001, op_003, op_034"
       };
       break;
+
     case "get_cohort_distribution":
-      result = {
-        metric: args?.metric || "leverage",
-        bands: DEMO_METRICS[args?.metric || "leverage"] || DEMO_METRICS.leverage
+      const metric = args?.metric || "leverage";
+      result = demoData.cohort_distributions[metric] || {
+        error: "METRIC_NOT_FOUND",
+        metric: metric,
+        message: "Metric not found. Available: leverage, yield, token_snr, log_leverage, construction"
       };
       break;
+
     case "get_composite_score":
-      result = {
-        operator_id: args?.operator_id || "op_001",
-        score: 48.57,
-        label: "DEVELOPMENTAL",
-        components: { leverage: 30, yield: 30, token_snr: 20, construction: 20 },
-        caveats: ["Score is DEVELOPMENTAL, not PERSONNEL", "No punitive use", "No individual ranking"]
+      const csId = args?.operator_id || "op_001";
+      result = demoData.composite_scores[csId] || {
+        error: "OPERATOR_NOT_FOUND",
+        operator_id: csId,
+        message: "Operator not found. 50 operators available (op_001 through op_050)."
       };
       break;
+
     case "get_composite_score_summary":
-      result = {
-        cohort_size: 50,
-        distribution: { median: 50.2, p25: 42.1, p75: 58.7, p10: 35.3, p90: 65.4 },
-        label: "DEVELOPMENTAL",
-        individual_rankings: false
-      };
+      result = demoData.score_summary;
       break;
+
     case "get_diagnostics":
+      const diagId = args?.operator_id || "op_001";
+      // Check if operator has divergence flags
+      const divEntry = demoData.divergence.find(d => d.operator_id === diagId);
       result = {
-        operator_id: args?.operator_id || "op_001",
-        patterns: [{ type: "LOW_USAGE_HIGH_OPERATION", confidence: 0.72 }],
-        diagnoses: [{ pattern: "LOW_USAGE_HIGH_OPERATION", status: "HYPOTHESIS", evidence: "Operator shows high operation performance relative to usage volume" }],
-        status: "HYPOTHESIS"
+        operator_id: diagId,
+        patterns: divEntry ? [{
+          type: divEntry.divergence_class,
+          usage_percentile: divEntry.usage_percentile,
+          yield_percentile: divEntry.yield_percentile,
+          leverage_percentile: divEntry.leverage_percentile,
+          divergence_pp: divEntry.divergence_pp
+        }] : [],
+        diagnoses: divEntry ? [{
+          pattern: divEntry.divergence_class,
+          status: "HYPOTHESIS",
+          evidence: `Usage percentile ${divEntry.usage_percentile} vs yield percentile ${divEntry.yield_percentile} (divergence: ${divEntry.divergence_pp}pp)`
+        }] : [],
+        status: "HYPOTHESIS",
+        synthetic: true
       };
       break;
+
     case "get_data_quality":
-      result = { completeness: 0.94, coverage: 0.88, validity: 0.96, issues: [] };
+      result = demoData.data_quality_summary;
       break;
+
     case "find_usage_operation_divergence":
       result = {
-        divergent_operators: [
-          { operator_id: "op_012", type: "LOW_USAGE_HIGH_OPERATION", severity: "MEDIUM" },
-          { operator_id: "op_034", type: "HIGH_USAGE_LOW_OPERATION", severity: "HIGH" }
-        ]
+        divergent_operators: demoData.divergence.filter(d =>
+          d.divergence_class !== "ALIGNED" && Math.abs(d.divergence_pp) > 20
+        ),
+        all_operators: demoData.divergence,
+        synthetic: true
       };
       break;
+
     case "get_workflow_fit":
-      result = {
-        operator_id: args?.operator_id || "op_001",
-        workflow_fit: [{ workflow_id: "wf_001", fit_score: 0.78, notes: "Good fit for code review workflow" }]
-      };
+      result = demoData.workflow_fit;
       break;
+
     case "get_intervention_status":
       result = {
-        active: [{ id: "intv_001", operator_id: "op_034", type: "TARGETED_TRAINING", status: "ACTIVE" }],
-        closed: [{ id: "intv_002", operator_id: "op_012", type: "WORKFLOW_REDESIGN", status: "CLOSED", outcome: "IMPROVED" }]
+        active: demoData.interventions.filter(i => i.synthetic_outcome === "PENDING" || !i.synthetic_outcome),
+        closed: demoData.interventions.filter(i => i.synthetic_outcome && i.synthetic_outcome !== "PENDING"),
+        all: demoData.interventions,
+        count: demoData.interventions.length,
+        synthetic: true
       };
       break;
+
     case "list_pilot_options":
-      result = {
-        metrics: ["leverage", "yield", "token_snr", "log_leverage", "construction"],
-        eval_families: 15,
-        benchmark_classes: ["self_vs_prior", "repeated_task", "matched_task", "peer", "role", "cohort", "team", "organization", "system", "workflow", "model", "intervention", "external_field"],
-        intervention_types: ["TARGETED_TRAINING", "WORKFLOW_REDESIGN", "MODEL_SWITCH", "PROMPT_LIBRARY", "PAIR_PROGRAMMING"]
-      };
+      result = demoData.pilot_options;
       break;
+
     case "validate_pilot_configuration":
-      result = { valid: true, warnings: [], errors: [] };
+      result = { valid: true, warnings: [], errors: [], message: "Configuration is valid for demo pilot." };
       break;
+
     case "compare_operator_to_reference":
-      result = {
-        operator_id: args?.operator_id || "op_001",
-        reference: args?.reference || "cohort",
-        comparison: { leverage: { operator: 2.45, reference_median: 2.34, percentile: 65 } }
-      };
+      const cmpId = args?.operator_id || "op_001";
+      if (cmpId === "op_001") {
+        result = demoData.benchmark_op_001;
+      } else {
+        result = {
+          operator_id: cmpId,
+          message: "Benchmark data available for op_001 in demo mode. Full benchmark engine available via CLI.",
+          reference: args?.reference || "peer"
+        };
+      }
       break;
+
     case "get_executive_dashboard":
       result = {
-        dashboard_url: "https://mos2es.org/docs",
-        message: "Executive dashboard is available via the CLI: enterprise export dashboard --output file.html"
+        message: "Executive dashboard is a self-contained HTML file generated by the CLI.",
+        command: "enterprise export dashboard --output file.html",
+        features: [
+          "Cohort overview", "Data quality", "Composite score distribution",
+          "Top patterns", "Usage/operation divergence", "Intervention outcomes",
+          "Workflow fit", "Next evaluations flywheel"
+        ],
+        governance: "No operator leaderboard, no automatic adverse actions, no punitive labels."
       };
       break;
+
     case "verify_change":
+      const vId = args?.operator_id || "op_001";
+      const score = demoData.composite_scores[vId];
       result = {
-        operator_id: args?.operator_id || "op_001",
-        pre_intervention: { leverage: 1.82 },
-        post_intervention: { leverage: 2.45 },
-        change: { leverage: 0.63, direction: "IMPROVED" },
-        label: "ASSOCIATION"
+        operator_id: vId,
+        composite_score: score ? score.score : null,
+        label: "ASSOCIATION",
+        message: "Pre/post intervention comparison available via CLI: enterprise verify-change <operator_id> --intervention <id>",
+        synthetic: true
       };
       break;
+
     case "create_pilot_configuration":
       result = {
         configuration: {
@@ -342,9 +352,11 @@ function handleToolCall(name, args) {
           duration_days: args?.duration_days || 30,
           metrics: args?.metrics || ["leverage", "yield", "token_snr", "log_leverage", "construction"]
         },
-        valid: true
+        valid: true,
+        synthetic: true
       };
       break;
+
     default:
       result = { error: "UNKNOWN_TOOL", tool: name };
   }
@@ -361,7 +373,6 @@ export default {
     const url = new URL(request.url);
     const method = request.method;
 
-    // CORS headers
     const corsHeaders = {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
@@ -373,24 +384,26 @@ export default {
       return new Response(null, { status: 204, headers: corsHeaders });
     }
 
-    // ─── Health check / info ──────────────────────────────────────────
+    // Health check / info
     if (url.pathname === "/" || url.pathname === "/health") {
       return new Response(JSON.stringify({
         server: "MO§ES™ MCP Server",
-        version: "0.1.0",
+        version: "0.2.0",
         transport: "streamable-http",
         tools: TOOLS.length,
         read_tools: TOOLS.length - WRITE_TOOLS.size,
         write_tools: WRITE_TOOLS.size,
         url: "https://mcp.mos2es.org",
         docs: "https://mos2es.org/docs",
-        openapi: "https://mos2es.org/openapi.json"
+        openapi: "https://mos2es.org/openapi.json",
+        data_source: "50-operator synthetic pilot (labeled synthetic)",
+        governance: "DEVELOPMENTAL labels, HYPOTHESIS diagnoses, ASSOCIATION outcomes, no punitive use"
       }, null, 2), {
         headers: { "Content-Type": "application/json", ...corsHeaders }
       });
     }
 
-    // ─── MCP protocol endpoint ────────────────────────────────────────
+    // MCP protocol endpoint
     if (url.pathname === "/mcp" || url.pathname === "/sse") {
       if (method !== "POST") {
         return new Response(JSON.stringify({
@@ -418,7 +431,6 @@ export default {
 
       const { jsonrpc, method: rpcMethod, params, id } = body;
 
-      // ─── Handle MCP methods ──────────────────────────────────────
       let result;
       switch (rpcMethod) {
         case "initialize":
@@ -431,7 +443,7 @@ export default {
             },
             serverInfo: {
               name: "moses-mcp",
-              version: "0.1.0"
+              version: "0.2.0"
             }
           };
           break;
@@ -492,7 +504,7 @@ export default {
       });
     }
 
-    // ─── 404 ──────────────────────────────────────────────────────────
+    // 404
     return new Response(JSON.stringify({
       error: "NOT_FOUND",
       message: "Use POST /mcp for MCP protocol, GET / for server info.",
