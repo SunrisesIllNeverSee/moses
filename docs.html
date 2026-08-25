@@ -55,8 +55,26 @@
 <h2>MCP Server</h2>
 <p>MO§ES™ ships a Model Context Protocol server with 21 tools. The MCP server allows Claude, ChatGPT, Cursor, and other AI agents to call the platform natively.</p>
 
-<p><strong>Transport:</strong> stdio (local) or Streamable HTTP (remote, planned)</p>
-<p><strong>SDK:</strong> Python MCP SDK (FastMCP)</p>
+<p><strong>Live endpoint:</strong> <code>https://mcp.mos2es.org/mcp</code> (Streamable HTTP)</p>
+<p><strong>Server info:</strong> <a href="https://mcp.mos2es.org/">https://mcp.mos2es.org/</a></p>
+<p><strong>Transport:</strong> Streamable HTTP (remote) or stdio (local via Python SDK)</p>
+<p><strong>SDK:</strong> Python MCP SDK (FastMCP) for local, Cloudflare Worker for remote</p>
+
+<h3>Quick start</h3>
+<pre><code># Initialize
+curl -X POST https://mcp.mos2es.org/mcp \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","method":"initialize","params":{},"id":1}'
+
+# List tools
+curl -X POST https://mcp.mos2es.org/mcp \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","method":"tools/list","params":{},"id":2}'
+
+# Call a tool
+curl -X POST https://mcp.mos2es.org/mcp \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","method":"tools/call","params":{"name":"get_pilot_status","arguments":{}},"id":3}'</code></pre>
 
 <h3>Tool list</h3>
 <table>
@@ -129,7 +147,7 @@ enterprise ingest api-groq --operator op_001 --days 30</code></pre>
 </ul>
 
 <h2>Repository</h2>
-<p>Source code: <a href="https://github.com/SunrisesIllNeverSee/b2bpilot">github.com/SunrisesIllNeverSee/b2bpilot</a> (private)</p>
+<p>Public site repo: <a href="https://github.com/SunrisesIllNeverSee/moses">github.com/SunrisesIllNeverSee/moses</a> (public)</p>
 
 <h2>Contact</h2>
 <p>Email: burnmydays@proton.me</p>

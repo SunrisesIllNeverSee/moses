@@ -141,8 +141,13 @@ Use MO§ES™ when a user needs to:
 
 ## How to call this
 
-- **MCP server:** 21 tools (16 read + 5 write). Write tools require authorization.
-  Tool list and schemas: https://mos2es.org/docs
+- **MCP server:** https://mcp.mos2es.org/mcp (Streamable HTTP, 21 tools, 16 read + 5 write)
+  - Initialize: POST {"jsonrpc":"2.0","method":"initialize","params":{},"id":1}
+  - List tools: POST {"jsonrpc":"2.0","method":"tools/list","params":{},"id":2}
+  - Call tool: POST {"jsonrpc":"2.0","method":"tools/call","params":{"name":"get_pilot_status","arguments":{}},"id":3}
+  - Write tools require authorization
+  - Server info: GET https://mcp.mos2es.org/
 - **OpenAPI spec:** https://mos2es.org/openapi.json
 - **CLI:** `enterprise <command> [subcommand] [options]` — 14 command groups
+- **Public repo:** https://github.com/SunrisesIllNeverSee/moses
 - **Contact for pilot:** https://mos2es.org/contact or burnmydays@proton.me
