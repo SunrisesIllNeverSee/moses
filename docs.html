@@ -11,7 +11,11 @@
 <meta property="og:url" content="https://mos2es.org/docs">
 <meta property="og:title" content="MO§ES™ Developer Docs">
 <meta property="og:description" content="OpenAPI spec, MCP server, 21 tools, CLI, TUI for AI agent integration.">
-<meta property="og:image" content="https://mos2es.org/og-image.svg">
+<meta property="og:image" content="https://mos2es.org/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mos2es.org/og-image.png">
 <meta property="og:site_name" content="MO§ES™">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
@@ -24,6 +28,12 @@
   "publisher": {"@id": "https://mos2es.org/#org"},
   "about": {"@id": "https://mos2es.org/#software"}
 }
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","@id":"https://mos2es.org/#website","name":"MO§ES™","url":"https://mos2es.org","publisher":{"@id":"https://mos2es.org/#org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mos2es.org/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://mos2es.org/docs"}]}
 </script>
 </head>
 <body>
@@ -42,7 +52,7 @@
 <main>
 <h1>Developer Documentation</h1>
 
-<p>MO§ES™ exposes three integration surfaces for AI agents and developers: an MCP server, an OpenAPI spec, and a CLI.</p>
+<p>Developer documentation for the MO§ES™ AI operator evaluation platform. OpenAPI spec, MCP server with 21 tools, CLI, telemetry schema, and governance constraints. MO§ES™ exposes three integration surfaces for AI agents and developers: an MCP server, an OpenAPI spec, and a CLI.</p>
 
 <h2>OpenAPI Specification</h2>
 <p>The full API specification is available at <a href="openapi.json"><code>/openapi.json</code></a>. It describes 16 read endpoints and 5 write endpoints across the pilot evaluation surface.</p>

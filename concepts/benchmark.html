@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Operator Benchmarking — MO§ES™</title>
+<meta name="description" content="AI operator benchmarking uses 13 benchmark classes and a selection algorithm to compare operators under observed or defined operating conditions. Performative benchmarks, not self-reported proficiency. Part of the MO§ES™ evaluation framework.">
+<link rel="canonical" href="https://mos2es.org/concepts/benchmark">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mos2es.org/concepts/benchmark">
+<meta property="og:title" content="AI Operator Benchmarking">
+<meta property="og:description" content="13 benchmark classes and a selection algorithm for comparing AI operators under observed conditions.">
+<meta property="og:image" content="https://mos2es.org/og-image.svg">
+<meta property="og:site_name" content="MO§ES™">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Operator Benchmarking">
+<meta name="twitter:description" content="13 benchmark classes, selection algorithm, performative benchmarks.">
+<meta name="twitter:image" content="https://mos2es.org/og-image.svg">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+[
+  {"@context":"https://schema.org","@type":"WebSite","@id":"https://mos2es.org/#website","name":"MO§ES™","url":"https://mos2es.org","publisher":{"@id":"https://mos2es.org/#org"}},
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mos2es.org/"},{"@type":"ListItem","position":2,"name":"Concepts","item":"https://mos2es.org/concepts/"},{"@type":"ListItem","position":3,"name":"Benchmarking","item":"https://mos2es.org/concepts/benchmark"}]},
+  {"@context":"https://schema.org","@type":"DefinedTerm","name":"AI Operator Benchmarking","description":"13 benchmark classes with a selection algorithm for comparing how operators actually perform under observed or defined operating conditions — performative benchmarks, not self-reported proficiency.","url":"https://mos2es.org/concepts/benchmark","termCode":"BENCH","inDefinedTermSet":{"@type":"DefinedTermSet","name":"MO§ES™ Canonical Metrics","url":"https://mos2es.org/methodology"}}
+]
+</script>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<b>MO§ES™</b>
+<div class="links">
+<a href="../index.html">Home</a>
+<a href="../product.html">Product</a>
+<a href="../pilot.html">Pilot</a>
+<a href="../methodology.html">Methodology</a>
+<a href="../research.html">Research</a>
+<a href="../contact.html">Contact</a>
+</div>
+</nav>
+<main>
+
+<div class="hero">
+<div class="eyebrow">Concept · Benchmarking</div>
+<h1>AI operator benchmarking.</h1>
+<p class="lead">A performative benchmark compares how operators actually perform under observed or defined operating conditions — rather than relying on self-reported proficiency, certification, or generic knowledge tests. MO§ES™ defines 13 benchmark classes and a selection algorithm that chooses the right benchmark for each evaluation question.</p>
+<div class="tags">
+<span class="label dark-bg">MEASURED</span>
+<span class="label dark-bg">DERIVED</span>
+<span class="label">DEVELOPMENTAL</span>
+</div>
+</div>
+
+<section>
+<div class="eyebrow">Definition</div>
+<h2>What a performative benchmark is.</h2>
+<p class="sec-intro">A performative benchmark measures observed operator behavior against defined conditions. It does not ask operators what they know — it measures what they do. The benchmark is constructed from real telemetry, real workflows, and real operating conditions.</p>
+<div class="formula" style="text-align:center;font-size:18px">TASK × MODEL × OPERATOR × CONTEXT = PERFORMATIVE BENCHMARK</div>
+<p style="margin-top:12px">Every benchmark is defined by four axes: the task being performed, the model being used, the operator being measured, and the context in which the work happens. Changing any axis changes the benchmark. A high-performing operator in one context may not be the strongest in another. "Best operator" should require the same qualifier as "best model." Best at what?</p>
+</section>
+
+<section>
+<div class="eyebrow">The 13 Benchmark Classes</div>
+<h2>Benchmark types and their uses.</h2>
+<p class="sec-intro">MO§ES™ defines 13 benchmark classes organized into three tiers: standard metrics, contextual comparisons, and temporal analyses. Each class answers a different evaluation question.</p>
+<div class="grid3">
+<div class="card"><div class="big">1. Standard Metrics</div><p>Common canonical metrics usable across organizations without customization.</p></div>
+<div class="card"><div class="big">2. Internal Cohort</div><p>Compare operators and teams within the organization.</p></div>
+<div class="card"><div class="big">3. External Field</div><p>Compare against relevant reference populations (SigRank field).</p></div>
+<div class="card"><div class="big">4. Bespoke Workflow</div><p>Built around organization-specific workflows, roles, and tasks.</p></div>
+<div class="card"><div class="big">5. Longitudinal</div><p>Compare performance over time across measurement windows.</p></div>
+<div class="card"><div class="big">6. Intervention</div><p>Compare pre- and post-intervention performance.</p></div>
+<div class="card"><div class="big">7. Role-Specific</div><p>Benchmarks scoped to a specific role or job function.</p></div>
+<div class="card"><div class="big">8. Model-Specific</div><p>Benchmarks scoped to a specific AI model or provider.</p></div>
+<div class="card"><div class="big">9. Task-Specific</div><p>Benchmarks scoped to a specific task type or workflow.</p></div>
+<div class="card"><div class="big">10. Cross-Model</div><p>Compare operator performance across different AI providers.</p></div>
+<div class="card"><div class="big">11. Team-Level</div><p>Aggregate operator metrics to the team level for organizational comparison.</p></div>
+<div class="card"><div class="big">12. Percentile Band</div><p>Position operators in percentile bands within the reference cohort.</p></div>
+<div class="card"><div class="big">13. Divergence</div><p>Benchmark the gap between usage rank and evaluation rank.</p></div>
+</div>
+</section>
+
+<section>
+<div class="eyebrow">Selection Algorithm</div>
+<h2>How the right benchmark is chosen.</h2>
+<p class="sec-intro">Not every evaluation question requires every benchmark class. The selection algorithm matches the evaluation question to the appropriate benchmark classes based on the comparison scope, temporal requirements, and available data.</p>
+<div class="pipeline">
+<span>DEFINE QUESTION</span>
+<span class="arrow">↓</span>
+<span>IDENTIFY SCOPE</span>
+<span class="arrow">↓</span>
+<span>SELECT CLASSES</span>
+<span class="arrow">↓</span>
+<span>COMPUTE BENCHMARK</span>
+<span class="arrow">↓</span>
+<span>REPORT WITH BANDS</span>
+</div>
+<p style="margin-top:12px">The algorithm evaluates four factors:</p>
+<ul class="tight">
+<li><strong>Comparison scope</strong> — internal only, external field, or both</li>
+<li><strong>Temporal requirement</strong> — single window or longitudinal</li>
+<li><strong>Customization level</strong> — standard metrics or bespoke workflow</li>
+<li><strong>Intervention context</strong> — baseline only or pre/post comparison</li>
+</ul>
+<p style="margin-top:12px">For example, a question about whether an operator is improving over time selects the Longitudinal and Percentile Band classes. A question about whether a team is outperforming the organizational average selects the Internal Cohort and Team-Level classes. A question about whether a specific workflow change improved efficiency selects the Intervention and Bespoke Workflow classes.</p>
+</section>
+
+<section>
+<div class="eyebrow">Percentile Bands</div>
+<h2>How results are reported.</h2>
+<p class="sec-intro">Benchmark results are reported as percentile bands, not absolute scores. This normalizes across cohorts of different sizes and skill distributions.</p>
+<div class="diagram">
+<div class="row">
+<div class="cell"><div class="head">Median</div><div class="val">50th</div></div>
+<div class="cell"><div class="head">Top 25%</div><div class="val">75th</div></div>
+<div class="cell"><div class="head">Top 10%</div><div class="val">90th</div></div>
+</div>
+<div class="row">
+<div class="cell"><div class="head">Top 5%</div><div class="val">95th</div></div>
+<div class="cell"><div class="head">Top 1%</div><div class="val">99th</div></div>
+<div class="cell"><div class="head">Top 0.1%</div><div class="val">99.9th</div></div>
+</div>
+</div>
+<p class="note" style="margin-top:12px">Benchmarks should be contextual. A high-performing operator in one workflow may not be the strongest in another. The system never collapses benchmark, diagnosis, and validated outcome into a single claim.</p>
+</section>
+
+<section class="dark">
+<div class="eyebrow">Governance Caveats</div>
+<h2>What benchmarking does not tell you.</h2>
+<p class="sec-intro" style="color:#ccc">Benchmark results are labeled DEVELOPMENTAL. They provide structural context, not a universal ranking of "better" or "worse" operators.</p>
+<ul>
+<li><strong>Not a universal ranking.</strong> Benchmarks compare operators under specific conditions. Results are contextual, not absolute.</li>
+<li><strong>Not a performance verdict.</strong> A high percentile rank means the operator scores well on the measured metrics under the defined conditions. It does not mean they are a better employee or more productive worker.</li>
+<li><strong>Not an employee ranking.</strong> DEVELOPMENTAL labels mean results route workflows, not people. No adverse employment actions are permitted from pilot data.</li>
+<li><strong>Reference population is structural.</strong> External field comparison provides structural context, not a universal standard of operator quality.</li>
+<li><strong>Validation required.</strong> The relationship between benchmark position and validated business outcomes has not been independently established. Correlations are labeled ASSOCIATION, never CAUSATION.</li>
+</ul>
+<p class="note" style="margin-top:16px">Every benchmark result carries provenance: benchmark class, reference cohort, percentile band, evidence label, decision-use label (DEVELOPMENTAL), and synthetic-data flag where applicable.</p>
+</section>
+
+<section>
+<div class="eyebrow">Related Concepts</div>
+<h2>Read alongside.</h2>
+<div class="grid3">
+<div class="card"><div class="big"><a href="composite-score.html" style="color:var(--ink);text-decoration:none">Composite Score</a></div><p>The 0–100 index that benchmark positions are based on.</p></div>
+<div class="card"><div class="big"><a href="divergence.html" style="color:var(--ink);text-decoration:none">Divergence</a></div><p>Benchmark class 13 — the gap between usage and evaluation rank.</p></div>
+<div class="card"><div class="big"><a href="intervention.html" style="color:var(--ink);text-decoration:none">Interventions</a></div><p>Benchmark class 6 — pre/post intervention comparison.</p></div>
+</div>
+<div style="margin-top:16px">
+<a class="btn-outline" href="../methodology.html">Read the Methodology</a>
+<a class="btn" href="../contact.html">Request a Pilot</a>
+</div>
+</section>
+
+</main>
+<div class="footer">
+<div class="footer-grid">
+<div><b>MO§ES™</b><p class="note">Enterprise AI operator evaluations and performative benchmarks.</p></div>
+<div><a href="../index.html">Home</a><a href="../product.html">Product</a><a href="../pilot.html">Pilot</a></div>
+<div><a href="../methodology.html">Methodology</a><a href="../research.html">Research</a><a href="../contact.html">Contact</a></div>
+<div><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../docs.html">Docs</a><a href="../pilot-readout.html">Pilot Readout</a><p class="note" style="margin-top:8px">© 2026 Ello Cello LLC. All Rights Reserved.</p></div>
+</div>
+</div>
+</div></body>
+</html>

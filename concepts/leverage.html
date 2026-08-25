@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Leverage in AI Operator Evaluation — MO§ES™</title>
+<meta name="description" content="Leverage measures how much context an AI operator reuses and builds relative to new input. Formula: (R + W) / I. One of five canonical metrics in the MO§ES™ evaluation framework.">
+<link rel="canonical" href="https://mos2es.org/concepts/leverage">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mos2es.org/concepts/leverage">
+<meta property="og:title" content="Leverage in AI Operator Evaluation">
+<meta property="og:description" content="Leverage measures how much context an AI operator reuses and builds relative to new input. Formula: (R + W) / I.">
+<meta property="og:image" content="https://mos2es.org/og-image.svg">
+<meta property="og:site_name" content="MO§ES™">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Leverage in AI Operator Evaluation">
+<meta name="twitter:description" content="(R + W) / I — how much context the operator reuses and builds relative to new input.">
+<meta name="twitter:image" content="https://mos2es.org/og-image.svg">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+[
+  {"@context":"https://schema.org","@type":"WebSite","@id":"https://mos2es.org/#website","name":"MO§ES™","url":"https://mos2es.org","publisher":{"@id":"https://mos2es.org/#org"}},
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mos2es.org/"},{"@type":"ListItem","position":2,"name":"Concepts","item":"https://mos2es.org/concepts/"},{"@type":"ListItem","position":3,"name":"Leverage","item":"https://mos2es.org/concepts/leverage"}]},
+  {"@context":"https://schema.org","@type":"DefinedTerm","name":"Leverage","description":"(R + W) / I — how much context the operator reuses and builds relative to new input","url":"https://mos2es.org/concepts/leverage","termCode":"L","inDefinedTermSet":{"@type":"DefinedTermSet","name":"MO§ES™ Canonical Metrics","url":"https://mos2es.org/methodology"}}
+]
+</script>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<b>MO§ES™</b>
+<div class="links">
+<a href="../index.html">Home</a>
+<a href="../product.html">Product</a>
+<a href="../pilot.html">Pilot</a>
+<a href="../methodology.html">Methodology</a>
+<a href="../research.html">Research</a>
+<a href="../contact.html">Contact</a>
+</div>
+</nav>
+<main>
+
+<div class="hero">
+<div class="eyebrow">Concept · Canonical Metric</div>
+<h1>Leverage in AI operator evaluation.</h1>
+<p class="lead">Leverage measures how much context an AI operator reuses and builds relative to new input. It is one of five canonical derived metrics in the MO§ES™ evaluation framework and is computed entirely from content-free token telemetry.</p>
+<div class="tags">
+<span class="label dark-bg">DERIVED</span>
+<span class="label">DEVELOPMENTAL</span>
+<span class="label">VALIDATION REQUIRED</span>
+</div>
+</div>
+
+<section>
+<div class="eyebrow">Definition</div>
+<h2>The formula.</h2>
+<p class="sec-intro">Leverage is the ratio of reused and newly built context to fresh input tokens. It captures how efficiently an operator converts new input into working context.</p>
+<div class="formula" style="text-align:center;font-size:20px">Leverage = (R + W) / I</div>
+<p>Where:</p>
+<ul class="tight">
+<li><strong>R</strong> = Cache Read (reused context tokens)</li>
+<li><strong>W</strong> = Cache Write (new context built tokens)</li>
+<li><strong>I</strong> = Input (fresh tokens sent to the model)</li>
+</ul>
+<p style="margin-top:12px">A higher leverage value means the operator is getting more mileage out of context they have already established — either by reusing prior context (R) or by building new structured context (W) — relative to the fresh input they inject (I). A lower leverage value means the operator is feeding more raw input without building or reusing a context base.</p>
+</section>
+
+<section>
+<div class="eyebrow">Interpretation</div>
+<h2>What leverage tells you.</h2>
+<p class="sec-intro">Leverage is not a productivity score. It is a structural signal that describes how an operator manages the context window across an AI session.</p>
+<div class="grid2">
+<div class="card">
+<div class="big">High Leverage</div>
+<p>The operator reuses and builds context efficiently relative to new input. This may indicate effective session management, context window utilization, or multi-turn workflows where prior context compounds. It does not by itself prove better outcomes.</p>
+</div>
+<div class="card">
+<div class="big">Low Leverage</div>
+<p>The operator sends more fresh input relative to reused or built context. This may indicate single-turn patterns, fresh-start habits, or workflows that do not benefit from context accumulation. It is not inherently negative — some tasks are inherently input-heavy.</p>
+</div>
+</div>
+<p style="margin-top:16px">Leverage is most informative when read alongside the other four canonical metrics. An operator with high leverage but low yield may be building context without converting it to productive output. An operator with high leverage and high yield may be efficiently converting context investment into results. The metric gains meaning through combination, not in isolation.</p>
+</section>
+
+<section>
+<div class="eyebrow">How MO§ES™ Uses It</div>
+<h2>Leverage in the evaluation pipeline.</h2>
+<p class="sec-intro">MO§ES™ computes leverage from canonical telemetry across every observed session for each operator. The metric enters the pipeline at three stages.</p>
+<div class="grid3">
+<div class="card"><div class="big">Measurement</div><p>Computed per session from INPUT, CACHE READ, and CACHE WRITE token counts. No prompt content required.</p></div>
+<div class="card"><div class="big">Benchmarking</div><p>Operators are ranked by leverage within their cohort. Percentile bands show where each operator falls relative to peers in the same workflow and model conditions.</p></div>
+<div class="card"><div class="big">Composite Score</div><p>Leverage contributes 30% of the AI Operator Development Index, the 0–100 composite score that summarizes overall operator behavior.</p></div>
+</div>
+<p style="margin-top:16px">In the synthetic demo cohort of 50 operators across 1,668 observations, leverage values form a broad distribution. The top quartile shows materially higher context reuse and construction relative to input, while the bottom quartile tends toward input-heavy patterns. These are structural observations, not performance verdicts.</p>
+</section>
+
+<section class="dark">
+<div class="eyebrow">Governance Caveats</div>
+<h2>What leverage does not tell you.</h2>
+<p class="sec-intro" style="color:#ccc">Leverage is a derived metric labeled DEVELOPMENTAL. It is a structural signal whose relationship to actual performance outcomes is still being tested.</p>
+<ul>
+<li><strong>Not a productivity score.</strong> High leverage does not mean the operator is more productive. It means they manage context differently.</li>
+<li><strong>Not a quality measure.</strong> Leverage says nothing about the quality, correctness, or usefulness of the output produced.</li>
+<li><strong>Not an employee ranking.</strong> DEVELOPMENTAL labels mean results route workflows, not people. No adverse employment actions are permitted from pilot data.</li>
+<li><strong>Task-dependent.</strong> Some workflows are inherently input-heavy. Comparing leverage across different task types without controlling for task can produce misleading rankings.</li>
+<li><strong>Validation required.</strong> The relationship between leverage and validated business outcomes has not been independently established. Correlations are labeled ASSOCIATION, never CAUSATION.</li>
+</ul>
+<p class="note" style="margin-top:16px">Every leverage measurement carries provenance: source telemetry window, operator cohort, evidence label (DERIVED), decision-use label (DEVELOPMENTAL), and synthetic-data flag where applicable.</p>
+</section>
+
+<section>
+<div class="eyebrow">Related Concepts</div>
+<h2>Read alongside.</h2>
+<div class="grid3">
+<div class="card"><div class="big"><a href="yield.html" style="color:var(--ink);text-decoration:none">Yield</a></div><p>Productive output share of total token flow. O / (I + O + R + W).</p></div>
+<div class="card"><div class="big"><a href="construction.html" style="color:var(--ink);text-decoration:none">Construction</a></div><p>Ratio of new context built to context reused. W / R.</p></div>
+<div class="card"><div class="big"><a href="composite-score.html" style="color:var(--ink);text-decoration:none">Composite Score</a></div><p>The 0–100 AI Operator Development Index. Leverage contributes 30%.</p></div>
+</div>
+<div style="margin-top:16px">
+<a class="btn-outline" href="../methodology.html">Read the Methodology</a>
+<a class="btn" href="../contact.html">Request a Pilot</a>
+</div>
+</section>
+
+</main>
+<div class="footer">
+<div class="footer-grid">
+<div><b>MO§ES™</b><p class="note">Enterprise AI operator evaluations and performative benchmarks.</p></div>
+<div><a href="../index.html">Home</a><a href="../product.html">Product</a><a href="../pilot.html">Pilot</a></div>
+<div><a href="../methodology.html">Methodology</a><a href="../research.html">Research</a><a href="../contact.html">Contact</a></div>
+<div><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../docs.html">Docs</a><a href="../pilot-readout.html">Pilot Readout</a><p class="note" style="margin-top:8px">© 2026 Ello Cello LLC. All Rights Reserved.</p></div>
+</div>
+</div>
+</div></body>
+</html>

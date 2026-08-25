@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Usage-Operation Divergence — MO§ES™</title>
+<meta name="description" content="Usage-Operation Divergence identifies AI operators whose usage volume does not match their performance rank. High usage with low evaluation scores, or low usage with high scores. HYPOTHESIS label. Part of the MO§ES™ evaluation framework.">
+<link rel="canonical" href="https://mos2es.org/concepts/divergence">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mos2es.org/concepts/divergence">
+<meta property="og:title" content="Usage-Operation Divergence">
+<meta property="og:description" content="Identifies operators whose usage volume doesn't match their performance rank. HYPOTHESIS label.">
+<meta property="og:image" content="https://mos2es.org/og-image.svg">
+<meta property="og:site_name" content="MO§ES™">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Usage-Operation Divergence">
+<meta name="twitter:description" content="Where usage rank does not match evaluation rank. HYPOTHESIS label.">
+<meta name="twitter:image" content="https://mos2es.org/og-image.svg">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+[
+  {"@context":"https://schema.org","@type":"WebSite","@id":"https://mos2es.org/#website","name":"MO§ES™","url":"https://mos2es.org","publisher":{"@id":"https://mos2es.org/#org"}},
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mos2es.org/"},{"@type":"ListItem","position":2,"name":"Concepts","item":"https://mos2es.org/concepts/"},{"@type":"ListItem","position":3,"name":"Divergence","item":"https://mos2es.org/concepts/divergence"}]},
+  {"@context":"https://schema.org","@type":"DefinedTerm","name":"Usage-Operation Divergence","description":"Identifies operators whose usage volume does not match their evaluation performance rank — high usage with low performance, or low usage with high performance. HYPOTHESIS label.","url":"https://mos2es.org/concepts/divergence","termCode":"DIV","inDefinedTermSet":{"@type":"DefinedTermSet","name":"MO§ES™ Canonical Metrics","url":"https://mos2es.org/methodology"}}
+]
+</script>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<b>MO§ES™</b>
+<div class="links">
+<a href="../index.html">Home</a>
+<a href="../product.html">Product</a>
+<a href="../pilot.html">Pilot</a>
+<a href="../methodology.html">Methodology</a>
+<a href="../research.html">Research</a>
+<a href="../contact.html">Contact</a>
+</div>
+</nav>
+<main>
+
+<div class="hero">
+<div class="eyebrow">Concept · Diagnostic Signal</div>
+<h1>Usage-operation divergence.</h1>
+<p class="lead">Usage-Operation Divergence identifies AI operators whose usage volume does not match their evaluation performance rank. The highest-volume AI users are not necessarily the highest-performing operators — and the strongest operators are not always the most active. Divergence is the signal that surfaces this gap.</p>
+<div class="tags">
+<span class="label accent-bg">HYPOTHESIS</span>
+<span class="label">DEVELOPMENTAL</span>
+<span class="label">VALIDATION REQUIRED</span>
+</div>
+</div>
+
+<section>
+<div class="eyebrow">Definition</div>
+<h2>What divergence measures.</h2>
+<p class="sec-intro">Divergence is the gap between an operator's usage rank and their evaluation rank within a cohort. It is not a formula-based metric like the five canonical derived metrics. It is a diagnostic signal computed by comparing two rankings.</p>
+<div class="formula" style="text-align:center;font-size:18px">Divergence = Usage Rank − Evaluation Rank</div>
+<p>Where:</p>
+<ul class="tight">
+<li><strong>Usage Rank</strong> = the operator's position in the cohort by total token volume (I + O + R + W)</li>
+<li><strong>Evaluation Rank</strong> = the operator's position in the cohort by AI Operator Development Index score</li>
+</ul>
+<p style="margin-top:12px">A positive divergence means the operator's usage rank exceeds their evaluation rank — they use more AI than their performance scores would predict. A negative divergence means the operator's evaluation rank exceeds their usage rank — they perform better than their usage volume would suggest. A near-zero divergence means usage and performance are aligned.</p>
+</section>
+
+<section>
+<div class="eyebrow">Interpretation</div>
+<h2>What divergence tells you.</h2>
+<p class="sec-intro">Divergence is a diagnostic signal, not a verdict. It flags operators whose usage and performance profiles are misaligned, prompting further investigation — not immediate conclusions.</p>
+<div class="grid2">
+<div class="card">
+<div class="big">High-Usage / Low-Performance</div>
+<p>The operator is an active AI user but scores below the cohort median on the composite index. This may indicate inefficient operating patterns, workflows that generate volume without efficiency, or a learning curve where usage has not yet translated to effective operation. It may also indicate that the operator is handling harder tasks where lower efficiency is expected.</p>
+</div>
+<div class="card">
+<div class="big">Low-Usage / High-Performance</div>
+<p>The operator uses less AI than most peers but scores above the cohort median on the composite index. This may indicate highly efficient operating patterns, selective use of AI for high-value tasks, or workflows where quality matters more than volume. These operators may carry patterns the rest of the cohort has not yet developed.</p>
+</div>
+</div>
+<p style="margin-top:16px">Divergence is labeled HYPOTHESIS because it identifies a pattern that warrants investigation, not a conclusion. A high-usage/low-performance operator is not a poor performer — they may be working on harder tasks, in a learning phase, or in a workflow that naturally produces lower efficiency scores. A low-usage/high-performance operator is not necessarily a model to replicate — their efficiency may be task-specific or context-dependent.</p>
+</section>
+
+<section>
+<div class="eyebrow">How MO§ES™ Uses It</div>
+<h2>Divergence in the evaluation pipeline.</h2>
+<p class="sec-intro">MO§ES™ computes divergence after both usage volume and the composite index have been measured. The signal enters the pipeline at two stages.</p>
+<div class="grid3">
+<div class="card"><div class="big">Diagnosis</div><p>Divergence flags operators for further analysis. The system generates hypotheses about why the gap exists, with evidence and alternatives — never presented as established fact.</p></div>
+<div class="card"><div class="big">Intervention Targeting</div><p>High-usage/low-performance operators may benefit from workflow optimization, training, or tooling changes. Low-usage/high-performance operators may carry transferable patterns worth studying.</p></div>
+<div class="card"><div class="big">Cohort Analysis</div><p>Divergence across the cohort reveals whether usage and performance are generally aligned or systematically decoupled. Broad divergence may indicate organizational issues — tooling, access, training, or workflow design.</p></div>
+</div>
+<p style="margin-top:16px">In the synthetic demo cohort of 50 operators across 1,668 observations, divergence values form a meaningful spread. Approximately 20% of operators show material divergence in either direction. The highest-usage operator in the cohort ranks below the 60th percentile on the composite index, while several operators in the top 10% by index score are below the median by usage volume. These are structural observations from synthetic data, not validated findings.</p>
+</section>
+
+<section class="dark">
+<div class="eyebrow">Governance Caveats</div>
+<h2>What divergence does not tell you.</h2>
+<p class="sec-intro" style="color:#ccc">Divergence is a diagnostic signal labeled HYPOTHESIS. It carries evidence and alternatives — never presented as established fact.</p>
+<ul>
+<li><strong>Not a performance verdict.</strong> Divergence flags a pattern for investigation. It does not determine whether the operator is performing well or poorly — it identifies a gap between two rankings.</li>
+<li><strong>Not an employee ranking.</strong> DEVELOPMENTAL labels mean results route workflows, not people. No adverse employment actions are permitted from pilot data. Divergence is never used for automatic adverse actions.</li>
+<li><strong>HYPOTHESIS, not fact.</strong> The reasons for divergence are hypotheses with evidence and alternatives. The system never presents a divergence diagnosis as established fact.</li>
+<li><strong>Task-dependent.</strong> Divergence may reflect task assignment, not operator skill. An operator handling harder tasks may show high usage and lower efficiency scores for legitimate reasons.</li>
+<li><strong>Validation required.</strong> The relationship between divergence and validated business outcomes has not been independently established. Correlations are labeled ASSOCIATION, never CAUSATION.</li>
+</ul>
+<p class="note" style="margin-top:16px">Every divergence signal carries provenance: source telemetry window, operator cohort, usage rank, evaluation rank, evidence label (HYPOTHESIS), decision-use label (DEVELOPMENTAL), and synthetic-data flag where applicable.</p>
+</section>
+
+<section>
+<div class="eyebrow">Related Concepts</div>
+<h2>Read alongside.</h2>
+<div class="grid3">
+<div class="card"><div class="big"><a href="composite-score.html" style="color:var(--ink);text-decoration:none">Composite Score</a></div><p>The AI Operator Development Index used as the evaluation rank in divergence computation.</p></div>
+<div class="card"><div class="big"><a href="intervention.html" style="color:var(--ink);text-decoration:none">Interventions</a></div><p>Targeted changes for divergent operators, with pre/post measurement.</p></div>
+<div class="card"><div class="big"><a href="benchmark.html" style="color:var(--ink);text-decoration:none">Benchmarking</a></div><p>13 benchmark classes for contextual comparison across operators.</p></div>
+</div>
+<div style="margin-top:16px">
+<a class="btn-outline" href="../methodology.html">Read the Methodology</a>
+<a class="btn" href="../contact.html">Request a Pilot</a>
+</div>
+</section>
+
+</main>
+<div class="footer">
+<div class="footer-grid">
+<div><b>MO§ES™</b><p class="note">Enterprise AI operator evaluations and performative benchmarks.</p></div>
+<div><a href="../index.html">Home</a><a href="../product.html">Product</a><a href="../pilot.html">Pilot</a></div>
+<div><a href="../methodology.html">Methodology</a><a href="../research.html">Research</a><a href="../contact.html">Contact</a></div>
+<div><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../docs.html">Docs</a><a href="../pilot-readout.html">Pilot Readout</a><p class="note" style="margin-top:8px">© 2026 Ello Cello LLC. All Rights Reserved.</p></div>
+</div>
+</div>
+</div></body>
+</html>

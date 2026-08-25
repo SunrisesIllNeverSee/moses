@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Evaluate AI Operators in Enterprise Teams — MO§ES™</title>
+<meta name="description" content="A step-by-step guide to evaluating AI operators in enterprise teams: define workflows, collect telemetry, compute metrics, benchmark, diagnose, intervene, and re-measure. 7 steps with the MO§ES™ evaluation framework.">
+<link rel="canonical" href="https://mos2es.org/guides/how-to-evaluate-ai-operators">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mos2es.org/guides/how-to-evaluate-ai-operators">
+<meta property="og:title" content="How to Evaluate AI Operators in Enterprise Teams">
+<meta property="og:description" content="A 7-step guide: define workflows, collect telemetry, compute metrics, benchmark, diagnose, intervene, re-measure.">
+<meta property="og:image" content="https://mos2es.org/og-image.svg">
+<meta property="og:site_name" content="MO§ES™">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Evaluate AI Operators in Enterprise Teams">
+<meta name="twitter:description" content="7-step guide to enterprise AI operator evaluation.">
+<meta name="twitter:image" content="https://mos2es.org/og-image.svg">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+[
+  {"@context":"https://schema.org","@type":"WebSite","@id":"https://mos2es.org/#website","name":"MO§ES™","url":"https://mos2es.org","publisher":{"@id":"https://mos2es.org/#org"}},
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mos2es.org/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mos2es.org/guides/"},{"@type":"ListItem","position":3,"name":"How to Evaluate AI Operators","item":"https://mos2es.org/guides/how-to-evaluate-ai-operators"}]},
+  {"@context":"https://schema.org","@type":"Article","headline":"How to Evaluate AI Operators in Enterprise Teams","description":"A step-by-step guide to evaluating AI operators in enterprise teams: define workflows, collect telemetry, compute metrics, benchmark, diagnose, intervene, and re-measure.","url":"https://mos2es.org/guides/how-to-evaluate-ai-operators","author":{"@type":"Organization","name":"MO§ES™","@id":"https://mos2es.org/#org"},"publisher":{"@id":"https://mos2es.org/#org"},"datePublished":"2026-01-01","dateModified":"2026-01-01","articleSection":"Guide","about":["AI operator evaluation","performative benchmarks","canonical telemetry","intervention testing"]}
+]
+</script>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<b>MO§ES™</b>
+<div class="links">
+<a href="../index.html">Home</a>
+<a href="../product.html">Product</a>
+<a href="../pilot.html">Pilot</a>
+<a href="../methodology.html">Methodology</a>
+<a href="../research.html">Research</a>
+<a href="../contact.html">Contact</a>
+</div>
+</nav>
+<main>
+
+<div class="hero">
+<div class="eyebrow">Guide · Enterprise Evaluation</div>
+<h1>How to evaluate AI operators in enterprise teams.</h1>
+<p class="lead">A step-by-step guide to measuring how your team operates AI systems — from defining workflows to re-measuring after interventions. Seven steps, grounded in content-free telemetry, governed by DEVELOPMENTAL labels, and designed to be falsifiable at every stage.</p>
+<div class="tags">
+<span class="label dark-bg">MEASURED</span>
+<span class="label dark-bg">DERIVED</span>
+<span class="label">DEVELOPMENTAL</span>
+<span class="label">VALIDATION REQUIRED</span>
+</div>
+</div>
+
+<section>
+<div class="eyebrow">Overview</div>
+<h2>The evaluation cycle.</h2>
+<p class="sec-intro">Enterprise AI operator evaluation is a seven-step cycle: define workflows, collect telemetry, compute metrics, benchmark, diagnose, intervene, and re-measure. The cycle is iterative — each pass refines the evaluation and produces new hypotheses. No step produces a final verdict. Every output carries an evidence label and a decision-use label.</p>
+<div class="pipeline">
+<span>1. DEFINE</span>
+<span class="arrow">↓</span>
+<span>2. COLLECT</span>
+<span class="arrow">↓</span>
+<span>3. COMPUTE</span>
+<span class="arrow">↓</span>
+<span>4. BENCHMARK</span>
+<span class="arrow">↓</span>
+<span>5. DIAGNOSE</span>
+<span class="arrow">↓</span>
+<span>6. INTERVENE</span>
+<span class="arrow">↓</span>
+<span>7. RE-MEASURE</span>
+</div>
+</section>
+
+<section>
+<div class="eyebrow">Step 1</div>
+<h2>Define workflows, roles, and operating conditions.</h2>
+<p class="sec-intro">Before any measurement begins, the enterprise defines what is being evaluated. This is not a technical step — it is an organizational one. The evaluation is only as good as the workflows it measures.</p>
+<div class="grid2">
+<div class="card">
+<div class="big">What to define</div>
+<ul class="tight" style="margin-top:8px">
+<li>Roles — who is being evaluated and in what capacity</li>
+<li>Workflows — what tasks and processes are in scope</li>
+<li>Models — which AI providers and models are used (ChatGPT, Claude, Codex, Copilot, Cursor)</li>
+<li>Systems — what tools and platforms are involved (21 MCP tools: 16 read + 5 write)</li>
+<li>Operating conditions — what constraints, environments, and contexts apply</li>
+</ul>
+</div>
+<div class="card">
+<div class="big">What to decide</div>
+<ul class="tight" style="margin-top:8px">
+<li>Desired behaviors — what good operation looks like for your workflows</li>
+<li>Constraints — what boundaries operators should stay within</li>
+<li>Operational goals — what the evaluation is trying to improve</li>
+<li>Risk boundaries — what the evaluation must not enable</li>
+<li>Performance questions — what you want to learn</li>
+</ul>
+</div>
+</div>
+<p style="margin-top:12px">Configurations are saveable as JSON and shareable across CLI, TUI, and MCP. This makes the definition step reproducible — the same evaluation can be run again with the same parameters, or modified for a different cohort.</p>
+</section>
+
+<section>
+<div class="eyebrow">Step 2</div>
+<h2>Collect canonical token telemetry.</h2>
+<p class="sec-intro">Once workflows are defined, the system collects telemetry from the AI providers in scope. The core data surface is four content-free signals — no prompt text required.</p>
+<div class="grid4">
+<div class="stat"><div class="val">INPUT</div><div class="desc">Tokens in</div></div>
+<div class="stat"><div class="val">OUTPUT</div><div class="desc">Tokens out</div></div>
+<div class="stat"><div class="val">CACHE READ</div><div class="desc">Reused context</div></div>
+<div class="stat"><div class="val">CACHE WRITE</div><div class="desc">New context built</div></div>
+</div>
+<p style="margin-top:16px">In the synthetic demo cohort, telemetry is collected from 5 AI providers across 50 operators, producing 1,668 observations over a 30-day window. Level 2 deployments add timestamps, sessions, model identifiers, acceptance signals, retries, errors, and richer provider fields. No prompt content is required for any core measurement.</p>
+<p class="note" style="margin-top:12px">Privacy boundary: cohort-level reporting is the default. Individual identity requires separate authorization. No adverse employment actions are permitted in pilot.</p>
+</section>
+
+<section>
+<div class="eyebrow">Step 3</div>
+<h2>Compute the five canonical derived metrics.</h2>
+<p class="sec-intro">From the four telemetry signals, the system computes five canonical derived metrics. Each captures a different aspect of the operator's token economy.</p>
+<table class="table">
+<tr><th>Metric</th><th>Formula</th><th>What it captures</th></tr>
+<tr><td><strong>Leverage</strong></td><td class="formula" style="padding:4px 8px">(R + W) / I</td><td>Context reuse and construction efficiency relative to new input</td></tr>
+<tr><td><strong>Yield</strong></td><td class="formula" style="padding:4px 8px">O / (I + O + R + W)</td><td>Productive output share of total token flow</td></tr>
+<tr><td><strong>Token SNR</strong></td><td class="formula" style="padding:4px 8px">O / (I + O + R)</td><td>Signal quality — output relative to input and reused context</td></tr>
+<tr><td><strong>Log Leverage</strong></td><td class="formula" style="padding:4px 8px">log(1 + L)</td><td>Compressed leverage scale for ranking</td></tr>
+<tr><td><strong>Construction</strong></td><td class="formula" style="padding:4px 8px">W / R</td><td>Ratio of new context built to context reused</td></tr>
+</table>
+<p class="note" style="margin-top:12px">I = Input, O = Output, R = Cache Read, W = Cache Write. All metrics are DERIVED — structural signals whose relationship to performance is still being tested. Labeled DEVELOPMENTAL.</p>
+<p style="margin-top:12px">The system also computes the AI Operator Development Index — a 0–100 composite score combining Leverage (30%), Yield (30%), Token SNR (20%), and Construction (20%). The index is a summary for ranking and tracking, not a substitute for reading the individual metrics.</p>
+</section>
+
+<section>
+<div class="eyebrow">Step 4</div>
+<h2>Benchmark operators against the cohort.</h2>
+<p class="sec-intro">Metrics in isolation are just numbers. Benchmarking places each operator in context — relative to peers in the same cohort, under the same workflow and model conditions.</p>
+<div class="grid3">
+<div class="card"><div class="big">Select benchmark class</div><p>Choose from 13 benchmark classes based on the evaluation question. Internal cohort, external field, longitudinal, intervention, role-specific, and more.</p></div>
+<div class="card"><div class="big">Compute percentile bands</div><p>Position each operator in percentile bands: median, top 25%, top 10%, top 5%, top 1%, top 0.1%. Bands normalize across cohort sizes.</p></div>
+<div class="card"><div class="big">Report with context</div><p>Every benchmark result carries provenance: benchmark class, reference cohort, percentile band, evidence label, and decision-use label.</p></div>
+</div>
+<p style="margin-top:16px">Benchmarks should be contextual. A high-performing operator in one workflow may not be the strongest in another. "Best operator" should require the same qualifier as "best model." Best at what? The system never collapses benchmark position into a universal ranking.</p>
+</section>
+
+<section>
+<div class="eyebrow">Step 5</div>
+<h2>Diagnose patterns and generate hypotheses.</h2>
+<p class="sec-intro">Benchmarking reveals where operators stand. Diagnosis asks why. The system analyzes patterns across the cohort and generates hypotheses — never presented as established fact.</p>
+<div class="grid2">
+<div class="card">
+<div class="big">What diagnosis looks for</div>
+<ul class="tight" style="margin-top:8px">
+<li>Usage-operation divergence — where usage rank does not match evaluation rank</li>
+<li>Cluster archetypes — natural groupings by operating behavior</li>
+<li>Band stability — whether operators stay in their tier or move</li>
+<li>Concentration — whether advanced capability is organizational or isolated</li>
+<li>Movement — acceleration, stall, or reversion over time</li>
+</ul>
+</div>
+<div class="card">
+<div class="big">What diagnosis produces</div>
+<ul class="tight" style="margin-top:8px">
+<li>Hypotheses with evidence and alternatives</li>
+<li>HYPOTHESIS label — never presented as fact</li>
+<li>DEVELOPMENTAL label — routes workflows, not people</li>
+<li>Provenance on every diagnostic claim</li>
+<li>Validation status — VALIDATION REQUIRED for unvalidated claims</li>
+</ul>
+</div>
+</div>
+<p style="margin-top:16px">The system evaluates operators against 15 eval families — sets of evaluation criteria tailored to different workflow types. This ensures that diagnosis is contextual: an operator's patterns are interpreted against the expectations of their workflow, not against a universal standard.</p>
+</section>
+
+<section class="dark">
+<div class="eyebrow">Step 6</div>
+<h2>Intervene with declared target metrics.</h2>
+<p class="sec-intro" style="color:#ccc">When diagnosis identifies a pattern worth addressing, the system designs an intervention. Every intervention declares its target metric and follow-up window before it begins.</p>
+<div class="pipeline">
+<span>BASELINE</span>
+<span class="arrow">↓</span>
+<span>INTERVENE</span>
+<span class="arrow">↓</span>
+<span>RE-EVALUATE</span>
+<span class="arrow">↓</span>
+<span>COMPARE</span>
+<span class="arrow">↓</span>
+<span>RETAIN OR DISCARD</span>
+</div>
+<p style="margin-top:16px;color:#ccc">In the synthetic demo cohort, 12 interventions were tested — from context window training to MCP tool access to workflow restructuring. Each targeted a specific metric: Leverage, Yield, Token SNR, Construction, Composite Score, or Divergence. The system reports both target and non-target metric deltas, so side effects are visible.</p>
+<p class="note" style="margin-top:12px">ASSOCIATION — never CAUSATION. A correlation between an intervention and a business metric is not proof that the intervention caused the business change. Outcome joins carry ASSOCIATION labels and governance metadata.</p>
+</section>
+
+<section>
+<div class="eyebrow">Step 7</div>
+<h2>Re-measure and close the cycle.</h2>
+<p class="sec-intro">After the follow-up window closes, the system re-evaluates the operator and compares pre- and post-intervention values. The cycle then repeats — new measurements, new benchmarks, new diagnoses, new interventions.</p>
+<div class="grid3">
+<div class="card"><div class="big">Target metric delta</div><p>Did the intervention produce a measurable change in the metric it was designed to improve? If not, the system says so.</p></div>
+<div class="card"><div class="big">Non-target metric delta</div><p>Did the intervention affect metrics it was not designed to touch? Side effects — positive or negative — are reported.</p></div>
+<div class="card"><div class="big">Retain or discard</div><p>Based on the evidence, the intervention is retained, adjusted, or discarded. The decision is documented with provenance.</p></div>
+</div>
+<p style="margin-top:16px">The cycle is iterative. Each pass produces new data, new hypotheses, and new interventions. Over multiple 30-day windows, the system tracks how operators move — whether they accelerate, stall, or revert. Longitudinal measurement requires multiple windows. Single-window measurements are snapshots, not trajectories.</p>
+</section>
+
+<section>
+<div class="eyebrow">Governance Throughout</div>
+<h2>Every step carries its labels.</h2>
+<p class="sec-intro">Governance is not a final step — it is embedded in every stage of the cycle. The system enforces evidence labels and decision-use labels in code, not just in policy.</p>
+<div class="grid3">
+<div class="card"><div class="big">DEVELOPMENTAL</div><p>All results route workflows, not people. No adverse employment actions — hiring, firing, promotion, compensation, or performance review.</p></div>
+<div class="card"><div class="big">HYPOTHESIS</div><p>All diagnoses carry evidence, alternatives, and HYPOTHESIS status. Never presented as established fact.</p></div>
+<div class="card"><div class="big">ASSOCIATION</div><p>All outcome joins are labeled ASSOCIATION — never CAUSATION. Internal and external deltas are kept in separate fields.</p></div>
+</div>
+<p style="margin-top:16px">The system is designed to be wrong. If an intervention does not produce a measurable change in the target metric, the system says so. If a diagnosis cannot be distinguished from an alternative, the system says so. If an outcome join cannot be validated, the system says so. This is a formal research framework, not established science.</p>
+</section>
+
+<section>
+<div class="eyebrow">Related Resources</div>
+<h2>Go deeper.</h2>
+<div class="grid3">
+<div class="card"><div class="big"><a href="../methodology.html" style="color:var(--ink);text-decoration:none">Methodology</a></div><p>The full eval framework — five questions, canonical telemetry, benchmarks, governance.</p></div>
+<div class="card"><div class="big"><a href="../concepts/canonical-telemetry.html" style="color:var(--ink);text-decoration:none">Canonical Telemetry</a></div><p>The four content-free signals that power all metrics.</p></div>
+<div class="card"><div class="big"><a href="../concepts/intervention.html" style="color:var(--ink);text-decoration:none">Interventions</a></div><p>The 12 interventions tested in the synthetic demo cohort.</p></div>
+</div>
+<div class="grid3" style="margin-top:16px">
+<div class="card"><div class="big"><a href="../concepts/governance.html" style="color:var(--ink);text-decoration:none">Governance</a></div><p>Evidence labels, decision-use constraints, and privacy boundaries.</p></div>
+<div class="card"><div class="big"><a href="../faq.html" style="color:var(--ink);text-decoration:none">FAQ</a></div><p>12 questions about AI operator evaluation, answered.</p></div>
+<div class="card"><div class="big"><a href="../pilot-readout.html" style="color:var(--ink);text-decoration:none">Pilot Readout</a></div><p>Results from the synthetic demo cohort of 50 operators.</p></div>
+</div>
+<div style="margin-top:16px">
+<a class="btn-outline" href="../methodology.html">Read the Methodology</a>
+<a class="btn" href="../contact.html">Request a Pilot</a>
+</div>
+</section>
+
+</main>
+<div class="footer">
+<div class="footer-grid">
+<div><b>MO§ES™</b><p class="note">Enterprise AI operator evaluations and performative benchmarks.</p></div>
+<div><a href="../index.html">Home</a><a href="../product.html">Product</a><a href="../pilot.html">Pilot</a></div>
+<div><a href="../methodology.html">Methodology</a><a href="../research.html">Research</a><a href="../contact.html">Contact</a></div>
+<div><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../docs.html">Docs</a><a href="../pilot-readout.html">Pilot Readout</a><p class="note" style="margin-top:8px">© 2026 Ello Cello LLC. All Rights Reserved.</p></div>
+</div>
+</div>
+</div></body>
+</html>

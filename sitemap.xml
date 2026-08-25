@@ -4,65 +4,257 @@
     <loc>https://mos2es.org/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://mos2es.org/product</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://mos2es.org/pilot</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://mos2es.org/methodology</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://mos2es.org/research</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://mos2es.org/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://mos2es.org/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://mos2es.org/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://mos2es.org/docs</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://mos2es.org/pilot-readout</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
+  <url>
+    <loc>https://mos2es.org/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <!-- Concept pages -->
+  <url>
+    <loc>https://mos2es.org/concepts/leverage</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/concepts/yield</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/concepts/token-snr</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/concepts/construction</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/concepts/composite-score</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/concepts/divergence</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/concepts/benchmark</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/concepts/intervention</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/concepts/canonical-telemetry</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/concepts/governance</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <!-- Guide pages -->
+  <url>
+    <loc>https://mos2es.org/guides/how-to-evaluate-ai-operators</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/guides/how-to-measure-ai-operator-performance</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/guides/ai-operator-evaluation-vs-usage-analytics</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/guides/ai-operator-evaluation-vs-skills-assessment</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <!-- Comparison pages -->
+  <url>
+    <loc>https://mos2es.org/vs/workera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/vs/worklytics</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/vs/weave</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/vs/paxel</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/vs/vals-ai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/vs/bryq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/vs/canditech</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/vs/genassess</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/vs/ai-acumen</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/vs/prompt-ranks</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <!-- Alternatives listicles -->
+  <url>
+    <loc>https://mos2es.org/alternatives/ai-operator-evaluation-tools</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/alternatives/workera-alternatives</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/alternatives/worklytics-alternatives</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/alternatives/ai-workforce-measurement-tools</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/alternatives/ai-skills-assessment-alternatives</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <!-- Machine-readable files -->
   <url>
     <loc>https://mos2es.org/llms.txt</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://mos2es.org/openapi.json</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
 </urlset>

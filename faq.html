@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FAQ — AI Operator Evaluation — MO§ES™</title>
+<meta name="description" content="Frequently asked questions about AI operator evaluation, performative benchmarks, canonical telemetry, derived metrics, interventions, and governance in the MO§ES™ evaluation framework.">
+<link rel="canonical" href="https://mos2es.org/faq">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mos2es.org/faq">
+<meta property="og:title" content="FAQ — AI Operator Evaluation">
+<meta property="og:description" content="12 questions about AI operator evaluation, benchmarks, metrics, interventions, and governance.">
+<meta property="og:image" content="https://mos2es.org/og-image.svg">
+<meta property="og:site_name" content="MO§ES™">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FAQ — AI Operator Evaluation">
+<meta name="twitter:description" content="12 questions about AI operator evaluation, benchmarks, and governance.">
+<meta name="twitter:image" content="https://mos2es.org/og-image.svg">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+[
+  {"@context":"https://schema.org","@type":"WebSite","@id":"https://mos2es.org/#website","name":"MO§ES™","url":"https://mos2es.org","publisher":{"@id":"https://mos2es.org/#org"}},
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mos2es.org/"},{"@type":"ListItem","position":2,"name":"FAQ","item":"https://mos2es.org/faq"}]},
+  {"@context":"https://schema.org","@type":"FAQPage","url":"https://mos2es.org/faq","mainEntity":[
+    {"@type":"Question","name":"What is an AI operator evaluation?","acceptedAnswer":{"@type":"Answer","text":"An AI operator evaluation measures how a person or team actually operates AI systems across relevant tasks, workflows, models, and operating conditions. It is not a knowledge test, a certification exam, or a self-reported proficiency survey — it examines observable operating behavior and performance from telemetry data."}},
+    {"@type":"Question","name":"What is the difference between an operator eval and an AI knowledge test?","acceptedAnswer":{"@type":"Answer","text":"An operator eval measures observed behavior from telemetry, while a knowledge test measures recalled information. An operator eval examines what operators do with AI systems under real conditions, not what they know about AI in theory."}},
+    {"@type":"Question","name":"What is canonical token telemetry?","acceptedAnswer":{"@type":"Answer","text":"Canonical token telemetry is a content-free data surface with four signals: INPUT (tokens in), OUTPUT (tokens out), CACHE READ (reused context), and CACHE WRITE (new context built). No prompt text is required — only token counts and structural signals."}},
+    {"@type":"Question","name":"What are the five canonical derived metrics?","acceptedAnswer":{"@type":"Answer","text":"The five canonical metrics are Leverage ((R+W)/I), Yield (O/(I+O+R+W)), Token SNR (O/(I+O+R)), Log Leverage (log(1+L)), and Construction (W/R). All are computed from canonical telemetry without requiring prompt content."}},
+    {"@type":"Question","name":"What is the AI Operator Development Index?","acceptedAnswer":{"@type":"Answer","text":"The AI Operator Development Index is a 0–100 composite score combining Leverage (30%), Yield (30%), Token SNR (20%), and Construction (20%). It is labeled DEVELOPMENTAL — a structural signal for routing workflows, not a performance verdict or employee ranking."}},
+    {"@type":"Question","name":"What is a performative benchmark?","acceptedAnswer":{"@type":"Answer","text":"A performative benchmark compares how operators actually perform under observed or defined operating conditions, rather than relying on self-reported proficiency or generic knowledge tests. It is constructed from real telemetry, real workflows, and real operating conditions across 13 benchmark classes."}},
+    {"@type":"Question","name":"What is usage-operation divergence?","acceptedAnswer":{"@type":"Answer","text":"Usage-operation divergence identifies operators whose usage volume does not match their evaluation performance rank. The highest-volume AI users are not necessarily the highest-performing operators. Divergence is labeled HYPOTHESIS — it flags patterns for investigation, not conclusions."}},
+    {"@type":"Question","name":"What is an AI operator intervention?","acceptedAnswer":{"@type":"Answer","text":"An intervention is a targeted change to an operator's workflow, tooling, training, or operating conditions, measured with pre/post comparison against a declared target metric. 12 interventions have been tested in the synthetic demo cohort. Outcome joins are labeled ASSOCIATION — never CAUSATION."}},
+    {"@type":"Question","name":"Does MO§ES™ collect prompt text or conversation content?","acceptedAnswer":{"@type":"Answer","text":"No. The system works from content-free or content-minimized telemetry — token counts and structural signals, not prompt text. This is a design principle that minimizes data collection and reduces surveillance surface. Level 2 deployments may add enriched signals, but prompt content is never required for core metrics."}},
+    {"@type":"Question","name":"Can MO§ES™ results be used for employment decisions?","acceptedAnswer":{"@type":"Answer","text":"No. All results carry DEVELOPMENTAL labels, which means they route workflows, not people. No adverse employment actions — hiring, firing, promotion, compensation, or performance review — are permitted from pilot data. This is enforced in code, not just policy."}},
+    {"@type":"Question","name":"What does ASSOCIATION mean versus CAUSATION?","acceptedAnswer":{"@type":"Answer","text":"ASSOCIATION means a correlation was observed between an intervention and a business metric. CAUSATION would mean the intervention caused the business change. The system labels all outcome joins as ASSOCIATION — never CAUSATION — because a correlation is not proof of causation without separate experimental validation."}},
+    {"@type":"Question","name":"Is MO§ES™ validated science or a research framework?","acceptedAnswer":{"@type":"Answer","text":"MO§ES™ is a formal research framework, not established science. It carries papers, experiments, datasets, patents, and falsifiability work. Most derived metrics are not independently validated as performance measures. The system is designed to be wrong — if an intervention does not produce a measurable change, the system says so."}}
+  ]}
+]
+</script>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<b>MO§ES™</b>
+<div class="links">
+<a href="index.html">Home</a>
+<a href="product.html">Product</a>
+<a href="pilot.html">Pilot</a>
+<a href="methodology.html">Methodology</a>
+<a href="research.html">Research</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+<main>
+
+<div class="hero">
+<div class="eyebrow">FAQ</div>
+<h1>AI operator evaluation, answered.</h1>
+<p class="lead">Twelve questions about how AI operator evaluation works — what is measured, how benchmarks are created, what interventions look like, and how governance protects operators from punitive use of structural signals.</p>
+<div class="tags">
+<span class="label">DEVELOPMENTAL</span>
+<span class="label accent-bg">HYPOTHESIS</span>
+<span class="label">ASSOCIATION</span>
+</div>
+</div>
+
+<section>
+<div class="eyebrow">Fundamentals</div>
+<h2>What operator evaluation is — and is not.</h2>
+
+<h3>What is an AI operator evaluation?</h3>
+<p>An AI operator evaluation measures how a person or team actually operates AI systems across relevant tasks, workflows, models, and operating conditions. It is not a knowledge test, a certification exam, or a self-reported proficiency survey — it examines observable operating behavior and performance from telemetry data. The evaluation produces a performance profile based on what operators do, not what they say they know.</p>
+
+<h3>What is the difference between an operator eval and an AI knowledge test?</h3>
+<p>An operator eval measures observed behavior from telemetry, while a knowledge test measures recalled information. An operator eval examines what operators do with AI systems under real conditions — how they manage context, how efficiently they convert input to output, how they build and reuse context across sessions. A knowledge test examines what operators know about AI in theory. The two are fundamentally different: one measures operation, the other measures knowledge. MO§ES™ measures operation.</p>
+
+<h3>What is canonical token telemetry?</h3>
+<p>Canonical token telemetry is a content-free data surface with four signals: INPUT (tokens in), OUTPUT (tokens out), CACHE READ (reused context), and CACHE WRITE (new context built). No prompt text is required — only token counts and structural signals. This means the system can evaluate operator behavior without inspecting conversation content, reducing surveillance surface and enabling deployment in environments where prompt content cannot be shared. The four signals power all five canonical derived metrics.</p>
+</section>
+
+<section>
+<div class="eyebrow">Metrics & Scoring</div>
+<h2>How operators are measured.</h2>
+
+<h3>What are the five canonical derived metrics?</h3>
+<p>The five canonical metrics are Leverage ((R+W)/I), Yield (O/(I+O+R+W)), Token SNR (O/(I+O+R)), Log Leverage (log(1+L)), and Construction (W/R). All are computed from canonical telemetry without requiring prompt content. Each metric captures a different aspect of the operator's token economy — context reuse efficiency, output share, signal quality, compressed leverage scale, and context construction ratio. Together they form the structural foundation for benchmarking and composite scoring.</p>
+
+<h3>What is the AI Operator Development Index?</h3>
+<p>The AI Operator Development Index is a 0–100 composite score combining Leverage (30%), Yield (30%), Token SNR (20%), and Construction (20%). It is labeled DEVELOPMENTAL — a structural signal for routing workflows, not a performance verdict or employee ranking. Each component is percentile-normalized within the cohort before weighting. Two operators with the same index score can have very different component profiles, which is why the index is a summary, not a substitute for reading the individual metrics.</p>
+</section>
+
+<section>
+<div class="eyebrow">Benchmarking & Diagnosis</div>
+<h2>How operators are compared.</h2>
+
+<h3>What is a performative benchmark?</h3>
+<p>A performative benchmark compares how operators actually perform under observed or defined operating conditions, rather than relying on self-reported proficiency or generic knowledge tests. It is constructed from real telemetry, real workflows, and real operating conditions across 13 benchmark classes. Every benchmark is defined by four axes: task, model, operator, and context. Changing any axis changes the benchmark. A high-performing operator in one context may not be the strongest in another.</p>
+
+<h3>What is usage-operation divergence?</h3>
+<p>Usage-operation divergence identifies operators whose usage volume does not match their evaluation performance rank. The highest-volume AI users are not necessarily the highest-performing operators — and the strongest operators are not always the most active. Divergence is labeled HYPOTHESIS — it flags patterns for investigation, not conclusions. A high-usage/low-performance operator may be working on harder tasks, in a learning phase, or in a workflow that naturally produces lower efficiency scores. The system generates hypotheses with evidence and alternatives, never presented as established fact.</p>
+</section>
+
+<section>
+<div class="eyebrow">Interventions</div>
+<h2>How operators are developed.</h2>
+
+<h3>What is an AI operator intervention?</h3>
+<p>An intervention is a targeted change to an operator's workflow, tooling, training, or operating conditions, measured with pre/post comparison against a declared target metric. 12 interventions have been tested in the synthetic demo cohort of 50 operators across 1,668 observations. Every intervention declares its target metric and follow-up window before it begins. After the window closes, the system compares pre- and post-intervention values on both target and non-target metrics. Outcome joins are labeled ASSOCIATION — never CAUSATION.</p>
+</section>
+
+<section>
+<div class="eyebrow">Privacy & Governance</div>
+<h2>How operators are protected.</h2>
+
+<h3>Does MO§ES™ collect prompt text or conversation content?</h3>
+<p>No. The system works from content-free or content-minimized telemetry — token counts and structural signals, not prompt text. This is a design principle that minimizes data collection and reduces surveillance surface. Level 2 deployments may add enriched signals like timestamps, model identifiers, and acceptance signals, but prompt content is never required for core metrics. Cohort-level reporting is the default. Individual identity requires separate authorization.</p>
+
+<h3>Can MO§ES™ results be used for employment decisions?</h3>
+<p>No. All results carry DEVELOPMENTAL labels, which means they route workflows, not people. No adverse employment actions — hiring, firing, promotion, compensation, or performance review — are permitted from pilot data. This is enforced in code, not just policy. Decision-use labels are constraints built into the system, not guidelines that can be overridden. The system does not generate, recommend, or trigger adverse employment actions.</p>
+
+<h3>What does ASSOCIATION mean versus CAUSATION?</h3>
+<p>ASSOCIATION means a correlation was observed between an intervention and a business metric. CAUSATION would mean the intervention caused the business change. The system labels all outcome joins as ASSOCIATION — never CAUSATION — because a correlation is not proof of causation without separate experimental validation. Internal metric deltas and external outcome deltas are kept in separate fields. Join results carry ASSOCIATION labels and governance metadata. This distinction is enforced in code and declared in every intervention record's provenance.</p>
+</section>
+
+<section>
+<div class="eyebrow">Epistemic Status</div>
+<h2>What the framework is — and is not.</h2>
+
+<h3>Is MO§ES™ validated science or a research framework?</h3>
+<p>MO§ES™ is a formal research framework, not established science. It carries papers, experiments, datasets, patents, and falsifiability work. Most derived metrics are not independently validated as performance measures — they are structural signals whose relationship to actual performance is still being tested. The system is designed to be wrong: if an intervention does not produce a measurable change in the target metric, the system says so. If a diagnosis cannot be distinguished from an alternative, the system says so. If an outcome join cannot be validated, the system says so. This is presented with appropriate epistemic humility.</p>
+</section>
+
+<section>
+<div class="eyebrow">Learn More</div>
+<h2>Go deeper.</h2>
+<div class="grid3">
+<div class="card"><div class="big"><a href="methodology.html" style="color:var(--ink);text-decoration:none">Methodology</a></div><p>The full eval framework — five questions, canonical telemetry, benchmarks, governance.</p></div>
+<div class="card"><div class="big"><a href="concepts/composite-score.html" style="color:var(--ink);text-decoration:none">Composite Score</a></div><p>The 0–100 AI Operator Development Index and its component weights.</p></div>
+<div class="card"><div class="big"><a href="concepts/governance.html" style="color:var(--ink);text-decoration:none">Governance</a></div><p>Evidence labels, decision-use constraints, and privacy boundaries.</p></div>
+</div>
+<div class="grid3" style="margin-top:16px">
+<div class="card"><div class="big"><a href="guides/how-to-evaluate-ai-operators.html" style="color:var(--ink);text-decoration:none">Evaluation Guide</a></div><p>Step-by-step guide to evaluating AI operators in enterprise teams.</p></div>
+<div class="card"><div class="big"><a href="pilot-readout.html" style="color:var(--ink);text-decoration:none">Pilot Readout</a></div><p>Results from the synthetic demo cohort of 50 operators.</p></div>
+<div class="card"><div class="big"><a href="contact.html" style="color:var(--ink);text-decoration:none">Contact</a></div><p>Request a pilot or ask a question directly.</p></div>
+</div>
+</section>
+
+</main>
+<div class="footer">
+<div class="footer-grid">
+<div><b>MO§ES™</b><p class="note">Enterprise AI operator evaluations and performative benchmarks.</p></div>
+<div><a href="index.html">Home</a><a href="product.html">Product</a><a href="pilot.html">Pilot</a></div>
+<div><a href="methodology.html">Methodology</a><a href="research.html">Research</a><a href="contact.html">Contact</a></div>
+<div><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="docs.html">Docs</a><a href="pilot-readout.html">Pilot Readout</a><p class="note" style="margin-top:8px">© 2026 Ello Cello LLC. All Rights Reserved.</p></div>
+</div>
+</div>
+</div></body>
+</html>

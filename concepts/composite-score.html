@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Operator Development Index — MO§ES™</title>
+<meta name="description" content="The AI Operator Development Index is a 0–100 composite score combining Leverage (30%), Yield (30%), Token SNR (20%), and Construction (20%). DEVELOPMENTAL label. Part of the MO§ES™ evaluation framework.">
+<link rel="canonical" href="https://mos2es.org/concepts/composite-score">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mos2es.org/concepts/composite-score">
+<meta property="og:title" content="AI Operator Development Index">
+<meta property="og:description" content="A 0–100 composite score combining Leverage, Yield, Token SNR, and Construction. DEVELOPMENTAL label.">
+<meta property="og:image" content="https://mos2es.org/og-image.svg">
+<meta property="og:site_name" content="MO§ES™">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Operator Development Index">
+<meta name="twitter:description" content="0–100 composite: Leverage 30%, Yield 30%, Token SNR 20%, Construction 20%.">
+<meta name="twitter:image" content="https://mos2es.org/og-image.svg">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+[
+  {"@context":"https://schema.org","@type":"WebSite","@id":"https://mos2es.org/#website","name":"MO§ES™","url":"https://mos2es.org","publisher":{"@id":"https://mos2es.org/#org"}},
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mos2es.org/"},{"@type":"ListItem","position":2,"name":"Concepts","item":"https://mos2es.org/concepts/"},{"@type":"ListItem","position":3,"name":"Composite Score","item":"https://mos2es.org/concepts/composite-score"}]},
+  {"@context":"https://schema.org","@type":"DefinedTerm","name":"AI Operator Development Index","description":"0–100 composite score: Leverage 30% + Yield 30% + Token SNR 20% + Construction 20%. DEVELOPMENTAL label. Summarizes overall operator behavior from canonical telemetry.","url":"https://mos2es.org/concepts/composite-score","termCode":"ODI","inDefinedTermSet":{"@type":"DefinedTermSet","name":"MO§ES™ Canonical Metrics","url":"https://mos2es.org/methodology"}}
+]
+</script>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<b>MO§ES™</b>
+<div class="links">
+<a href="../index.html">Home</a>
+<a href="../product.html">Product</a>
+<a href="../pilot.html">Pilot</a>
+<a href="../methodology.html">Methodology</a>
+<a href="../research.html">Research</a>
+<a href="../contact.html">Contact</a>
+</div>
+</nav>
+<main>
+
+<div class="hero">
+<div class="eyebrow">Concept · Composite Metric</div>
+<h1>AI Operator Development Index.</h1>
+<p class="lead">The AI Operator Development Index is a 0–100 composite score that combines the four primary canonical metrics into a single summary of operator behavior. It is labeled DEVELOPMENTAL — a structural signal for routing workflows, not a performance verdict or an employee ranking.</p>
+<div class="tags">
+<span class="label dark-bg">DERIVED</span>
+<span class="label">DEVELOPMENTAL</span>
+<span class="label">VALIDATION REQUIRED</span>
+</div>
+</div>
+
+<section>
+<div class="eyebrow">Definition</div>
+<h2>The composition.</h2>
+<p class="sec-intro">The index normalizes each of the four primary canonical metrics to a 0–100 scale within the operator's cohort, then combines them with fixed weights. The weights reflect the relative importance of each metric in the current framework design.</p>
+<div class="formula" style="text-align:center;font-size:18px">ODI = (Leverage × 0.30) + (Yield × 0.30) + (Token SNR × 0.20) + (Construction × 0.20)</div>
+<table class="table" style="margin-top:16px">
+<tr><th>Component</th><th>Weight</th><th>What it captures</th></tr>
+<tr><td><strong>Leverage</strong></td><td class="num">30%</td><td>Context reuse and construction efficiency relative to new input</td></tr>
+<tr><td><strong>Yield</strong></td><td class="num">30%</td><td>Productive output share of total token flow</td></tr>
+<tr><td><strong>Token SNR</strong></td><td class="num">20%</td><td>Signal quality — output relative to input and reused context</td></tr>
+<tr><td><strong>Construction</strong></td><td class="num">20%</td><td>Ratio of new context built to context reused</td></tr>
+</table>
+<p style="margin-top:12px">Each component is percentile-normalized within the cohort before weighting. This means an operator at the 90th percentile on Leverage contributes 90 × 0.30 = 27 points from that component. The maximum possible score is 100, representing an operator at the 99th+ percentile on all four metrics. The minimum is 0, representing an operator at the bottom of the cohort on all four.</p>
+</section>
+
+<section>
+<div class="eyebrow">Interpretation</div>
+<h2>What the index tells you.</h2>
+<p class="sec-intro">The index is a summary, not a substitute for the individual metrics. It provides a single number for quick comparison and ranking, but it obscures the component-level patterns that drive the score.</p>
+<div class="grid2">
+<div class="card">
+<div class="big">High Index</div>
+<p>The operator scores well across multiple canonical metrics. This may indicate efficient context management, high output efficiency, good signal quality, and balanced context construction. It does not prove better outcomes — it describes a structural operating pattern.</p>
+</div>
+<div class="card">
+<div class="big">Low Index</div>
+<p>The operator scores below the cohort median across multiple metrics. This may indicate input-heavy patterns, low output efficiency, or context management styles that do not align with the current weighting. It is not a performance verdict.</p>
+</div>
+</div>
+<p style="margin-top:16px">Two operators with the same index score can have very different component profiles. One may score high on Leverage and Yield but low on SNR and Construction. Another may score evenly across all four. The index does not distinguish between these profiles — that requires reading the component metrics individually.</p>
+</section>
+
+<section>
+<div class="eyebrow">How MO§ES™ Uses It</div>
+<h2>The index in the evaluation pipeline.</h2>
+<p class="sec-intro">The index is computed after all four component metrics have been measured and benchmarked. It enters the pipeline at two stages.</p>
+<div class="grid3">
+<div class="card"><div class="big">Ranking</div><p>Operators are ranked by the index within their cohort. Percentile bands show where each operator falls in the composite distribution.</p></div>
+<div class="card"><div class="big">Tracking</div><p>The index is tracked over time to show movement. An operator's index can rise, fall, or remain stable across measurement windows.</p></div>
+<div class="card"><div class="big">Divergence</div><p>The index is compared against usage volume to identify operators whose composite score does not match their usage rank — the divergence signal.</p></div>
+</div>
+<p style="margin-top:16px">In the synthetic demo cohort of 50 operators across 1,668 observations spanning a 30-day window, the index distribution is broad with a clear right tail. The top 10% of operators score above 75 on the index, while the bottom 10% score below 35. These are structural observations from synthetic data, not validated performance findings.</p>
+</section>
+
+<section class="dark">
+<div class="eyebrow">Governance Caveats</div>
+<h2>What the index does not tell you.</h2>
+<p class="sec-intro" style="color:#ccc">The AI Operator Development Index is labeled DEVELOPMENTAL. It is a structural summary whose relationship to actual performance outcomes is still being tested.</p>
+<ul>
+<li><strong>Not a performance score.</strong> The index summarizes structural operating behavior. It does not measure output quality, correctness, business value, or productivity.</li>
+<li><strong>Not an employee ranking.</strong> DEVELOPMENTAL labels mean results route workflows, not people. No adverse employment actions are permitted from pilot data. The index is never used for automatic adverse actions.</li>
+<li><strong>Weights are design choices, not validated truths.</strong> The 30/30/20/20 weighting reflects the current framework design. Alternative weightings would produce different rankings. The weights have not been independently validated against outcome measures.</li>
+<li><strong>Obscures component detail.</strong> Two operators with the same index can have very different operating profiles. The index is a summary, not a diagnosis.</li>
+<li><strong>Validation required.</strong> The relationship between the index and validated business outcomes has not been independently established. Correlations are labeled ASSOCIATION, never CAUSATION.</li>
+</ul>
+<p class="note" style="margin-top:16px">Every index value carries provenance: source telemetry window, operator cohort, component scores, evidence label (DERIVED), decision-use label (DEVELOPMENTAL), and synthetic-data flag where applicable.</p>
+</section>
+
+<section>
+<div class="eyebrow">Related Concepts</div>
+<h2>Read alongside.</h2>
+<div class="grid3">
+<div class="card"><div class="big"><a href="leverage.html" style="color:var(--ink);text-decoration:none">Leverage</a></div><p>30% of the index. (R + W) / I.</p></div>
+<div class="card"><div class="big"><a href="yield.html" style="color:var(--ink);text-decoration:none">Yield</a></div><p>30% of the index. O / (I + O + R + W).</p></div>
+<div class="card"><div class="big"><a href="token-snr.html" style="color:var(--ink);text-decoration:none">Token SNR</a></div><p>20% of the index. O / (I + O + R).</p></div>
+</div>
+<div class="grid3" style="margin-top:16px">
+<div class="card"><div class="big"><a href="construction.html" style="color:var(--ink);text-decoration:none">Construction</a></div><p>20% of the index. W / R.</p></div>
+<div class="card"><div class="big"><a href="divergence.html" style="color:var(--ink);text-decoration:none">Divergence</a></div><p>Where index rank does not match usage rank.</p></div>
+<div class="card"><div class="big"><a href="governance.html" style="color:var(--ink);text-decoration:none">Governance</a></div><p>DEVELOPMENTAL, HYPOTHESIS, ASSOCIATION labels.</p></div>
+</div>
+<div style="margin-top:16px">
+<a class="btn-outline" href="../methodology.html">Read the Methodology</a>
+<a class="btn" href="../contact.html">Request a Pilot</a>
+</div>
+</section>
+
+</main>
+<div class="footer">
+<div class="footer-grid">
+<div><b>MO§ES™</b><p class="note">Enterprise AI operator evaluations and performative benchmarks.</p></div>
+<div><a href="../index.html">Home</a><a href="../product.html">Product</a><a href="../pilot.html">Pilot</a></div>
+<div><a href="../methodology.html">Methodology</a><a href="../research.html">Research</a><a href="../contact.html">Contact</a></div>
+<div><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../docs.html">Docs</a><a href="../pilot-readout.html">Pilot Readout</a><p class="note" style="margin-top:8px">© 2026 Ello Cello LLC. All Rights Reserved.</p></div>
+</div>
+</div>
+</div></body>
+</html>

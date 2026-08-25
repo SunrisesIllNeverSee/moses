@@ -11,7 +11,11 @@
 <meta property="og:url" content="https://mos2es.org/pilot-readout">
 <meta property="og:title" content="MO§ES™ Pilot Readout — Demo Results">
 <meta property="og:description" content="Real data from a 50-operator synthetic pilot: scores, distributions, divergence, interventions.">
-<meta property="og:image" content="https://mos2es.org/og-image.svg">
+<meta property="og:image" content="https://mos2es.org/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mos2es.org/og-image.png">
 <meta property="og:site_name" content="MO§ES™">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
@@ -52,6 +56,12 @@ table.data td.num { text-align: right; font-variant-numeric: tabular-nums; }
 .section-break { margin: 2.5rem 0 1rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border, #e0e0e6); }
 .score-bell { margin: 1.5rem 0; }
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","@id":"https://mos2es.org/#website","name":"MO§ES™","url":"https://mos2es.org","publisher":{"@id":"https://mos2es.org/#org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mos2es.org/"},{"@type":"ListItem","position":2,"name":"Pilot Readout","item":"https://mos2es.org/pilot-readout"}]}
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -69,7 +79,7 @@ table.data td.num { text-align: right; font-variant-numeric: tabular-nums; }
 <main>
 <h1>Pilot Readout — Demo Results</h1>
 
-<p class="lead">This page shows real output from the MO§ES™ platform running on a 50-operator synthetic pilot dataset. Every number below was computed by the actual scoring, benchmark, and diagnostic engines — not hand-written for marketing.</p>
+<p class="lead">Pilot readout from a 50-operator synthetic AI operator evaluation. Real output from the MO§ES™ platform: cohort stats, composite score distribution, metric distributions, divergence findings, and intervention outcomes. Every number below was computed by the actual scoring, benchmark, and diagnostic engines — not hand-written for marketing.</p>
 
 <div class="notice">
 <strong>Synthetic data.</strong> All data on this page is from a synthetic 50-operator demo dataset, labeled <span class="tag tag-synth">SYNTHETIC</span> throughout. No real operator data is shown. Governance labels apply: scores are <span class="tag tag-dev">DEVELOPMENTAL</span>, diagnoses are <span class="tag tag-hyp">HYPOTHESIS</span>, outcome joins are <span class="tag tag-assoc">ASSOCIATION</span>.

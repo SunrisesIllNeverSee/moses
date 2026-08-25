@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Construction in AI Operator Evaluation — MO§ES™</title>
+<meta name="description" content="Construction measures the ratio of new context built to context reused in AI operator sessions. Formula: W / R. One of five canonical metrics in the MO§ES™ evaluation framework.">
+<link rel="canonical" href="https://mos2es.org/concepts/construction">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mos2es.org/concepts/construction">
+<meta property="og:title" content="Construction in AI Operator Evaluation">
+<meta property="og:description" content="Construction measures the ratio of new context built to context reused. Formula: W / R.">
+<meta property="og:image" content="https://mos2es.org/og-image.svg">
+<meta property="og:site_name" content="MO§ES™">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Construction in AI Operator Evaluation">
+<meta name="twitter:description" content="W / R — ratio of new context built to context reused.">
+<meta name="twitter:image" content="https://mos2es.org/og-image.svg">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+[
+  {"@context":"https://schema.org","@type":"WebSite","@id":"https://mos2es.org/#website","name":"MO§ES™","url":"https://mos2es.org","publisher":{"@id":"https://mos2es.org/#org"}},
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mos2es.org/"},{"@type":"ListItem","position":2,"name":"Concepts","item":"https://mos2es.org/concepts/"},{"@type":"ListItem","position":3,"name":"Construction","item":"https://mos2es.org/concepts/construction"}]},
+  {"@context":"https://schema.org","@type":"DefinedTerm","name":"Construction","description":"W / R — ratio of new context built to context reused, measuring how much original context an operator constructs versus reuses","url":"https://mos2es.org/concepts/construction","termCode":"C","inDefinedTermSet":{"@type":"DefinedTermSet","name":"MO§ES™ Canonical Metrics","url":"https://mos2es.org/methodology"}}
+]
+</script>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<b>MO§ES™</b>
+<div class="links">
+<a href="../index.html">Home</a>
+<a href="../product.html">Product</a>
+<a href="../pilot.html">Pilot</a>
+<a href="../methodology.html">Methodology</a>
+<a href="../research.html">Research</a>
+<a href="../contact.html">Contact</a>
+</div>
+</nav>
+<main>
+
+<div class="hero">
+<div class="eyebrow">Concept · Canonical Metric</div>
+<h1>Construction in AI operator evaluation.</h1>
+<p class="lead">Construction measures the ratio of new context an AI operator builds to context they reuse. It captures whether an operator is primarily creating fresh structured context or relying on context they have already established. It is one of five canonical derived metrics in the MO§ES™ evaluation framework.</p>
+<div class="tags">
+<span class="label dark-bg">DERIVED</span>
+<span class="label">DEVELOPMENTAL</span>
+<span class="label">VALIDATION REQUIRED</span>
+</div>
+</div>
+
+<section>
+<div class="eyebrow">Definition</div>
+<h2>The formula.</h2>
+<p class="sec-intro">Construction is the ratio of Cache Write tokens to Cache Read tokens. It measures how much new context the operator builds relative to how much existing context they reuse.</p>
+<div class="formula" style="text-align:center;font-size:20px">Construction = W / R</div>
+<p>Where:</p>
+<ul class="tight">
+<li><strong>W</strong> = Cache Write (new context built tokens)</li>
+<li><strong>R</strong> = Cache Read (reused context tokens)</li>
+</ul>
+<p style="margin-top:12px">A construction value above 1.0 means the operator is building more new context than they are reusing. A value below 1.0 means they are reusing more than they build. A value near 1.0 means the operator is roughly balanced between construction and reuse. The metric is unitless and comparable across sessions of different sizes.</p>
+</section>
+
+<section>
+<div class="eyebrow">Interpretation</div>
+<h2>What construction tells you.</h2>
+<p class="sec-intro">Construction is the context-building lens. It describes whether an operator's sessions are dominated by creating new structured context or by leveraging context that already exists.</p>
+<div class="grid2">
+<div class="card">
+<div class="big">High Construction</div>
+<p>The operator builds more new context than they reuse. This may indicate original work — establishing new context windows, creating fresh structured prompts, or operating in workflows that require frequent context setup. It can also indicate a failure to leverage existing context efficiently.</p>
+</div>
+<div class="card">
+<div class="big">Low Construction</div>
+<p>The operator reuses more context than they build. This may indicate effective context management — carrying forward established context, building on prior sessions, or operating in workflows with stable context requirements. It can also indicate over-reliance on stale context.</p>
+</div>
+</div>
+<p style="margin-top:16px">Construction is not a quality signal in either direction. High construction is not inherently better than low construction, or vice versa. The metric's value lies in what it reveals about operating style and how it combines with the other canonical metrics. An operator with high construction and high yield is efficiently building new context and converting it to output. An operator with high construction and low yield may be building context that does not convert to productive generation.</p>
+</section>
+
+<section>
+<div class="eyebrow">How MO§ES™ Uses It</div>
+<h2>Construction in the evaluation pipeline.</h2>
+<p class="sec-intro">MO§ES™ computes construction from canonical telemetry for every observed session. The metric enters the pipeline at three stages.</p>
+<div class="grid3">
+<div class="card"><div class="big">Measurement</div><p>Computed per session from CACHE WRITE and CACHE READ token counts. No prompt content required — only token counts.</p></div>
+<div class="card"><div class="big">Benchmarking</div><p>Operators are ranked by construction within their cohort. Percentile bands show where each operator falls relative to peers under the same workflow and model conditions.</p></div>
+<div class="card"><div class="big">Composite Score</div><p>Construction contributes 20% of the AI Operator Development Index, the 0–100 composite score. It is weighted equally with Token SNR.</p></div>
+</div>
+<p style="margin-top:16px">In the synthetic demo cohort of 50 operators across 1,668 observations, construction values vary widely by workflow type. Operators in code generation workflows tend toward higher construction, while operators in analysis and review workflows tend toward higher reuse. These patterns are structural observations from synthetic data, not validated findings about which style produces better outcomes.</p>
+</section>
+
+<section class="dark">
+<div class="eyebrow">Governance Caveats</div>
+<h2>What construction does not tell you.</h2>
+<p class="sec-intro" style="color:#ccc">Construction is a derived metric labeled DEVELOPMENTAL. It is a structural signal whose relationship to actual performance outcomes is still being tested.</p>
+<ul>
+<li><strong>Not a quality measure.</strong> High or low construction says nothing about the quality, correctness, or usefulness of the context built or reused.</li>
+<li><strong>Not a productivity score.</strong> Construction measures context-building behavior, not work output or business value.</li>
+<li><strong>Not directional.</strong> Neither high nor low construction is inherently better. The metric is descriptive, not evaluative.</li>
+<li><strong>Not an employee ranking.</strong> DEVELOPMENTAL labels mean results route workflows, not people. No adverse employment actions are permitted from pilot data.</li>
+<li><strong>Validation required.</strong> The relationship between construction and validated business outcomes has not been independently established. Correlations are labeled ASSOCIATION, never CAUSATION.</li>
+</ul>
+<p class="note" style="margin-top:16px">Every construction measurement carries provenance: source telemetry window, operator cohort, evidence label (DERIVED), decision-use label (DEVELOPMENTAL), and synthetic-data flag where applicable.</p>
+</section>
+
+<section>
+<div class="eyebrow">Related Concepts</div>
+<h2>Read alongside.</h2>
+<div class="grid3">
+<div class="card"><div class="big"><a href="leverage.html" style="color:var(--ink);text-decoration:none">Leverage</a></div><p>How much context the operator reuses and builds relative to new input. (R + W) / I.</p></div>
+<div class="card"><div class="big"><a href="yield.html" style="color:var(--ink);text-decoration:none">Yield</a></div><p>Productive output share of total token flow. O / (I + O + R + W).</p></div>
+<div class="card"><div class="big"><a href="composite-score.html" style="color:var(--ink);text-decoration:none">Composite Score</a></div><p>The 0–100 AI Operator Development Index. Construction contributes 20%.</p></div>
+</div>
+<div style="margin-top:16px">
+<a class="btn-outline" href="../methodology.html">Read the Methodology</a>
+<a class="btn" href="../contact.html">Request a Pilot</a>
+</div>
+</section>
+
+</main>
+<div class="footer">
+<div class="footer-grid">
+<div><b>MO§ES™</b><p class="note">Enterprise AI operator evaluations and performative benchmarks.</p></div>
+<div><a href="../index.html">Home</a><a href="../product.html">Product</a><a href="../pilot.html">Pilot</a></div>
+<div><a href="../methodology.html">Methodology</a><a href="../research.html">Research</a><a href="../contact.html">Contact</a></div>
+<div><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../docs.html">Docs</a><a href="../pilot-readout.html">Pilot Readout</a><p class="note" style="margin-top:8px">© 2026 Ello Cello LLC. All Rights Reserved.</p></div>
+</div>
+</div>
+</div></body>
+</html>
