@@ -1,0 +1,11 @@
+name = "moses-promo"
+compatibility_date = "2025-07-01"
+compatibility_flags = ["nodejs_compat"]
+
+routes = [
+  { pattern = "mos2es.org/*", zone_name = "mos2es.org" },
+  { pattern = "www.mos2es.org/*", zone_name = "mos2es.org" }
+]
+
+[assets]
+directory = "."
