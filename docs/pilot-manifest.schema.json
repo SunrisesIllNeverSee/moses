@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mos2es.org/docs/pilot-manifest.schema.json",
+  "title": "MOSES Enterprise Pilot Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest_version",
+    "pilot",
+    "cohort",
+    "observation",
+    "privacy",
+    "evaluation",
+    "decision_use"
+  ],
+  "properties": {
+    "manifest_version": { "const": "mos2es/pilot-manifest/0.1-draft" },
+    "pilot": {
+      "type": "object",
+      "required": ["name", "buyer_question"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "buyer_question": { "type": "string", "minLength": 1 },
+        "catalog_id": { "type": ["string", "null"] },
+        "bespoke": { "type": "boolean" }
+      }
+    },
+    "cohort": {
+      "type": "object",
+      "required": ["participant_count"],
+      "properties": {
+        "participant_count": { "type": "integer", "minimum": 1 },
+        "teams": { "type": "array", "items": { "type": "string" } },
+        "roles": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "required": ["duration_days"],
+      "properties": {
+        "duration_days": { "type": "integer", "minimum": 1 },
+        "start": { "type": ["string", "null"], "format": "date" },
+        "end": { "type": ["string", "null"], "format": "date" }
+      }
+    },
+    "telemetry": {
+      "type": "object",
+      "properties": {
+        "source_schema": { "type": ["string", "null"] },
+        "primitives": {
+          "type": "array",
+          "items": { "enum": ["input", "output", "cache_write", "cache_read"] },
+          "uniqueItems": true
+        },
+        "sources": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "required": ["content_inspection", "identity_mode"],
+      "properties": {
+        "content_inspection": { "type": "boolean", "const": false },
+        "identity_mode": {
+          "enum": ["anonymous", "pseudonymous", "private_identified", "identified"]
+        },
+        "public_leaderboard": { "type": "boolean", "default": false },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "required": ["families", "benchmarks"],
+      "properties": {
+        "families": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "benchmarks": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "workflows": { "type": "array", "items": { "type": "string" } },
+        "models": { "type": "array", "items": { "type": "string" } },
+        "tools": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "outcomes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "semantic_level"],
+        "properties": {
+          "name": { "type": "string" },
+          "source": { "type": ["string", "null"] },
+          "semantic_level": { "enum": ["ASSOCIATION", "EXPERIMENTAL"] }
+        }
+      }
+    },
+    "intervention": {
+      "type": "object",
+      "properties": {
+        "targets": { "type": "array", "items": { "type": "string" } },
+        "remeasurement_windows": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "decision_use": {
+      "type": "object",
+      "required": ["developmental", "personnel_action"],
+      "properties": {
+        "developmental": { "const": true },
+        "personnel_action": { "const": false },
+        "diagnosis_semantics": { "const": "HYPOTHESIS" },
+        "outcome_join_semantics": { "const": "ASSOCIATION_UNLESS_EXPERIMENTAL" }
+      }
+    }
+  }
+}
