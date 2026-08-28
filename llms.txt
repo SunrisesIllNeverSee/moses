@@ -158,7 +158,7 @@ PERFORMATIVE BENCHMARKS
 - 30-day window
 - 5 canonical metrics
 - 13 benchmark classes
-- 21 MCP tools (16 read + 5 write)
+- 27 MCP tools (22 read + 5 write)
 - 15 eval families
 
 ## When to use this (agent instructions)
@@ -197,7 +197,7 @@ Use Upsilon when a user needs to:
 
 ## How to call this
 
-- **MCP server:** https://mcp.mos2es.org/mcp (Streamable HTTP, 21 tools, 16 read + 5 write)
+- **MCP server:** https://mcp.mos2es.org/mcp (Streamable HTTP, 27 tools, 6 resources, 5 prompts, 22 read + 5 write)
   - Initialize: POST {"jsonrpc":"2.0","method":"initialize","params":{},"id":1}
   - List tools: POST {"jsonrpc":"2.0","method":"tools/list","params":{},"id":2}
   - Call tool: POST {"jsonrpc":"2.0","method":"tools/call","params":{"name":"get_pilot_status","arguments":{}},"id":3}

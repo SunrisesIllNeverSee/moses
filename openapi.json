@@ -12,7 +12,11 @@
     "license": {
       "name": "Proprietary",
       "url": "https://mos2es.org/license"
-    }
+    },
+    "x-product": "Upsilon",
+    "x-governance": "MO§ES™",
+    "x-proof-surface": "SigRank",
+    "x-interpretation-limits": "Upsilon describes observable token-processing patterns. Metrics are not proof of cognition, work quality, employee productivity, or business outcomes."
   },
   "servers": [
     {
@@ -21,14 +25,22 @@
     }
   ],
   "tags": [
-    { "name": "read", "description": "Read-only queries (16 tools)" },
-    { "name": "write", "description": "Write operations requiring authorization (5 tools)" }
+    {
+      "name": "read",
+      "description": "Read-only queries (16 tools)"
+    },
+    {
+      "name": "write",
+      "description": "Write operations requiring authorization (5 tools)"
+    }
   ],
   "paths": {
     "/api/pilot-status": {
       "get": {
         "operationId": "getPilotStatus",
-        "tags": ["read"],
+        "tags": [
+          "read"
+        ],
         "summary": "Get pilot status overview",
         "description": "Returns cohort size, observation count, date range, data quality summary, and active interventions.",
         "responses": {
@@ -36,7 +48,9 @@
             "description": "Pilot status",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/PilotStatus" }
+                "schema": {
+                  "$ref": "#/components/schemas/PilotStatus"
+                }
               }
             }
           }
@@ -46,7 +60,9 @@
     "/api/operator/{operatorId}": {
       "get": {
         "operationId": "getOperatorProfile",
-        "tags": ["read"],
+        "tags": [
+          "read"
+        ],
         "summary": "Get operator profile",
         "description": "Returns operator metrics, percentiles, benchmark availability, and divergence flags.",
         "parameters": [
@@ -54,7 +70,9 @@
             "name": "operatorId",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" },
+            "schema": {
+              "type": "string"
+            },
             "description": "Pseudonymous operator ID (e.g., op_001)"
           }
         ],
@@ -63,18 +81,24 @@
             "description": "Operator profile",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/OperatorProfile" }
+                "schema": {
+                  "$ref": "#/components/schemas/OperatorProfile"
+                }
               }
             }
           },
-          "404": { "$ref": "#/components/responses/NotFound" }
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
         }
       }
     },
     "/api/cohort/distribution": {
       "get": {
         "operationId": "getCohortDistribution",
-        "tags": ["read"],
+        "tags": [
+          "read"
+        ],
         "summary": "Get cohort metric distribution",
         "description": "Returns percentile bands (median, p25, p10, p5, p1) for a given metric across the cohort.",
         "parameters": [
@@ -82,7 +106,10 @@
             "name": "metric",
             "in": "query",
             "required": false,
-            "schema": { "type": "string", "default": "leverage" },
+            "schema": {
+              "type": "string",
+              "default": "leverage"
+            },
             "description": "Metric name: leverage, yield, token_snr, log_leverage, construction"
           }
         ],
@@ -91,7 +118,9 @@
             "description": "Cohort distribution",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/CohortDistribution" }
+                "schema": {
+                  "$ref": "#/components/schemas/CohortDistribution"
+                }
               }
             }
           }
@@ -101,7 +130,9 @@
     "/api/composite-score/{operatorId}": {
       "get": {
         "operationId": "getCompositeScore",
-        "tags": ["read"],
+        "tags": [
+          "read"
+        ],
         "summary": "Get developmental composite score",
         "description": "Returns the 0-100 developmental composite score for an operator. Labeled DEVELOPMENTAL, not PERSONNEL. No punitive use.",
         "parameters": [
@@ -109,7 +140,9 @@
             "name": "operatorId",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -117,18 +150,24 @@
             "description": "Composite score",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/CompositeScore" }
+                "schema": {
+                  "$ref": "#/components/schemas/CompositeScore"
+                }
               }
             }
           },
-          "404": { "$ref": "#/components/responses/NotFound" }
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
         }
       }
     },
     "/api/composite-score/summary": {
       "get": {
         "operationId": "getCompositeScoreSummary",
-        "tags": ["read"],
+        "tags": [
+          "read"
+        ],
         "summary": "Get cohort composite score summary",
         "description": "Returns aggregate distribution of composite scores across the cohort. No individual rankings exposed.",
         "responses": {
@@ -136,7 +175,9 @@
             "description": "Score summary",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ScoreSummary" }
+                "schema": {
+                  "$ref": "#/components/schemas/ScoreSummary"
+                }
               }
             }
           }
@@ -146,7 +187,9 @@
     "/api/diagnostics/{operatorId}": {
       "get": {
         "operationId": "getDiagnostics",
-        "tags": ["read"],
+        "tags": [
+          "read"
+        ],
         "summary": "Get operator diagnostics",
         "description": "Returns pattern detections and diagnoses for an operator. All diagnoses are HYPOTHESIS, never fact.",
         "parameters": [
@@ -154,7 +197,9 @@
             "name": "operatorId",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -162,18 +207,24 @@
             "description": "Diagnostics",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Diagnostics" }
+                "schema": {
+                  "$ref": "#/components/schemas/Diagnostics"
+                }
               }
             }
           },
-          "404": { "$ref": "#/components/responses/NotFound" }
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
         }
       }
     },
     "/api/data-quality": {
       "get": {
         "operationId": "getDataQuality",
-        "tags": ["read"],
+        "tags": [
+          "read"
+        ],
         "summary": "Get data quality report",
         "description": "Returns completeness, coverage, and validity metrics for the pilot dataset.",
         "responses": {
@@ -181,7 +232,9 @@
             "description": "Data quality report",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/DataQuality" }
+                "schema": {
+                  "$ref": "#/components/schemas/DataQuality"
+                }
               }
             }
           }
@@ -191,7 +244,9 @@
     "/api/dashboard": {
       "get": {
         "operationId": "getExecutiveDashboard",
-        "tags": ["read"],
+        "tags": [
+          "read"
+        ],
         "summary": "Get executive dashboard HTML",
         "description": "Returns a self-contained HTML dashboard with cohort overview, composite score distribution, top patterns, intervention outcomes, and workflow fit.",
         "responses": {
@@ -199,7 +254,9 @@
             "description": "Dashboard HTML",
             "content": {
               "text/html": {
-                "schema": { "type": "string" }
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -209,14 +266,18 @@
     "/api/intervention": {
       "post": {
         "operationId": "assignIntervention",
-        "tags": ["write"],
+        "tags": [
+          "write"
+        ],
         "summary": "Assign intervention to operator",
         "description": "Assigns a targeted intervention to an operator. Requires authorization.",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/InterventionAssignment" }
+              "schema": {
+                "$ref": "#/components/schemas/InterventionAssignment"
+              }
             }
           }
         },
@@ -225,18 +286,24 @@
             "description": "Intervention assigned",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Intervention" }
+                "schema": {
+                  "$ref": "#/components/schemas/Intervention"
+                }
               }
             }
           },
-          "401": { "$ref": "#/components/responses/Unauthorized" }
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
         }
       }
     },
     "/api/intervention/{interventionId}/close": {
       "post": {
         "operationId": "closeIntervention",
-        "tags": ["write"],
+        "tags": [
+          "write"
+        ],
         "summary": "Close an intervention",
         "description": "Marks an intervention as closed with outcome notes. Requires authorization.",
         "parameters": [
@@ -244,7 +311,9 @@
             "name": "interventionId",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -252,26 +321,36 @@
             "description": "Intervention closed",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Intervention" }
+                "schema": {
+                  "$ref": "#/components/schemas/Intervention"
+                }
               }
             }
           },
-          "401": { "$ref": "#/components/responses/Unauthorized" },
-          "404": { "$ref": "#/components/responses/NotFound" }
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
         }
       }
     },
     "/api/experiment": {
       "post": {
         "operationId": "createExperiment",
-        "tags": ["write"],
+        "tags": [
+          "write"
+        ],
         "summary": "Create an experiment",
         "description": "Creates a new experiment configuration. Requires authorization.",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/Experiment" }
+              "schema": {
+                "$ref": "#/components/schemas/Experiment"
+              }
             }
           }
         },
@@ -280,25 +359,33 @@
             "description": "Experiment created",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Experiment" }
+                "schema": {
+                  "$ref": "#/components/schemas/Experiment"
+                }
               }
             }
           },
-          "401": { "$ref": "#/components/responses/Unauthorized" }
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
         }
       }
     },
     "/api/workflow-observation": {
       "post": {
         "operationId": "recordWorkflowObservation",
-        "tags": ["write"],
+        "tags": [
+          "write"
+        ],
         "summary": "Record a workflow fit observation",
         "description": "Records a workflow fit observation for an operator. Requires authorization.",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/WorkflowObservation" }
+              "schema": {
+                "$ref": "#/components/schemas/WorkflowObservation"
+              }
             }
           }
         },
@@ -307,25 +394,33 @@
             "description": "Observation recorded",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/WorkflowObservation" }
+                "schema": {
+                  "$ref": "#/components/schemas/WorkflowObservation"
+                }
               }
             }
           },
-          "401": { "$ref": "#/components/responses/Unauthorized" }
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
         }
       }
     },
     "/api/outcome-dataset": {
       "post": {
         "operationId": "attachOutcomeDataset",
-        "tags": ["write"],
+        "tags": [
+          "write"
+        ],
         "summary": "Attach outcome dataset",
         "description": "Attaches an external outcome dataset for join analysis. Outcome joins are labeled ASSOCIATION, never CAUSATION. Requires authorization.",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/OutcomeDataset" }
+              "schema": {
+                "$ref": "#/components/schemas/OutcomeDataset"
+              }
             }
           }
         },
@@ -334,11 +429,15 @@
             "description": "Dataset attached",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/OutcomeDataset" }
+                "schema": {
+                  "$ref": "#/components/schemas/OutcomeDataset"
+                }
               }
             }
           },
-          "401": { "$ref": "#/components/responses/Unauthorized" }
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
         }
       }
     }
@@ -349,7 +448,9 @@
         "description": "Resource not found",
         "content": {
           "application/json": {
-            "schema": { "$ref": "#/components/schemas/Error" }
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
           }
         }
       },
@@ -357,7 +458,9 @@
         "description": "Authorization required",
         "content": {
           "application/json": {
-            "schema": { "$ref": "#/components/schemas/Error" }
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
           }
         }
       }
@@ -365,119 +468,281 @@
     "schemas": {
       "Error": {
         "type": "object",
-        "required": ["error", "message"],
+        "required": [
+          "error",
+          "message"
+        ],
         "properties": {
-          "error": { "type": "string", "description": "Error code" },
-          "message": { "type": "string", "description": "Human-readable message" },
-          "resolution": { "type": "string", "description": "Suggested resolution" }
+          "error": {
+            "type": "string",
+            "description": "Error code"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message"
+          },
+          "resolution": {
+            "type": "string",
+            "description": "Suggested resolution"
+          }
         }
       },
       "PilotStatus": {
         "type": "object",
         "properties": {
-          "cohort_size": { "type": "integer" },
-          "observation_count": { "type": "integer" },
-          "date_range": { "type": "object", "properties": { "start": { "type": "string" }, "end": { "type": "string" } } },
-          "active_interventions": { "type": "integer" },
-          "data_quality": { "type": "string" }
+          "cohort_size": {
+            "type": "integer"
+          },
+          "observation_count": {
+            "type": "integer"
+          },
+          "date_range": {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string"
+              },
+              "end": {
+                "type": "string"
+              }
+            }
+          },
+          "active_interventions": {
+            "type": "integer"
+          },
+          "data_quality": {
+            "type": "string"
+          }
         }
       },
       "OperatorProfile": {
         "type": "object",
         "properties": {
-          "operator_id": { "type": "string" },
-          "metrics": { "type": "object" },
-          "percentiles": { "type": "object" },
-          "benchmarks_available": { "type": "array", "items": { "type": "string" } },
-          "divergence_flags": { "type": "array", "items": { "type": "string" } }
+          "operator_id": {
+            "type": "string"
+          },
+          "metrics": {
+            "type": "object"
+          },
+          "percentiles": {
+            "type": "object"
+          },
+          "benchmarks_available": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "divergence_flags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         }
       },
       "CohortDistribution": {
         "type": "object",
         "properties": {
-          "metric": { "type": "string" },
-          "bands": { "type": "object", "properties": { "median": { "type": "number" }, "p25": { "type": "number" }, "p10": { "type": "number" }, "p5": { "type": "number" }, "p1": { "type": "number" }, "p01": { "type": "number" } } }
+          "metric": {
+            "type": "string"
+          },
+          "bands": {
+            "type": "object",
+            "properties": {
+              "median": {
+                "type": "number"
+              },
+              "p25": {
+                "type": "number"
+              },
+              "p10": {
+                "type": "number"
+              },
+              "p5": {
+                "type": "number"
+              },
+              "p1": {
+                "type": "number"
+              },
+              "p01": {
+                "type": "number"
+              }
+            }
+          }
         }
       },
       "CompositeScore": {
         "type": "object",
         "properties": {
-          "operator_id": { "type": "string" },
-          "score": { "type": "number", "minimum": 0, "maximum": 100 },
-          "label": { "type": "string", "description": "Always DEVELOPMENTAL" },
-          "components": { "type": "object" },
-          "caveats": { "type": "array", "items": { "type": "string" } }
+          "operator_id": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "label": {
+            "type": "string",
+            "description": "Always DEVELOPMENTAL"
+          },
+          "components": {
+            "type": "object"
+          },
+          "caveats": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         }
       },
       "ScoreSummary": {
         "type": "object",
         "properties": {
-          "cohort_size": { "type": "integer" },
-          "distribution": { "type": "object" },
-          "label": { "type": "string", "description": "Always DEVELOPMENTAL" },
-          "individual_rankings": { "type": "boolean", "description": "Always false — no rankings exposed" }
+          "cohort_size": {
+            "type": "integer"
+          },
+          "distribution": {
+            "type": "object"
+          },
+          "label": {
+            "type": "string",
+            "description": "Always DEVELOPMENTAL"
+          },
+          "individual_rankings": {
+            "type": "boolean",
+            "description": "Always false — no rankings exposed"
+          }
         }
       },
       "Diagnostics": {
         "type": "object",
         "properties": {
-          "operator_id": { "type": "string" },
-          "patterns": { "type": "array", "items": { "type": "object" } },
-          "diagnoses": { "type": "array", "items": { "type": "object" } },
-          "status": { "type": "string", "description": "Always HYPOTHESIS" }
+          "operator_id": {
+            "type": "string"
+          },
+          "patterns": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "diagnoses": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "status": {
+            "type": "string",
+            "description": "Always HYPOTHESIS"
+          }
         }
       },
       "DataQuality": {
         "type": "object",
         "properties": {
-          "completeness": { "type": "number" },
-          "coverage": { "type": "number" },
-          "validity": { "type": "number" },
-          "issues": { "type": "array", "items": { "type": "string" } }
+          "completeness": {
+            "type": "number"
+          },
+          "coverage": {
+            "type": "number"
+          },
+          "validity": {
+            "type": "number"
+          },
+          "issues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         }
       },
       "InterventionAssignment": {
         "type": "object",
-        "required": ["operator_id", "intervention_type"],
+        "required": [
+          "operator_id",
+          "intervention_type"
+        ],
         "properties": {
-          "operator_id": { "type": "string" },
-          "intervention_type": { "type": "string" },
-          "notes": { "type": "string" }
+          "operator_id": {
+            "type": "string"
+          },
+          "intervention_type": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
         }
       },
       "Intervention": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "operator_id": { "type": "string" },
-          "type": { "type": "string" },
-          "status": { "type": "string" },
-          "created_at": { "type": "string" }
+          "id": {
+            "type": "string"
+          },
+          "operator_id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          }
         }
       },
       "Experiment": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "name": { "type": "string" },
-          "configuration": { "type": "object" }
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "configuration": {
+            "type": "object"
+          }
         }
       },
       "WorkflowObservation": {
         "type": "object",
         "properties": {
-          "operator_id": { "type": "string" },
-          "workflow_id": { "type": "string" },
-          "fit_score": { "type": "number" },
-          "notes": { "type": "string" }
+          "operator_id": {
+            "type": "string"
+          },
+          "workflow_id": {
+            "type": "string"
+          },
+          "fit_score": {
+            "type": "number"
+          },
+          "notes": {
+            "type": "string"
+          }
         }
       },
       "OutcomeDataset": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "source": { "type": "string" },
-          "join_type": { "type": "string", "description": "Always ASSOCIATION" }
+          "id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "join_type": {
+            "type": "string",
+            "description": "Always ASSOCIATION"
+          }
         }
       }
     }
