@@ -1,12 +1,12 @@
-# MO§ES™ — Enterprise AI Operator Evaluations
+# Upsilon — Enterprise AI Processing Diagnostics
 
 > Models have evals. Operators should too.
 
-MO§ES™ measures the operating system behind enterprise AI — how people actually operate AI systems, benchmarked against the work that matters. Operator evaluations, performative benchmarks, bespoke enterprise evals, workflow fit, intervention + re-evaluation.
+Upsilon is the commercial measurement engine enterprises deploy to baseline how people process with AI. It uses content-free token telemetry to produce operator evaluations, performative benchmarks, bespoke enterprise evals, workflow-fit analysis, and intervention re-evaluation. MO§ES™ supplies the governance and methodology; SigRank is the public leaderboard and proof surface.
 
 ## What this repo is
 
-This is the public marketing website for MO§ES™, live at **[mos2es.org](https://mos2es.org)**.
+This is the public commercial front face for Upsilon pilots, live at **[mos2es.org](https://mos2es.org)**.
 
 It contains:
 - 9 HTML pages (home, product, pilot, methodology, research, contact, about, privacy, docs)
@@ -40,7 +40,7 @@ It contains:
 
 ### MCP server
 
-MO§ES™ exposes an MCP (Model Context Protocol) server at **`https://mcp.mos2es.org`** with 21 tools (16 read + 5 write). Write tools require authorization.
+Upsilon exposes an MCP (Model Context Protocol) server at **`https://mcp.mos2es.org`** with 21 tools (16 read + 5 write). Write tools require authorization and all operations are governed by MO§ES™.
 
 ### OpenAPI spec
 
@@ -85,7 +85,10 @@ The platform operates on content-free token counts — no prompt text required:
 
 ## Ecosystem
 
-- **SignalAF / SigRank** — public and enterprise evaluation of AI operators — [signalaf.com](https://signalaf.com)
+- **SignalAF** — umbrella brand — [signalaf.com](https://signalaf.com)
+- **Upsilon** — commercial measurement engine and enterprise pilot
+- **SigRank** — public leaderboard and proof surface
+- **MO§ES™** — governance, commitment conservation, and enforcement framework
 - **Signomy** — dual-governance agentic marketplace — [signomy.xyz](https://signomy.xyz)
 - **AQUA** — applications, questions, answers — [mos2es.xyz](https://mos2es.xyz)
 

@@ -1,8 +1,8 @@
-# SigRank Standard → MO§ES™ Enterprise Mapping
+# SigRank Compatibility → Upsilon Enterprise Mapping
 
 ## Purpose
 
-This document defines the **internal lineage contract** between the SigRank operator-measurement standard and the MO§ES™ enterprise methodology used by mos2es.org.
+This document defines the **internal lineage contract** between the stable SigRank wire vocabulary, the Upsilon commercial measurement engine, and the MO§ES™ enterprise governance methodology used by mos2es.org.
 
 It is not a public-copy requirement.
 
@@ -11,16 +11,16 @@ mos2es.org intentionally uses professional enterprise terminology and its own de
 ## Product boundary
 
 ```text
-SigRank Standard
-portable operator-measurement vocabulary
+SigRank compatibility record (`sigrank/0.1-draft`)
+portable operator-measurement wire vocabulary
         ↓
 shared source telemetry
         ↓
-MO§ES™ enterprise derivation layer
+Upsilon enterprise derivation layer
 enterprise metrics + cohort/workflow context
         ↓
 mos2es.org
-public commercial pilot offer
+public Upsilon pilot offer under MO§ES™ governance
 ```
 
 The systems share evidence. They do not need to share every public label or formula.
@@ -48,7 +48,7 @@ The draft SigRank portable core currently defines:
 
 These definitions belong to the SigRank measurement vocabulary.
 
-## MO§ES™ enterprise metric layer
+## Upsilon enterprise metric layer
 
 The current mos2es.org methodology uses its own enterprise-facing calculations, including:
 
@@ -58,7 +58,7 @@ The current mos2es.org methodology uses its own enterprise-facing calculations, 
 - Log Leverage
 - Construction: `W / R`
 
-These MUST NOT be silently represented as mathematically identical to the SigRank Standard metrics with similar names.
+These MUST NOT be silently represented as mathematically identical to the SigRank compatibility metrics with similar names.
 
 ## Required lineage representation
 
@@ -165,7 +165,7 @@ Preserve the existing mos2es.org commercial guardrails:
 
 ## Why this separation is valuable
 
-SigRank can become a reusable measurement standard while MO§ES can remain a richer enterprise product.
+The SigRank namespace can remain a reusable compatibility layer while Upsilon becomes the commercial measurement product and MO§ES™ remains the governing framework.
 
 That creates a clean stack:
 

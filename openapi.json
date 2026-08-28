@@ -1,9 +1,9 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "MO§ES™ API",
+    "title": "Upsilon API",
     "version": "0.1.0",
-    "description": "Enterprise AI operator evaluation platform. MCP tools exposed as API endpoints for agent integration. All write operations require authorization.",
+    "description": "Upsilon enterprise AI processing measurement engine, governed by MO§ES™. MCP tools are exposed as API endpoints for agent integration. All write operations require authorization.",
     "contact": {
       "name": "MO§ES™",
       "email": "burnmydays@proton.me",

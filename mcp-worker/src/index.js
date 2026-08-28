@@ -1,4 +1,4 @@
-// MO§ES™ MCP Server — Streamable HTTP transport
+// Upsilon MCP Server — Streamable HTTP transport, governed by MO§ES™
 // Returns real demo data from the 50-operator synthetic pilot
 // Write tools return 401 (require authorization)
 
@@ -387,7 +387,10 @@ export default {
     // Health check / info
     if (url.pathname === "/" || url.pathname === "/health") {
       return new Response(JSON.stringify({
-        server: "MO§ES™ MCP Server",
+        server: "Upsilon MCP Server",
+        product: "Upsilon",
+        governance: "MO§ES™",
+        proof_surface: "SigRank",
         version: "0.2.0",
         transport: "streamable-http",
         tools: TOOLS.length,
@@ -442,7 +445,7 @@ export default {
               prompts: {}
             },
             serverInfo: {
-              name: "moses-mcp",
+              name: "upsilon-mcp",
               version: "0.2.0"
             }
           };

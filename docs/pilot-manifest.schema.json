@@ -1,11 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://mos2es.org/docs/pilot-manifest.schema.json",
-  "title": "MOSES Enterprise Pilot Manifest",
+  "title": "Upsilon Enterprise Pilot Manifest",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "manifest_version",
+    "product_architecture",
     "pilot",
     "cohort",
     "observation",
@@ -15,6 +16,17 @@
   ],
   "properties": {
     "manifest_version": { "const": "mos2es/pilot-manifest/0.1-draft" },
+    "product_architecture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["brand", "governance", "product", "proof_surface"],
+      "properties": {
+        "brand": { "const": "SignalAF" },
+        "governance": { "const": "MO§ES™" },
+        "product": { "const": "Upsilon" },
+        "proof_surface": { "const": "SigRank" }
+      }
+    },
     "pilot": {
       "type": "object",
       "required": ["name", "buyer_question"],

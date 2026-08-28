@@ -1,12 +1,12 @@
-# MO§ES™ Enterprise Pilot Commercial Map
+# Upsilon Enterprise Pilot Commercial Map
 
 ## Role of mos2es.org
 
-mos2es.org is the **public commercial front face** for enterprise operator-evaluation pilots.
+mos2es.org is the **public commercial front face** for Upsilon enterprise pilots.
 
 Its job is to convert an enterprise question into a scoped pilot engagement.
 
-It is not required to sound like the SigRank standards repository.
+It sells Upsilon under MO§ES™ governance. It is not required to sound like the SigRank compatibility repository or public leaderboard.
 
 ## Commercial promise
 
@@ -31,7 +31,7 @@ choose pilot / bespoke configuration
       ↓
 scope 25–100 operators
       ↓
-30-day engagement
+30-day Upsilon engagement
       ↓
 measurement + cohort/workflow analysis
       ↓
@@ -126,7 +126,7 @@ The Meta-Pilot must keep ASSOCIATION semantics unless stronger experimental desi
 
 ## Public vs private terminology
 
-The site may use polished enterprise terms even when the underlying source telemetry is SigRank-compatible.
+The site uses Upsilon product language and polished enterprise terms even when the underlying source telemetry is SigRank-compatible.
 
 Example:
 
