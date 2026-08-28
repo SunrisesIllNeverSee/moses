@@ -27,11 +27,11 @@
   "tags": [
     {
       "name": "read",
-      "description": "Read-only queries (16 tools)"
+      "description": "Read-only queries (8 endpoints)"
     },
     {
       "name": "write",
-      "description": "Write operations requiring authorization (5 tools)"
+      "description": "Write operations requiring authorization (5 endpoints)"
     }
   ],
   "paths": {
