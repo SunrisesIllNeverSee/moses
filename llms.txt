@@ -1,9 +1,11 @@
-# MO§ES™
+# Upsilon
 
-> Enterprise AI operator evaluations and performative benchmarks.
+> The commercial measurement engine for enterprise AI processing diagnostics — governed by MO§ES™.
 
-MO§ES™ evaluates how people operate AI and benchmarks their performance against
-the work that actually matters. The core commercial proposition:
+Upsilon is the product enterprises deploy to baseline observable AI processing
+patterns without reading prompts or code. MO§ES™ supplies the governance and
+methodology; SigRank is the public leaderboard and proof surface. The core
+commercial proposition:
 
 1. Evaluate the humans operating AI systems.
 2. Benchmark how those operators actually perform.
@@ -13,9 +15,9 @@ the work that actually matters. The core commercial proposition:
 6. Re-measure performance after intervention.
 
 ## Core pages
-- [Home](https://mos2es.org/): evaluate the humans operating your AI
-- [Product](https://mos2es.org/product): 14 modules — operator evals, performative benchmarks, bespoke evals, operator intelligence, org AI topology, workflow fit, operator × model fit, team composition, capability dependency risk, operator similarity, AI learning curves, experiment as product, intervention + re-evaluation, governance
-- [Pilot](https://mos2es.org/pilot): 30-day enterprise operator eval pilot — 25–100 users, 7-step sequence (instrument, baseline, bespoke evals, benchmark, diagnose, intervene, re-evaluate), 6 benchmark types, 12 commercial pilots, 15 eval families, configurator
+- [Home](https://mos2es.org/): Upsilon, the EKG for observable AI processing patterns
+- [Product](https://mos2es.org/product): Upsilon's 14 measurement and evaluation modules, governed by MO§ES™
+- [Pilot](https://mos2es.org/pilot): 30-day Upsilon enterprise pilot — 25–100 users, 7-step sequence (instrument, baseline, bespoke evals, benchmark, diagnose, intervene, re-evaluate), 6 benchmark types, 12 commercial pilots, 15 eval families, configurator
 - [Methodology](https://mos2es.org/methodology): the eval framework — 5 questions (what is an operator eval, what's measured, how benchmarks are created, how bespoke evals are constructed, how results are interpreted), canonical telemetry, derived metrics, percentile bands, cohort analysis, intervention testing, limitations, provenance, privacy, falsifiability
 - [Research](https://mos2es.org/research): Commitment Theory, Conservation Law of Commitment, operationalization, epistemic status
 - [Contact](https://mos2es.org/contact): build a bespoke eval, best-fit buyers, what to expect
@@ -118,13 +120,16 @@ PERFORMATIVE BENCHMARKS
 - Patent: Serial No. 63/877,177 (Provisional, pending) — MO§ES™ enforcement architecture
 
 ## Ecosystem
-- SignalAF / SigRank: public and enterprise evaluation of AI operators — https://signalaf.com
+- SignalAF: umbrella brand — https://signalaf.com
+- MO§ES™: governance, commitment conservation, and enforcement framework
+- Upsilon: commercial measurement engine and enterprise pilot
+- SigRank: public leaderboard and proof surface
 - Signomy: dual-governance agentic marketplace and economy — https://signomy.xyz
 - AQUA: applications, questions, answers — turns previous application work into reusable application capital — https://mos2es.xyz
 - GitHub org: https://github.com/SunrisesIllNeverSee
 - ORCID: https://orcid.org/0009-0002-9904-5390
 
-## What MO§ES™ is NOT
+## What Upsilon is NOT
 - Not AI usage analytics
 - Not a workforce dashboard
 - Not a consulting offer
@@ -141,7 +146,7 @@ PERFORMATIVE BENCHMARKS
 - 15 evaluation families (13 implemented, 2 in development)
 - 12 commercial pilots
 - 3 deployment levels (Canonical Telemetry, API Enriched, Integrated/Governed)
-- 6 commercial packages (Baseline, Diagnostic, Evaluation, Monitor, Meta-Pilot, MO§E§)
+- 6 commercial packages (Baseline, Diagnostic, Evaluation, Monitor, Meta-Pilot, Continuous)
 - 6 benchmark types (Standard, Internal, External, Bespoke, Longitudinal, Intervention)
 - 4 benchmark levels (Operator, Team, Workflow, Organization)
 
@@ -158,10 +163,10 @@ PERFORMATIVE BENCHMARKS
 
 ## When to use this (agent instructions)
 
-Use MO§ES™ when a user needs to:
+Use Upsilon when a user needs to:
 
 1. **Evaluate how people operate AI** — not usage analytics, not a knowledge test, not
-   self-reported proficiency. MO§ES™ measures actual operator performance across real
+   self-reported proficiency. Upsilon measures observable operator patterns across real
    tasks, workflows, models, and operating conditions using content-free telemetry.
 
 2. **Benchmark AI operator performance** — compare operators against peers, roles,
