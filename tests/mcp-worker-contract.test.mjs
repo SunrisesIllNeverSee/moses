@@ -2,6 +2,12 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
+// Import the catalog directly to inspect tool/resource/prompt arrays
+// without parsing source text with eval(). The catalog is extracted from
+// index.js into catalog.mjs so contract tests can import it without
+// loading the full Worker module (which imports JSON data files).
+import { TOOLS, RESOURCES, PROMPTS, WRITE_TOOLS } from "../mcp-worker/src/catalog.mjs";
+
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
 // ─── Contract: production-equivalent 0.4.0 tool/resource/prompt counts ───────
@@ -56,53 +62,35 @@ const REQUIRED_PROMPTS = [
   "pilot_scoping_guide",
 ];
 
-function extractArray(source, name) {
-  const match = source.match(new RegExp(`const ${name} = (\\[[\\s\\S]*?\\]);\\n`));
-  assert.ok(match, `${name} array not found in mcp-worker/src/index.js`);
-  return eval(match[1]);
-}
-
-test("mcp-worker declares exactly 27 tools (production parity)", async () => {
-  const source = await read("mcp-worker/src/index.js");
-  const tools = extractArray(source, "TOOLS");
-  assert.equal(tools.length, 27, `Expected 27 tools, got ${tools.length}`);
+test("mcp-worker declares exactly 27 tools (production parity)", () => {
+  assert.equal(TOOLS.length, 27, `Expected 27 tools, got ${TOOLS.length}`);
 });
 
-test("mcp-worker preserves every production tool name", async () => {
-  const source = await read("mcp-worker/src/index.js");
-  const tools = extractArray(source, "TOOLS");
-  const names = new Set(tools.map((t) => t.name));
+test("mcp-worker preserves every production tool name", () => {
+  const names = new Set(TOOLS.map((t) => t.name));
   for (const required of REQUIRED_TOOLS) {
     assert.ok(names.has(required), `Missing required tool: ${required}`);
   }
   assert.equal(names.size, REQUIRED_TOOLS.length, "Tool name set has duplicates or extras");
 });
 
-test("mcp-worker declares exactly 6 resources (production parity)", async () => {
-  const source = await read("mcp-worker/src/index.js");
-  const resources = extractArray(source, "RESOURCES");
-  assert.equal(resources.length, 6, `Expected 6 resources, got ${resources.length}`);
+test("mcp-worker declares exactly 6 resources (production parity)", () => {
+  assert.equal(RESOURCES.length, 6, `Expected 6 resources, got ${RESOURCES.length}`);
 });
 
-test("mcp-worker preserves every production resource URI", async () => {
-  const source = await read("mcp-worker/src/index.js");
-  const resources = extractArray(source, "RESOURCES");
-  const uris = new Set(resources.map((r) => r.uri));
+test("mcp-worker preserves every production resource URI", () => {
+  const uris = new Set(RESOURCES.map((r) => r.uri));
   for (const required of REQUIRED_RESOURCES) {
     assert.ok(uris.has(required), `Missing required resource: ${required}`);
   }
 });
 
-test("mcp-worker declares exactly 5 prompts (production parity)", async () => {
-  const source = await read("mcp-worker/src/index.js");
-  const prompts = extractArray(source, "PROMPTS");
-  assert.equal(prompts.length, 5, `Expected 5 prompts, got ${prompts.length}`);
+test("mcp-worker declares exactly 5 prompts (production parity)", () => {
+  assert.equal(PROMPTS.length, 5, `Expected 5 prompts, got ${PROMPTS.length}`);
 });
 
-test("mcp-worker preserves every production prompt name", async () => {
-  const source = await read("mcp-worker/src/index.js");
-  const prompts = extractArray(source, "PROMPTS");
-  const names = new Set(prompts.map((p) => p.name));
+test("mcp-worker preserves every production prompt name", () => {
+  const names = new Set(PROMPTS.map((p) => p.name));
   for (const required of REQUIRED_PROMPTS) {
     assert.ok(names.has(required), `Missing required prompt: ${required}`);
   }
@@ -142,4 +130,12 @@ test("mcp-worker write tools are gated by authorization", async () => {
   assert.match(source, /WRITE_TOOLS/);
   assert.match(source, /AUTHORIZATION_REQUIRED/);
   assert.match(source, /isError: true/);
+});
+
+test("WRITE_TOOLS set is non-empty and all members are in TOOLS", () => {
+  assert.ok(WRITE_TOOLS.size > 0, "WRITE_TOOLS set is empty");
+  const toolNames = new Set(TOOLS.map((t) => t.name));
+  for (const writeTool of WRITE_TOOLS) {
+    assert.ok(toolNames.has(writeTool), `WRITE_TOOLS references unknown tool: ${writeTool}`);
+  }
 });
