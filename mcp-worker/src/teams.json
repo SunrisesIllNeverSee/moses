@@ -1,0 +1,129 @@
+[
+  {
+    "team_id": "product_engineering",
+    "name": "Product Engineering",
+    "operator_count": 18,
+    "operator_ids": [
+      "op_001",
+      "op_002",
+      "op_003",
+      "op_004",
+      "op_005",
+      "op_006",
+      "op_007",
+      "op_008",
+      "op_009",
+      "op_010",
+      "op_011",
+      "op_012",
+      "op_013",
+      "op_014",
+      "op_015",
+      "op_016",
+      "op_017",
+      "op_018"
+    ],
+    "primary_platforms": {
+      "claude": 7,
+      "codex": 8,
+      "chatgpt": 3
+    },
+    "synthetic": true
+  },
+  {
+    "team_id": "platform_infrastructure",
+    "name": "Platform / Infrastructure",
+    "operator_count": 10,
+    "operator_ids": [
+      "op_019",
+      "op_020",
+      "op_021",
+      "op_022",
+      "op_023",
+      "op_024",
+      "op_025",
+      "op_026",
+      "op_027",
+      "op_028"
+    ],
+    "primary_platforms": {
+      "chatgpt": 3,
+      "claude": 5,
+      "codex": 2
+    },
+    "synthetic": true
+  },
+  {
+    "team_id": "data_analytics",
+    "name": "Data / Analytics",
+    "operator_count": 8,
+    "operator_ids": [
+      "op_029",
+      "op_030",
+      "op_031",
+      "op_032",
+      "op_033",
+      "op_034",
+      "op_035",
+      "op_036"
+    ],
+    "primary_platforms": {
+      "chatgpt": 3,
+      "claude": 2,
+      "codex": 3
+    },
+    "synthetic": true
+  },
+  {
+    "team_id": "product_design",
+    "name": "Product / Design",
+    "operator_count": 6,
+    "operator_ids": [
+      "op_037",
+      "op_038",
+      "op_039",
+      "op_040",
+      "op_041",
+      "op_042"
+    ],
+    "primary_platforms": {
+      "codex": 4,
+      "chatgpt": 1,
+      "claude": 1
+    },
+    "synthetic": true
+  },
+  {
+    "team_id": "customer_engineering_support",
+    "name": "Customer Engineering / Support",
+    "operator_count": 4,
+    "operator_ids": [
+      "op_043",
+      "op_044",
+      "op_045",
+      "op_046"
+    ],
+    "primary_platforms": {
+      "chatgpt": 1,
+      "codex": 1,
+      "claude": 2
+    },
+    "synthetic": true
+  },
+  {
+    "team_id": "operations_gtm",
+    "name": "Operations / GTM",
+    "operator_count": 4,
+    "operator_ids": [
+      "op_047",
+      "op_048",
+      "op_049",
+      "op_050"
+    ],
+    "primary_platforms": {
+      "chatgpt": 3,
+      "codex": 1
+    },
+    "synthetic": true
+  }
+]

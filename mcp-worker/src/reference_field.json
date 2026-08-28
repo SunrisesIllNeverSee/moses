@@ -1,0 +1,54 @@
+{
+  "reference_id": "public_field",
+  "version": "public_field_2026-08-17",
+  "date": "2026-08-17",
+  "description": "Synthetic reference field distribution derived from the acme_50 cohort. Placeholder — replace with a real external reference field before production use.",
+  "distributions": {
+    "leverage": {
+      "p0": 3.3011,
+      "p10": 3.545,
+      "p25": 9.8535,
+      "p50": 12.1902,
+      "p75": 23.5146,
+      "p90": 29.4947,
+      "p100": 30.4759
+    },
+    "yield": {
+      "p0": 0.6607,
+      "p10": 0.7139,
+      "p25": 5.4752,
+      "p50": 6.0092,
+      "p75": 9.5436,
+      "p90": 15.961,
+      "p100": 16.7558
+    },
+    "token_snr": {
+      "p0": 0.1628,
+      "p10": 0.1691,
+      "p25": 0.2803,
+      "p50": 0.3464,
+      "p75": 0.3548,
+      "p90": 0.5295,
+      "p100": 0.5393
+    },
+    "construction": {
+      "p0": 0.7489,
+      "p10": 0.8248,
+      "p25": 1.1599,
+      "p50": 1.7356,
+      "p75": 2.7458,
+      "p90": 4.023,
+      "p100": 4.2473
+    },
+    "log_leverage": {
+      "p0": 0.5187,
+      "p10": 0.5496,
+      "p25": 0.9936,
+      "p50": 1.086,
+      "p75": 1.3713,
+      "p90": 1.4697,
+      "p100": 1.484
+    }
+  },
+  "synthetic": true
+}

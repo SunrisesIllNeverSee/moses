@@ -1,0 +1,78 @@
+{
+  "registry_version": "0.2",
+  "date": "2026-08-17",
+  "metrics": [
+    {
+      "metric_id": "leverage",
+      "name": "Leverage",
+      "status": "CANONICAL",
+      "formula": "R/I",
+      "requires": [
+        "I>0"
+      ],
+      "unit": "ratio"
+    },
+    {
+      "metric_id": "yield",
+      "name": "Yield",
+      "status": "CANONICAL",
+      "formula": "(R*O)/(I^2)",
+      "requires": [
+        "I>0"
+      ],
+      "unit": "ratio"
+    },
+    {
+      "metric_id": "token_snr",
+      "name": "Token SNR / Output Share",
+      "status": "CANONICAL_WITH_INTERPRETATION_LIMIT",
+      "formula": "O/(I+O)",
+      "requires": [
+        "I+O>0"
+      ],
+      "unit": "share"
+    },
+    {
+      "metric_id": "log_leverage",
+      "name": "10xDEV / Log Leverage",
+      "status": "CANONICAL",
+      "formula": "log10(R/I)",
+      "requires": [
+        "I>0",
+        "R>0"
+      ],
+      "unit": "log10_ratio"
+    },
+    {
+      "metric_id": "construction",
+      "name": "Construction",
+      "status": "CANONICAL_WITH_INTERPRETATION_LIMIT",
+      "formula": "W/R",
+      "requires": [
+        "R>0"
+      ],
+      "unit": "ratio"
+    },
+    {
+      "metric_id": "velocity",
+      "name": "Velocity",
+      "status": "NEEDS_CANONICAL_LOCK",
+      "formula": null,
+      "unit": null
+    },
+    {
+      "metric_id": "compression_operating_ratio",
+      "name": "Compression / Operating Ratio",
+      "status": "NEEDS_CANONICAL_LOCK",
+      "formula": null,
+      "unit": null
+    },
+    {
+      "metric_id": "stability",
+      "name": "Stability",
+      "status": "NEEDS_CANONICAL_LOCK",
+      "formula": null,
+      "unit": "score"
+    }
+  ]
+}
