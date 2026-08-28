@@ -175,6 +175,6 @@ export function validatePilotManifest(manifest, schema) {
     }
   }
 
-  checkNode(manifest, schema, "manifest", errors);
+  checkNode(manifest, schema, "manifest");
   return errors;
 }
