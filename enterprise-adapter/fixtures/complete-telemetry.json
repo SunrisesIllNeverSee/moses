@@ -1,0 +1,28 @@
+{
+  "id": "complete-telemetry",
+  "description": "Complete telemetry — all four pillars present, all five metrics computed, no warnings.",
+  "portable": {
+    "spec": "sigrank/0.1-draft",
+    "timestamp": "2026-08-27T00:00:00.000Z",
+    "source": { "provider": "anthropic", "model": "claude-sonnet-4", "tool": "claude-code" },
+    "telemetry": { "input": 1251211, "output": 11296121, "cache_write": 128196310, "cache_read": 2555179769 },
+    "metrics": { "yield": 18436.98, "leverage": 2042.2, "velocity": 9.028, "snr": 0.9003, "dev10x": 3.31 },
+    "warnings": []
+  },
+  "enterprise_context": {
+    "cohort_id": "acme_50",
+    "window": { "start": "2026-07-01", "end": "2026-07-30" },
+    "lineage": { "chain_id": "chain_001", "parent_observation_id": null, "micro_eval": "MAINTAIN" },
+    "derivations": { "construction": 0.0502, "composite_score": 78.5, "outcome_correlation": 0.42 },
+    "privacy_mode": "pseudonymous",
+    "governance_label": "DEVELOPMENTAL"
+  },
+  "expected": {
+    "adapter_version": "upsilon/enterprise-adapter/0.1-draft",
+    "standard_version": "sigrank/0.1-draft",
+    "portable_preserved": true,
+    "enterprise_has_construction": true,
+    "portable_has_no_construction": true,
+    "portable_has_no_enterprise_fields": true
+  }
+}

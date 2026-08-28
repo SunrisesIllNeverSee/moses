@@ -1,0 +1,26 @@
+{
+  "id": "zero-values",
+  "description": "Zero values — cache_write and cache_read are zero (observed zero, not unavailable). This is distinct from null. Leverage and yield are zero (not null) because cache_read=0 with input>0 produces 0/5000=0.",
+  "portable": {
+    "spec": "sigrank/0.1-draft",
+    "timestamp": "2026-08-27T00:00:00.000Z",
+    "source": { "provider": "google", "model": "gemini-2.5-pro", "tool": "cursor" },
+    "telemetry": { "input": 5000, "output": 12000, "cache_write": 0, "cache_read": 0 },
+    "metrics": { "yield": 0, "leverage": 0, "velocity": 2.4, "snr": 0.7059, "dev10x": null },
+    "warnings": []
+  },
+  "enterprise_context": {
+    "cohort_id": "beta_30",
+    "privacy_mode": "anonymous"
+  },
+  "expected": {
+    "adapter_version": "upsilon/enterprise-adapter/0.1-draft",
+    "standard_version": "sigrank/0.1-draft",
+    "portable_preserved": true,
+    "portable_cache_write_is_zero": true,
+    "portable_cache_read_is_zero": true,
+    "portable_leverage_is_zero": true,
+    "portable_yield_is_zero": true,
+    "zero_distinct_from_null": true
+  }
+}

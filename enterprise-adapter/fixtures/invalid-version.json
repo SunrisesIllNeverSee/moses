@@ -1,0 +1,17 @@
+{
+  "id": "invalid-version",
+  "description": "Invalid version — the portable record declares a spec other than sigrank/0.1-draft. The adapter must reject this with an error, not silently accept it.",
+  "portable": {
+    "spec": "sigrank/0.2-draft",
+    "timestamp": "2026-08-27T00:00:00.000Z",
+    "source": { "provider": "anthropic", "model": "claude-sonnet-4", "tool": "claude-code" },
+    "telemetry": { "input": 1000, "output": 5000, "cache_write": 500, "cache_read": 3000 },
+    "metrics": { "yield": 15, "leverage": 3, "velocity": 5, "snr": 0.8333, "dev10x": 0.48 },
+    "warnings": []
+  },
+  "enterprise_context": {},
+  "expected": {
+    "should_throw": true,
+    "error_matches": "sigrank/0.1-draft"
+  }
+}

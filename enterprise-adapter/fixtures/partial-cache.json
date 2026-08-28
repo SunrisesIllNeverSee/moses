@@ -1,0 +1,31 @@
+{
+  "id": "partial-cache",
+  "description": "Partial cache — cache_write and cache_read unavailable (null). Yield, Leverage, and 10xDEV are null. Velocity and SNR are computed. The adapter must preserve null semantics and not coerce null to zero.",
+  "portable": {
+    "spec": "sigrank/0.1-draft",
+    "timestamp": "2026-08-27T00:00:00.000Z",
+    "source": { "provider": "openai", "model": "gpt-4o", "tool": "copilot" },
+    "telemetry": { "input": 5000, "output": 12000, "cache_write": null, "cache_read": null },
+    "metrics": { "yield": null, "leverage": null, "velocity": 2.4, "snr": 0.7059, "dev10x": null },
+    "warnings": [
+      "cache_write is unavailable; 10xDEV is undefined.",
+      "cache_read is unavailable; Yield, Leverage, and 10xDEV are undefined."
+    ]
+  },
+  "enterprise_context": {
+    "cohort_id": "acme_50",
+    "privacy_mode": "pseudonymous",
+    "derivations": { "construction": null, "composite_score": null }
+  },
+  "expected": {
+    "adapter_version": "upsilon/enterprise-adapter/0.1-draft",
+    "standard_version": "sigrank/0.1-draft",
+    "portable_preserved": true,
+    "portable_cache_write_is_null": true,
+    "portable_cache_read_is_null": true,
+    "portable_yield_is_null": true,
+    "portable_leverage_is_null": true,
+    "portable_dev10x_is_null": true,
+    "portable_velocity_is_number": true
+  }
+}
