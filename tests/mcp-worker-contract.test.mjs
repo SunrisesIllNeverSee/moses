@@ -106,10 +106,15 @@ test("mcp-worker health endpoint presents Upsilon as the product", async () => {
   assert.match(source, /proof_surface: "SigRank"/);
 });
 
-test("mcp-worker initialize presents Upsilon serverInfo with product roles", async () => {
+test("mcp-worker initialize preserves production serverInfo name with Upsilon title", async () => {
   const source = await read("mcp-worker/src/index.js");
-  assert.match(source, /name: "upsilon-mcp"/);
+  // name is the protocol identifier — preserved from production (moses-mcp)
+  // to avoid breaking existing MCP clients that identify the server by name.
+  assert.match(source, /name: "moses-mcp"/);
+  // title is the human-readable display name — carries the Upsilon product identity.
   assert.match(source, /title: "Upsilon — Enterprise Measurement Engine"/);
+  assert.match(source, /governance: "MO§ES™"/);
+  assert.match(source, /proof_surface: "SigRank"/);
 });
 
 test("mcp-worker carries the interpretation-limits boundary", async () => {
@@ -130,6 +135,10 @@ test("mcp-worker write tools are gated by authorization", async () => {
   assert.match(source, /WRITE_TOOLS/);
   assert.match(source, /AUTHORIZATION_REQUIRED/);
   assert.match(source, /isError: true/);
+  // Pilot-phase authorization is documented as intentional behavior matching
+  // production (verified against mcp.mos2es.org 2026-08-28).
+  assert.match(source, /Pilot-phase authorization/);
+  assert.match(source, /regardless of credentials/);
 });
 
 test("WRITE_TOOLS set is non-empty and all members are in TOOLS", () => {

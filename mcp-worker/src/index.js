@@ -1011,6 +1011,13 @@ function handleResourceRead(uri) {
 }
 
 // ─── Tool Handlers ──────────────────────────────────────────────────
+// Pilot-phase authorization: all write tools return AUTHORIZATION_REQUIRED
+// regardless of credentials presented. This matches production behavior at
+// mcp.mos2es.org (verified 2026-08-28: write tools reject even with a Bearer
+// token). The pilot is read-only — write tools are declared for protocol
+// completeness and future pilot expansion, but no write path is enabled.
+// When pilot write access is granted, this gate will check credentials
+// against an environment-configured secret (e.g. PILOT_API_KEY).
 function handleToolCall(name, args) {
   if (WRITE_TOOLS.has(name)) {
     return {
@@ -1478,7 +1485,7 @@ export default {
               prompts: {}
             },
             serverInfo: {
-              name: "upsilon-mcp",
+              name: "moses-mcp",
               version: "0.4.0",
               title: "Upsilon — Enterprise Measurement Engine",
               governance: "MO§ES™",
@@ -1599,7 +1606,7 @@ export default {
     if (url.pathname === "/.well-known/mcp/server-card.json") {
       return new Response(JSON.stringify({
         serverInfo: {
-          name: "upsilon-mcp",
+          name: "moses-mcp",
           version: "0.4.0",
           title: "Upsilon — Enterprise Measurement Engine",
           governance: "MO§ES™",
