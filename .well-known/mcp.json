@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "name": "upsilon-mcp",
+  "name": "moses-mcp",
   "title": "Upsilon — Enterprise Measurement Engine",
   "description": "Upsilon enterprise AI processing measurement engine, governed by MO§ES™. SigRank is the public leaderboard and proof surface. Provides access to operator evaluations, performative benchmarks, methodology, and pilot data via the Model Context Protocol. All write operations require authorization.",
   "product": "Upsilon",

@@ -36,7 +36,7 @@ Built the bridge from the merged portable Standard into the governed Upsilon ope
 - Removed stale `demo_data.json` (pre-computed snapshot from v0.2.0).
 - Applied Upsilon identity:
   - Health endpoint: `server: "Upsilon MCP Server"`, `product: "Upsilon"`, `governance: "MO§ES™"`, `proof_surface: "SigRank"`, interpretation-limits boundary.
-  - Initialize `serverInfo`: `name: "upsilon-mcp"`, `title: "Upsilon — Enterprise Measurement Engine"`, governance + proof_surface.
+  - Initialize `serverInfo`: `name: "moses-mcp"` (preserved from production), `title: "Upsilon — Enterprise Measurement Engine"`, governance + proof_surface.
   - Server card: same Upsilon identity.
 - Added contract test (`tests/mcp-worker-contract.test.mjs`) asserting:
   - Exactly 27 tools, 6 resources, 5 prompts (production parity).
