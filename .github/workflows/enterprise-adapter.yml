@@ -28,8 +28,10 @@ jobs:
           repository: SunrisesIllNeverSee/sigrank-standard
           path: _sigrank-standard
           # Standard ref is pinned via SIGRANK_STANDARD_REF so upstream changes
-          # cannot silently alter consumer builds.
+          # cannot silently alter consumer builds. fetch-depth: 0 is required
+          # because actions/checkout cannot resolve a bare SHA with depth=1.
           ref: ${{ vars.SIGRANK_STANDARD_REF || '224505a' }}
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
