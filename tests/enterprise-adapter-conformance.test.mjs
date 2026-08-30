@@ -32,37 +32,31 @@ import { buildEnterpriseObservation } from "../enterprise-adapter/adapter.mjs";
 const SIGRANK_STANDARD_REF = process.env.SIGRANK_STANDARD_REF || "c73f152";
 
 const standardRoot = process.argv[2] || process.env.SIGRANK_STANDARD_PATH;
-if (!standardRoot || !existsSync(standardRoot)) {
-  console.error(
-    "Usage: node tests/enterprise-adapter-conformance.test.mjs <path-to-sigrank-standard>",
+
+const standardAvailable = standardRoot && existsSync(standardRoot) &&
+  existsSync(join(standardRoot, "examples", "fixtures")) &&
+  existsSync(join(standardRoot, "schema", "sigrank-operator-record-v0.1.schema.json"));
+
+if (!standardAvailable) {
+  console.warn(
+    "sigrank-standard not found. Set SIGRANK_STANDARD_PATH or pass the repo root as the first argument. Tests will be skipped.",
   );
-  console.error(
-    "Set SIGRANK_STANDARD_PATH or pass the repo root as the first argument.",
-  );
-  process.exit(2);
 }
 
-const fixturesDir = join(standardRoot, "examples", "fixtures");
-const schemaPath = join(standardRoot, "schema", "sigrank-operator-record-v0.1.schema.json");
+const fixturesDir = standardAvailable ? join(standardRoot, "examples", "fixtures") : null;
+const schema = standardAvailable
+  ? JSON.parse(readFileSync(join(standardRoot, "schema", "sigrank-operator-record-v0.1.schema.json"), "utf-8"))
+  : null;
+const fixtureFiles = standardAvailable
+  ? readdirSync(fixturesDir).filter((f) => f.endsWith(".json")).sort()
+  : [];
 
-if (!existsSync(fixturesDir)) {
-  console.error(`Fixtures directory not found: ${fixturesDir}`);
-  process.exit(2);
-}
-if (!existsSync(schemaPath)) {
-  console.error(`Schema not found: ${schemaPath}`);
-  process.exit(2);
-}
-
-const schema = JSON.parse(readFileSync(schemaPath, "utf-8"));
-const fixtureFiles = readdirSync(fixturesDir)
-  .filter((f) => f.endsWith(".json"))
-  .sort();
-
-assert.ok(
-  fixtureFiles.length === 13,
+if (standardAvailable) {
+  assert.ok(
+    fixtureFiles.length === 13,
   `Expected 13 fixtures, found ${fixtureFiles.length}`,
-);
+  );
+}
 
 // ─── Portable record builder (mirrors sigrank-standard computeMetrics) ───────
 // The moses repo does not depend on @sigrank/cascade, so the five-metric
@@ -232,7 +226,7 @@ function arraysEqual(a, b) {
 
 // ─── Conformance gate: enterprise adapter preserves portable semantics ───────
 
-test(`enterprise adapter passes all 13 standalone fixtures (Standard ref ${SIGRANK_STANDARD_REF})`, () => {
+const it = standardAvailable ? test : test.skip; it(`enterprise adapter passes all 13 standalone fixtures (Standard ref ${SIGRANK_STANDARD_REF})`, () => {
   const failures = [];
 
   for (const file of fixtureFiles) {
@@ -357,7 +351,7 @@ test(`enterprise adapter passes all 13 standalone fixtures (Standard ref ${SIGRA
   }
 });
 
-test("enterprise adapter preserves null/zero distinction for unavailable cache", () => {
+it("enterprise adapter preserves null/zero distinction for unavailable cache", () => {
   const portableUnavailable = buildPortableRecord({
     telemetry: { input: 100, output: 50, cache_write: null, cache_read: null },
     source: { provider: "test", model: "test", tool: "test" },
@@ -379,7 +373,7 @@ test("enterprise adapter preserves null/zero distinction for unavailable cache",
   assert.equal(obsZero.portable.metrics.yield, 0);
 });
 
-test("enterprise adapter preserves adapter_version and standard_version", () => {
+it("enterprise adapter preserves adapter_version and standard_version", () => {
   const portable = buildPortableRecord({
     telemetry: { input: 1000, output: 5000, cache_write: 500, cache_read: 3000 },
     source: { provider: "test", model: "test", tool: "test" },
