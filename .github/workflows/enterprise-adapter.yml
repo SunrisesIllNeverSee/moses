@@ -27,11 +27,15 @@ jobs:
         with:
           repository: SunrisesIllNeverSee/sigrank-standard
           path: _sigrank-standard
-          # Standard ref is pinned via SIGRANK_STANDARD_REF so upstream changes
-          # cannot silently alter consumer builds. fetch-depth: 0 is required
-          # because actions/checkout cannot resolve a bare SHA with depth=1.
-          ref: ${{ vars.SIGRANK_STANDARD_REF || '224505a' }}
+          # Checkout main, then pin to the exact SHA. actions/checkout cannot
+          # resolve a bare commit SHA as a ref, so we checkout main with
+          # full history and reset to the pinned commit.
+          ref: main
           fetch-depth: 0
+
+      - name: Pin sigrank-standard to pinned ref
+        working-directory: _sigrank-standard
+        run: git reset --hard ${{ vars.SIGRANK_STANDARD_REF || 'c73f152' }}
 
       - uses: actions/setup-node@v4
         with:
@@ -42,6 +46,6 @@ jobs:
 
       - name: Standalone Standard conformance gate
         env:
-          SIGRANK_STANDARD_REF: ${{ vars.SIGRANK_STANDARD_REF || '224505a' }}
+          SIGRANK_STANDARD_REF: ${{ vars.SIGRANK_STANDARD_REF || 'c73f152' }}
           SIGRANK_STANDARD_PATH: ${{ github.workspace }}/_sigrank-standard
         run: node --test tests/enterprise-adapter-conformance.test.mjs
