@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "name": "moses-mcp",
+  "title": "Upsilon — Enterprise Measurement Engine",
+  "description": "Upsilon enterprise AI processing measurement engine, governed by MO§ES™. SigRank is the public leaderboard and proof surface. Provides access to operator evaluations, performative benchmarks, methodology, and pilot data via the Model Context Protocol. All write operations require authorization.",
+  "product": "Upsilon",
+  "governance": "MO§ES™",
+  "proof_surface": "SigRank",
+  "url": "https://mcp.mos2es.org/mcp",
+  "transport": "streamable-http",
+  "version": "0.4.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "tool_count": {
+    "total": 27,
+    "read": 22,
+    "write": 5
+  },
+  "resource_count": 6,
+  "prompt_count": 5,
+  "authentication": {
+    "type": "none",
+    "description": "Public MCP server for read operations. Write operations return AUTHORIZATION_REQUIRED — contact pilots@mos2es.org for pilot access."
+  },
+  "endpoints": {
+    "info": "GET https://mcp.mos2es.org/",
+    "mcp": "POST https://mcp.mos2es.org/mcp",
+    "server_card": "GET https://mcp.mos2es.org/.well-known/mcp/server-card.json",
+    "docs": "https://mos2es.org/docs",
+    "openapi": "https://mos2es.org/openapi.json"
+  },
+  "governance_label": "DEVELOPMENTAL labels, HYPOTHESIS diagnoses, ASSOCIATION outcomes, no punitive use",
+  "interpretation_limits": "Upsilon describes observable token-processing patterns. Metrics are not proof of cognition, work quality, employee productivity, or business outcomes.",
+  "data_source": "50-operator synthetic pilot — outputs computed from raw observations at request time"
+}
