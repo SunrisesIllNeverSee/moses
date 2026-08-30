@@ -1,0 +1,51 @@
+# Enterprise adapter tests — verifies the Upsilon lineage adapter preserves
+# portable sigrank/0.1-draft semantics and passes the standalone fixture pack
+# from sigrank-standard on every push/PR touching the adapter or its tests.
+name: Enterprise Adapter
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "enterprise-adapter/**"
+      - "tests/enterprise-adapter*.test.mjs"
+      - ".github/workflows/enterprise-adapter.yml"
+  pull_request:
+    paths:
+      - "enterprise-adapter/**"
+      - "tests/enterprise-adapter*.test.mjs"
+      - ".github/workflows/enterprise-adapter.yml"
+
+jobs:
+  adapter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout sigrank-standard (authoritative fixture pack)
+        uses: actions/checkout@v4
+        with:
+          repository: SunrisesIllNeverSee/sigrank-standard
+          path: _sigrank-standard
+          # Checkout main, then pin to the exact SHA. actions/checkout cannot
+          # resolve a bare commit SHA as a ref, so we checkout main with
+          # full history and reset to the pinned commit.
+          ref: main
+          fetch-depth: 0
+
+      - name: Pin sigrank-standard to pinned ref
+        working-directory: _sigrank-standard
+        run: git reset --hard ${{ vars.SIGRANK_STANDARD_REF || 'c73f152' }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Enterprise adapter unit tests
+        run: node --test tests/enterprise-adapter.test.mjs
+
+      - name: Standalone Standard conformance gate
+        env:
+          SIGRANK_STANDARD_REF: ${{ vars.SIGRANK_STANDARD_REF || 'c73f152' }}
+          SIGRANK_STANDARD_PATH: ${{ github.workspace }}/_sigrank-standard
+        run: node --test tests/enterprise-adapter-conformance.test.mjs

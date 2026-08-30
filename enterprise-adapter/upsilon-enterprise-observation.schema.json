@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mos2es.org/enterprise-adapter/upsilon-enterprise-observation.schema.json",
+  "title": "Upsilon Enterprise Observation (upsilon/enterprise-adapter/0.1-draft)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["adapter_version", "standard_version", "portable", "enterprise"],
+  "properties": {
+    "adapter_version": { "const": "upsilon/enterprise-adapter/0.1-draft" },
+    "standard_version": { "const": "sigrank/0.1-draft" },
+    "portable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spec", "timestamp", "source", "telemetry", "metrics", "warnings"],
+      "properties": {
+        "spec": { "const": "sigrank/0.1-draft" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["provider", "model", "tool"],
+          "properties": {
+            "provider": { "type": "string", "minLength": 1 },
+            "model": { "type": "string", "minLength": 1 },
+            "tool": { "type": "string", "minLength": 1 }
+          }
+        },
+        "telemetry": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["input", "output"],
+          "properties": {
+            "input": { "type": "integer", "minimum": 0 },
+            "output": { "type": "integer", "minimum": 0 },
+            "cache_write": { "type": ["integer", "null"], "minimum": 0 },
+            "cache_read": { "type": ["integer", "null"], "minimum": 0 }
+          }
+        },
+        "metrics": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["yield", "leverage", "velocity", "snr", "dev10x"],
+          "properties": {
+            "yield": { "type": ["number", "null"] },
+            "leverage": { "type": ["number", "null"] },
+            "velocity": { "type": ["number", "null"] },
+            "snr": { "type": ["number", "null"] },
+            "dev10x": { "type": ["number", "null"] }
+          }
+        },
+        "warnings": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "enterprise": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["collector_version", "privacy_mode"],
+      "properties": {
+        "collector_version": { "type": "string", "minLength": 1 },
+        "cohort_id": { "type": ["string", "null"] },
+        "window": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "start": { "type": ["string", "null"], "format": "date" },
+            "end": { "type": ["string", "null"], "format": "date" }
+          }
+        },
+        "lineage": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "chain_id": { "type": ["string", "null"] },
+            "parent_observation_id": { "type": ["string", "null"] },
+            "micro_eval": { "type": ["string", "null"] }
+          }
+        },
+        "derivations": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "construction": { "type": ["number", "null"] },
+            "composite_score": { "type": ["number", "null"] },
+            "outcome_correlation": { "type": ["number", "null"] }
+          }
+        },
+        "privacy_mode": {
+          "enum": ["anonymous", "pseudonymous", "private", "identified"]
+        },
+        "governance_label": { "type": "string" }
+      }
+    }
+  }
+}
