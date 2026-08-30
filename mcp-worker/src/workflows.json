@@ -1,0 +1,131 @@
+[
+  {
+    "workflow_id": "software_dev_v1",
+    "name": "Software Development",
+    "stages": [
+      {
+        "stage_id": "discovery",
+        "order": 1,
+        "name": "discovery"
+      },
+      {
+        "stage_id": "requirements",
+        "order": 2,
+        "name": "requirements"
+      },
+      {
+        "stage_id": "architecture",
+        "order": 3,
+        "name": "architecture"
+      },
+      {
+        "stage_id": "implementation",
+        "order": 4,
+        "name": "implementation"
+      },
+      {
+        "stage_id": "testing",
+        "order": 5,
+        "name": "testing"
+      },
+      {
+        "stage_id": "review",
+        "order": 6,
+        "name": "review"
+      },
+      {
+        "stage_id": "release",
+        "order": 7,
+        "name": "release"
+      }
+    ]
+  },
+  {
+    "workflow_id": "design_sprint_v1",
+    "name": "Design Sprint",
+    "stages": [
+      {
+        "stage_id": "discover",
+        "order": 1,
+        "name": "discover"
+      },
+      {
+        "stage_id": "define",
+        "order": 2,
+        "name": "define"
+      },
+      {
+        "stage_id": "ideate",
+        "order": 3,
+        "name": "ideate"
+      },
+      {
+        "stage_id": "prototype",
+        "order": 4,
+        "name": "prototype"
+      },
+      {
+        "stage_id": "test",
+        "order": 5,
+        "name": "test"
+      }
+    ]
+  },
+  {
+    "workflow_id": "data_analysis_v1",
+    "name": "Data Analysis",
+    "stages": [
+      {
+        "stage_id": "question",
+        "order": 1,
+        "name": "question"
+      },
+      {
+        "stage_id": "query",
+        "order": 2,
+        "name": "query"
+      },
+      {
+        "stage_id": "analyze",
+        "order": 3,
+        "name": "analyze"
+      },
+      {
+        "stage_id": "visualize",
+        "order": 4,
+        "name": "visualize"
+      },
+      {
+        "stage_id": "communicate",
+        "order": 5,
+        "name": "communicate"
+      }
+    ]
+  },
+  {
+    "workflow_id": "incident_response_v1",
+    "name": "Incident Response",
+    "stages": [
+      {
+        "stage_id": "detect",
+        "order": 1,
+        "name": "detect"
+      },
+      {
+        "stage_id": "triage",
+        "order": 2,
+        "name": "triage"
+      },
+      {
+        "stage_id": "resolve",
+        "order": 3,
+        "name": "resolve"
+      },
+      {
+        "stage_id": "postmortem",
+        "order": 4,
+        "name": "postmortem"
+      }
+    ]
+  }
+]

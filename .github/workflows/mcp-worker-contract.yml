@@ -1,0 +1,37 @@
+# MCP Worker contract tests — verifies production parity (27 tools, 6
+# resources, 5 prompts) and Upsilon identity on every push/PR touching the
+# Worker source or contract test.
+name: MCP Worker Contract
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "mcp-worker/**"
+      - "tests/mcp-worker-contract.test.mjs"
+      - ".github/workflows/mcp-worker-contract.yml"
+  pull_request:
+    paths:
+      - "mcp-worker/**"
+      - "tests/mcp-worker-contract.test.mjs"
+      - ".github/workflows/mcp-worker-contract.yml"
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run contract tests
+        run: node --test tests/mcp-worker-contract.test.mjs
+
+      - name: Wrangler deploy dry-run
+        uses: cloudflare/wrangler-action@v3
+        with:
+          workingDirectory: mcp-worker
+          command: deploy --dry-run
+          apiToken: dummy

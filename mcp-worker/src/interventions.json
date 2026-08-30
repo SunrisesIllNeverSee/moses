@@ -1,0 +1,134 @@
+[
+  {
+    "intervention_id": "int_001",
+    "operator_id": "op_047",
+    "catalog_id": "COA-001",
+    "reason_pattern": "P-BURN-01",
+    "target_metric": "yield",
+    "start_date": "2026-08-01",
+    "followup_days": 14,
+    "synthetic_outcome": "PARTIAL",
+    "synthetic": true
+  },
+  {
+    "intervention_id": "int_002",
+    "operator_id": "op_004",
+    "catalog_id": "COA-001",
+    "reason_pattern": "P-BURN-01",
+    "target_metric": "yield",
+    "start_date": "2026-08-01",
+    "followup_days": 14,
+    "synthetic_outcome": "NO_EFFECT",
+    "synthetic": true
+  },
+  {
+    "intervention_id": "int_003",
+    "operator_id": "op_030",
+    "catalog_id": "COA-001",
+    "reason_pattern": "P-BURN-01",
+    "target_metric": "yield",
+    "start_date": "2026-08-01",
+    "followup_days": 14,
+    "synthetic_outcome": "SUCCESS",
+    "synthetic": true
+  },
+  {
+    "intervention_id": "int_004",
+    "operator_id": "op_045",
+    "catalog_id": "COA-001",
+    "reason_pattern": "P-BURN-01",
+    "target_metric": "yield",
+    "start_date": "2026-08-01",
+    "followup_days": 14,
+    "synthetic_outcome": "SUCCESS",
+    "synthetic": true
+  },
+  {
+    "intervention_id": "int_005",
+    "operator_id": "op_031",
+    "catalog_id": "CTX-001",
+    "reason_pattern": "P-CTX-01",
+    "target_metric": "leverage",
+    "start_date": "2026-08-01",
+    "followup_days": 14,
+    "synthetic_outcome": "NEGATIVE",
+    "synthetic": true
+  },
+  {
+    "intervention_id": "int_006",
+    "operator_id": "op_038",
+    "catalog_id": "FRM-001",
+    "reason_pattern": "P-BURN-01",
+    "target_metric": "yield",
+    "start_date": "2026-08-01",
+    "followup_days": 14,
+    "synthetic_outcome": "NEGATIVE",
+    "synthetic": true
+  },
+  {
+    "intervention_id": "int_007",
+    "operator_id": "op_010",
+    "catalog_id": "CTX-001",
+    "reason_pattern": "P-CTX-01",
+    "target_metric": "leverage",
+    "start_date": "2026-08-01",
+    "followup_days": 14,
+    "synthetic_outcome": "SUCCESS",
+    "synthetic": true
+  },
+  {
+    "intervention_id": "int_008",
+    "operator_id": "op_026",
+    "catalog_id": "CTX-001",
+    "reason_pattern": "P-CTX-01",
+    "target_metric": "leverage",
+    "start_date": "2026-08-01",
+    "followup_days": 14,
+    "synthetic_outcome": "SUCCESS",
+    "synthetic": true
+  },
+  {
+    "intervention_id": "int_009",
+    "operator_id": "op_025",
+    "catalog_id": "MOD-001",
+    "reason_pattern": "P-MODEL-01",
+    "target_metric": "yield",
+    "start_date": "2026-08-01",
+    "followup_days": 14,
+    "synthetic_outcome": "NO_EFFECT",
+    "synthetic": true
+  },
+  {
+    "intervention_id": "int_010",
+    "operator_id": "op_020",
+    "catalog_id": "CTX-001",
+    "reason_pattern": "P-CTX-01",
+    "target_metric": "leverage",
+    "start_date": "2026-08-01",
+    "followup_days": 14,
+    "synthetic_outcome": "NEGATIVE",
+    "synthetic": true
+  },
+  {
+    "intervention_id": "int_011",
+    "operator_id": "op_029",
+    "catalog_id": "FRM-001",
+    "reason_pattern": "P-BURN-01",
+    "target_metric": "yield",
+    "start_date": "2026-08-01",
+    "followup_days": 14,
+    "synthetic_outcome": "SUCCESS",
+    "synthetic": true
+  },
+  {
+    "intervention_id": "int_012",
+    "operator_id": "op_005",
+    "catalog_id": "CTX-001",
+    "reason_pattern": "P-CTX-01",
+    "target_metric": "leverage",
+    "start_date": "2026-08-01",
+    "followup_days": 14,
+    "synthetic_outcome": "PARTIAL",
+    "synthetic": true
+  }
+]
