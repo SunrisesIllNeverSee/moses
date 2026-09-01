@@ -61,6 +61,24 @@
     <lastmod>2026-08-25</lastmod>
   </url>
   <url>
+    <loc>https://mos2es.org/system-testing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-30</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/execution-governance</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-30</lastmod>
+  </url>
+  <url>
+    <loc>https://mos2es.org/implementation-comparison</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-30</lastmod>
+  </url>
+  <url>
     <loc>https://mos2es.org/faq</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
